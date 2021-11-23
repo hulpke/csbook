@@ -696,7 +696,8 @@ cannot be composed from other functions. These are typically functions
 that are useful in particular applications and that have their own key on the calculator, such as $\exp(x)$ or $\sin(x)$.
 
 By careful inspection of the graphs of some of these functions it is possible
-to identify expressions for their derivatives. (The ultimate justification
+to identify expressions for their derivatives, we give one example of this
+below. (The ultimate justification
 for some of these formulas will for us come through Taylor
 series~\ref{sectaylors}.)
 
@@ -726,6 +727,55 @@ encounter before. It is a made-up function that is introduced solely to
 provide example problems for homework and exams that cannot be solved with standard
 computational tools.
 \end{note}
+
+\begin{bsp}
+% TN, edited by AH
+We have seen in Section~\ref{secderpol} a proof of the formula for
+differentiating polynomials. Here we give a similar argument for why
+$\displaystyle\frac{\mbox{d}\sin(x)}{\mbox{d}x}=\cos(x)$:
+
+To establish this we need to show that
+\[\lim_{h \to 0}\frac{\sin(x+h)-\sin(x)}{h} = \cos(x).\]
+Recall from trigonometry that $\sin(x+h) = \sin(x)\cos(h) + \cos(x)\sin(h)$. Then some algebra and application of limit properties yields
+\begin{equation*}
+\begin{split}
+\lim_{h \to 0}\frac{\sin(x+h)-\sin(x)}{h} &= \lim_{h \to 0} \frac{\sin(x)\cos(h) + \cos(x)\sin(h) - \sin(x)}{h} \\
+&= \lim_{h \to 0} \bigg(\frac{\sin(x)\big(\cos(h)-1\big)}{h} + \frac{\cos(x)\sin(h)}{h} \bigg) \\
+&= \sin(x) \lim_{h \to 0}\bigg(\frac{\cos(h)-1}{h}\bigg) + \cos(x)\bigg(\lim_{h \to 0}\frac{\sin(h)}{h}\bigg).\\
+\end{split}
+\end{equation*}
+
+It remains to evaluate the limits. Toward that end let us analyze the graphs
+of the two summands. Figure~\ref{tnex1figs}, shows on the left the graph of 
+$\frac{\cos(h)-1}{h}$ around $h=0$, while the right side shows the graph of 
+$\frac{\sin(h)}{h}$ around $h=0$.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=4cm]{pic/tnex1pic1.png}
+\qquad
+\includegraphics[width=4cm]{pic/tnex1pic2.png}
+\end{center}
+\caption{Graphs of $\frac{\cos(h)-1}{h}$ and $\frac{\sin(h)}{h}$, for
+$h\neq0$}
+\label{tnex1figs}
+\end{figure}
+
+
+From these graphs we see that 
+\[
+\lim_{h \to 0}\frac{\cos(h)-1}{h} = 0, \quad\mbox{and}\quad \lim_{h \to 0}\frac{\sin(h)}{h} = 1
+\]
+Putting it all together we find
+\[\lim_{h \to 0}\frac{\sin(x+h)-\sin(x)}{h} = \sin(x) \cdot 0 + \cos(x) \cdot 1 = \cos(x)\]
+which is what we wanted to show. 
+
+There is (of course) a formal, non-graphical, way to derive these limits which
+requires some as well as a theorem from advanced calculus, called the
+``squeeze theorem" (or ``sandwich theorem"), which is beyond the scope of
+this text. Alternatively, we will see an argument involving Taylor series
+later in the text.
+\end{bsp}
 
 \section{Differentiation Rules}
 
@@ -941,16 +991,90 @@ In the context of machine learning, the (multi-variable) version of the
 chain rule goes under the name of \defini{back propagation}.
 \smallskip
 
-Another application is in estimating the error of the value of a function
+Another application of the chain rule is in estimating the error of the value of a function
 composition $f\circ g$, at a point $x$, given an error $\Delta x$ in $x$. We
 get from the difference quotient that the error in the value $f(g(x))$ is
 \[
 \Delta(f\circ g)\sim\left(f'(g(x))g'(x)\right)\Delta x.
 \]
+
+\subsection{Examples of using the Chain Rule}
+
+%Examples by TN, edited AH
+
+Since the chain rule is so important we give a number of examples where it is
+applied:
+
+\begin{bsp}
+Consider the function $f(x) = (3x^2+5)^{1014}$. In principle could compute
+$f'(x)$ by expanding but that would be impossible to do by hand. Instead we
+apply the chain rule:
+\[
+f'(x) = 1014(3x^2+5)^{1013} \cdot \frac{d}{dx}(3x^2+5) = 6 \cdot 1014 x + (3x^2+5)^{1013}.
+\]
+Next consider the function $g(x) = \sin(\ln(x^2))$. The function $g$ is a
+composition of \textit{three} simpler functions $\sin$, $\ln$, and $x^2$. To
+compute $g'(x)$ we apply the chain rule first for the composition of
+$\ln(x^2)$ with $\sin(x)$:
+\begin{equation*}
+\begin{split}
+g'(x) &= [\sin(\ln(x^2))]' \\
+&= \cos(\ln(x^2)) \cdot \frac{d}{dx}\ln(x^2). \\
+\end{split}
+\end{equation*}
+How do we compute $\frac{d}{dx}\ln(x^2)$? Simply by applying the chain rule
+again.
+\begin{equation*}
+\begin{split}
+\cos(\ln(x^2)) \cdot \frac{d}{dx}\ln(x^2) &= \cos(\ln(x^2)) \cdot \frac{1}{x^2} \cdot \frac{d}{dx}x^2 \\
+&= \cos(\ln(x^2)) \cdot \frac{1}{x^2} \cdot 2x.
+\end{split}
+\end{equation*}
+\end{bsp}
+
+\begin{bsp}
+Next, let's think about computing the derivative of exponentiation functions 
+$h(x) = b^x$ where $b > 0$ is some arbitrary constant. We know how to find
+derivatives if $b=e$
+(remember $(e^x)' = e^x$), but what is $b=2$ or $b=\pi$ or something else?
+Then we simply rewrite teh function as a composition with the exponential
+function:
+\[
+h(x) = b^x = {(e^{\ln(b)})}^x = e^{\ln(b)x}.
+\]
+Computing the derivative $h'(x)$ now is simply the chain rule:
+\[
+h'(x) = e^{\ln(b)x} \cdot (\ln(b)x)' = e^{\ln(b)x}\ln(b) = b^x\ln(b).
+\]
+In words: the derivative an exponential function is just itself multiplied by
+the natural logarithm of its base. 
+\end{bsp}
+
+\begin{bsp}
+Finally, let's compute the derivative of $j(x) = x^x$. The power rule doesn't
+apply since that only works for functions like $x^2$ or $x^\pi$, that is, $x$
+raised to some power. The rule for exponential functions we just derived
+doesn't apply either, because it assumed $b$ was a constant. The trick is to
+take the natural logarithm of both sides of this equation to get $\ln(j(x)) =
+x\ln(x)$. Differentiating the right hand side yields
+\[
+\frac{d}{dx}x\ln(x) = \ln(x) + x\cdot\frac{1}{x} = \ln(x)+1
+\]
+by the product rule. But if we differentiate the left hand side using the
+chain rule we find that
+\[
+\frac{d}{dx}\ln(j(x)) = \frac{1}{j(x)} \cdot j'(x) = \frac{j'(x)}{x^x}.
+\]
+This means that we have $j'(x)/x^x = \ln(x)+1$. Therefore $j'(x) =
+x^x(\ln(x)+1)$. 
+This method of first taking natural logarithms, then differentiate, and
+finallyu solve for the derivative is applicable more generally and is called
+\textit{logarithmic differentiation}.
+\end{bsp}
 \medskip
 
 Finally, the chain rule justifies the derivatives of the inverse functions
-of $\sin(x)$ and $\exp(x)$ given in~\ref{derelem}.
+of $\sin(x)$ and $\exp(x)$ that were given in~\ref{derelem}.
 
 Write
 $\log(\exp(x))=x$ and take the derivative on both sides. With the chain rule
@@ -1068,3 +1192,54 @@ a function that gives the position of an object over time. Its derivative
 indicates how fast the position changes over time -- that is the velocity.
 And the second derivative indicates how fast the velocity changes. That is
 the acceleration.
+
+\begin{bsp}
+% TN example, edited by AH
+
+Many familiar functions like polynomials, $\sin(x)$, and $e^x$ have the property
+of being \textit{infinitely differentiable} (meaning you can take the
+derivatives of these functions as many times as you'd like) but not all
+functions have this property. Consider the piecewise function
+
+\[
+f(x) = \begin{cases}
+x^2 & \text{ if }x \geq 0 \\
+-x^2 & \text{ if }x < 0
+\end{cases}\]
+whose graph is given in Figure~\ref{tnex2figs}, left.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=4cm]{pic/tnex2pic1.png}
+\qquad
+\includegraphics[width=4cm]{pic/tnex2pic2.png}
+\end{center}
+\caption{A function that is only differentiable once, and its derivative}
+\label{tnex2figs}
+\end{figure}
+
+The graph of $f$ is formed from a regular parabola except that the left half
+has been mirrored across the $x$-axis. Since $f(x) = x^2$ for $x>0$ we know
+$f'(x) = 2x$ for $x>0$. Also since $f(x) = -x^2$ for $x<0$ we know $f'(x) =
+-2x$ for $x<0$. Using the limit definition of a derivative you can verify
+that $f'(0) = 0$ (or just observe from the graph that the tangent line at
+$x=0$ is horizontal). Then we can express $f'(x)$ piecewise
+\[f'(x) = \begin{cases}
+2x & \text{ if }x \geq 0 \\
+-2x & \text{ if }x < 0
+\end{cases}.\]
+Actually there's a simpler way to express $f'(x)$: $f'(x) = 2|x|$. The graph
+of this function, Figure~\ref{tnex2fig}, right,
+has a ``kink" at $x=0$, which implies that it is not differentiable there. 
+Of course, it is infinitely differentiable away from $x=0$.
+\end{bsp}
+Interestingly, this can become far more complicated. There are functions $f(x)$ such that
+\begin{itemize}
+      \item $f(x)$ is differentiable everywhere ($f'(x)$ exists for all $x$ in the domain of $f$).
+      \item $f'(x)$ is continuous everywhere.
+      \item $f'(x)$ is not differentiable anywhere in it's domain.
+\end{itemize}
+However, such functions are extremely unlikley to arise in any practical context,
+but just reflect the fact that our definition of a function is rather
+general. Indeed, the fact that such functions exist was only established
+hundreds of years after the inception of calculus.

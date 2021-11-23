@@ -140,6 +140,23 @@ list of antiderivatives:
 \end{array}
 \]
 
+\begin{bsp}
+The rules for sums  and multiples already allow us to find antiderivatives
+for more complicated functions, even if they look scary at first glance.
+Suppose we are given $f(x) = 7\sin(x) + 4x^3 - \frac{\pi}{1+x^2} - \frac{2e^x}{x}+\frac{2}{x}$ and want to compute $\int f(x) \, dx$. We can do this by applying the sum and multiple rules along with our table of common integrals. Then
+\begin{equation*}
+\begin{split}
+\int f(x) \, dx &=  \int 7\sin(x) + 4x^3 - \frac{\pi}{1+x^2} - \frac{2e^x}{x}+\frac{2}{x} \, dx\\
+&= \int 7\sin(x) \, dx + \int 4x^3 \, dx + \int \frac{-\pi}{1+x^2} + \int -2\frac{e^x-1}{x} \, dx\\
+&=  7\int \sin(x) \, dx + 4\int x^3 \, dx - \pi\int \frac{1}{1+x^2} - 2\int \frac{e^x-1}{x} \, dx \\
+&= -7\cos(x) + x^4 -\pi\arctan(x) - 2\text{bla}(x) + C. \\
+\end{split}
+\end{equation*}
+Of course, this problem was contrived to appear complicated but actually be straightforward to solve. However, in practice, a surprising number of antidifferentiation problems really boil down to something like the above. In general if you have some functions $f_1(x),f_2(x), \dots, f_n(x)$ whose antiderivatives you know and a function $g(x) = \sum_{i=1}^{n}c_if_i(x)$, where $c_1,c_2,\dots,c_n$ are some constants then the sum and multiple rules together tell us
+\[\int g(x) \, dx = \sum_{i=1}^{n}c_i\int f_i(x) \, dx.\]
+But since we already know each $\int f_i(x) \, dx$ the problem is solved. Problems like this are a matter of simple bookkeeping. 
+\end{bsp}
+
 \section{Integration by parts}
 
 For products of functions the situation is more complicated. The product
