@@ -337,6 +337,63 @@ crossing a threshold than when it is maximal.}
 involves other variable parameters (and one thus cannot plot).
 \end{itemize}
 
+\begin{bsp}
+%TN, edited AH
+
+For a more complicated example, consider the function $f(x) = x^2e^{-x}$.
+Let's find the critical points, turning points, and determine where the function is increasing/decreasing and where it is concave up/down. 
+
+First we find the critical points. To do that we need to find the derivative $f'(x)$:
+\begin{equation*}
+\begin{split}
+f'(x) &= \big(x^2e^{-x}\big)' \\
+&= (x^2)'e^{-x} + x^2(e^{-x})' \quad \text{(product rule)} \\
+&= 2xe^{-x}x^2 + x^2(-e^{-x}) \quad \text{(power rule on }x^2 \text{, chain rule on }(e^{-x})' \text{)} \\
+&= (2x-x^2)e^{-x} \quad \text{(simplification)}.
+\end{split}
+\end{equation*} 
+Now we solve $f'(x) = (2x-x^2)e^{-x} = 0$. The factor $e^{-x}$ is never zero
+so we just need to find the zeros of $2x-x^2$, which are $x=0$ and $x=2$.
+These are the (only!) critical points.
+
+Now we figure out where $f(x)$ is increasing and decreasing. This is
+determined by the sign of $f'(x)$, which must stay the same outside the
+critical points. We thus consider $f'(x)$  on the intervals $(-\infty,0), (0,2), (2,\infty)$.
+From
+a calculator we find $f'(-1) \approx -8.15$, so $f'$ is negative at $x=-1$,
+and thus $f$ is decreasing for $x<0$.
+Similarly, we calculate $f'(1) \approx 0.3679$ and thus have $f$ increasing
+for $0<x<2$. And
+$f'(3) \approx -0.1494$ so $f(x)$
+must be decreasing again for $2<x$. This together tells us that $f$ has a
+local minimum at $x=0$ and a
+local maximum at $x=2$.
+
+Now we find turning points and think about concavity. Toward that end we will
+need $f''(x)$: \begin{equation*} \begin{split} f''(x) &= ((2x-x^2)e^{-x})' \\
+&= (2x-x^2)'e^{-x} + (2x-x^2)(e^{-x})' \quad \text{(product rule)} \\ &=
+(2-2x)e^{-x} + (2x-x^2)(-e^{-x}) \quad \text{(power rule and chain rule)}\\
+&= (x^2-4x+2)e^{-x} \quad \text{(simplification)}.  \end{split}
+\end{equation*}
+Again the factor $e^{-x}$ is never zewro and we thus only need to consider
+the polynomial $x^2-4x+2$. Its roots are
+$x=2-\sqrt{2} \approx 0.586$ or $x=2+\sqrt{2} \approx 3.414$. These
+are the turning points. A calculator gives us  that
+$f''(0) = 2$, $f''(2) \approx -.2707, f''(4) \approx 0.0366$, thus
+$f(x)$ is concave up for $x<2-\sqrt{2}$, concave down for
+$(2-\sqrt{2}<x<2+\sqrt{2})$ and concave up for $2+\sqrt{2}<x$.
+A look at the graph of $f(x)$ in Figure~\ref{tnex3fig} illustrates this.
+\begin{figure}
+\begin{center}
+\includegraphics[width=8cm]{pic/tnex3pic.png}
+\end{center}
+\caption{The graph of $x^2\cdot e^{-x}$ with critical points and turning
+points.}
+\label{tnex3fig}
+\end{figure}
+\end{bsp}
+
+
 \section{Optimization}
 
 An important application for finding maxima/minima is in optimization. We
@@ -473,8 +530,6 @@ seems to be roughly 2), while for the interval halving method it only
 increased by one digit every three steps. This shows that the Newton
 method is far more powerful than interval halving.
 
-%\section{Regression}
-
 \section{Indefinite Limits and L'Hospital's rule}
 
 For reasons we shall see in the next section, we want to be able to
@@ -559,6 +614,33 @@ leading coefficient of $f$ and $b$ the leading coefficient of $g$.
 \end{thm}
 The same statement obviously also holds with $n$ in place of $x$ and
 explains the limits of sequences we observed earlier.
+
+\begin{bsp}
+%TN edited AH
+Note that even if L'Hospitals rule is applicable, there is no guarantee that
+the result is helpful for solving the problem.
+Consider the limit
+\[\lim_{x \to \infty}\frac{e^x-e^{-x}}{e^x+e^{-x}}.\]
+It is easy to see that $e^x-e^{-x} \to \infty$ and $e^x+e^{-x} \to \infty$ as
+$x \to \infty$, so it is valid to apply L'Hospital's rule here. But if we do,
+we find
+\[
+\lim_{x \to \infty}\frac{e^x-e^{-x}}{e^x+e^{-x}} = \lim_{x \to
+\infty}\frac{\frac{d}{dx}(e^x-e^{-x})}{\frac{d}{dx}(e^x+e^{-x})} = \lim_{x
+\to \infty}\frac{e^x+e^{-x}}{e^x-e^{-x}}.
+\]
+This limit really doesn't seem
+any simpler. Indeed, if we try L'Hospital's rule again we find
+\[
+\lim_{x \to
+\infty}\frac{e^x+e^{-x}}{e^x-e^{-x}} = \lim_{x \to
+\infty}\frac{\frac{d}{dx}(e^x+e^{-x})}{\frac{d}{dx}(e^x-e^{-x})} = \lim_{x
+\to \infty}\frac{e^x-e^{-x}}{e^x+e^{-x}}
+\]
+which is where we started! We can
+keep trying to apply L'Hospital's rule, but we'll simply alternate back and
+forth between these equally-difficult-to-compute limits. 
+\end{bsp}
 
 \section{Order of growth}
 
