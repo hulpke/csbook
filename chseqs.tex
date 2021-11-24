@@ -134,6 +134,113 @@ $s_{i+1}=\frac{(i+1)(i+1+1)}{2}$.)
 %=\frac{1}{\sqrt{5}}\left(\left(\frac{1+\sqrt{5}}{2}\right)^{n}-\left(\frac{1-\sqrt{5}}{2}\right)^{n}\right).
 %\]
 
+\subsection{Application: estimating the cost of a program}
+
+%BN edit AH
+An important application of sequences and recursion is in estimating the
+number of steps a recursive algorithm will take to completion. Here the
+sequence value at position $i$ is defined to be the number (or a bound
+thereof) of steps taken by the algorithm for an input of size $n$. 
+
+Consider, for example, the following (very naive) insertion-sort algorithm. 
+To sort a list $L$ consisting of $n$ numbers, we first sort (by a recursive
+call) the first $n-1$
+numbers and then insert the $n$-th element in the right position in the list.
+\begin{verbatim}
+define: sort(L,n)
+input: L, a list of integers, to be sorted
+        n, up to which position to sort
+procedure:
+if (n > 1) then # Otherwise no need to sort
+  sort(L,n-1); # recursively sort the first n-1 elements
+  a:=L[n];
+  p:=1; # find position of first entry larger than a
+  while p<n and L[p]<=a do 
+    p:=p+1;
+  od;
+  for j from n-1 downto p do # shift entries up
+    L[j+1]:=L[j];            # to make space at p
+  od;
+  L[p]:=a;
+fi;
+\end{verbatim}
+
+% Tried writing a more explicit algorithm but felt like it was too complicated
+% to communicate the point - hopefully this  gets the idea across without
+% being too handwavy.
+
+For example, if $L = [5,13,12]$, how does \verb+sort(L,3)+ get processed? 
+We call \verb+sort(L,2)+, which in turn calls
+\verb+sort(L,1)+, which does nothing. Exiting back to $n=2$ we set $a=L[2]=13$ and (since
+$L[1]=5<13$) get $p=2$, keeping $13$ in the second position.
+Exiting the recursion and getting back to $n=3$, we find (again) that $p=2$, and
+shift the 13 into position 3, inserting 12 into position 2.
+\smallskip
+
+We want to know how many comparisons of elements our algorithm might have to
+do. (Such comparisons only happen in the \texttt{while} loop condition.) For
+this, we define a sequence $\text{cost}_n$, that is an upper bound on the
+number of comparisons required by this algorithm to sort a list of length
+$n$.
+
+Recall that a recursive formula for a sequence is given by a collection of initial values
+and a formula which determines the value of the sequence at $n$ based on previous
+terms of the sequence.
+Our initial value will be $\text{cost}_1$. This is the number of comparisons
+needed to sort a list of length one, which is 0, since we have nothing to
+check. Thus $\text{cost}_1 = 0$.
+
+For $n>1$, the algorithm calls itself recursively for length $n-1$ (at cost
+$\text{cost}_{n-1}$, and then compares the last element $a$ to potentially
+all\footnote{The clever reader might already think on how to improve the
+algorithm by using {\em binary search} to find the correct position in fewer
+steps.} $n-1$ elements in the list. The cost thus satisfies the recursion
+\[
+\text{cost}_n = \text{cost}_{n-1} + (n-1).
+\]
+For example, $\text{cost}_2 = \text{cost}_1+1=0+1=1$ and $\text{cost}_3 =
+\text{cost}_2+2=1+2=3$.
+
+By `peeling' back the layers of the recursion, we could get a formula (this
+is a little bit beyond the expectations for this course) for
+$\text{cost}_n$ as:
+\begin{align*}
+\text{cost}_n &=  \text{cost}_{n-1} + (n-1) \\
+&=  \text{cost}_{n-2} +(n-2) + (n-1) \\
+& =  \text{cost}_{n-3} + (n-3) +(n-2)+(n-1) \\
+&=\ldots \\
+&= 1 + 2 + \ldots + (n-3) + (n-2) + (n-1) \\
+&= \sum_{k=1}^{n-1} k \\
+&= \frac{n(n-1)}{2}.
+\end{align*}
+
+In any case, (even without the arithmetic done in the previous paragraph),
+the reader should be able to use the same tools as above to verify that the
+recusion
+\[
+\text{cost}_1=0; \text{cost}_n = \text{cost}_{n-1} + (n-1).
+\]
+is satisfied by the formula
+\[
+\text{cost}_n = \frac{n(n-1)}{2}.
+\]
+We have thus {\em proven} that the (not very good) algorithm given has a worst
+case requirement of $\frac{n(n-1)}{2}$ comparisons to sort a list of length
+$n$.
+
+%It is important to note that the base case of the recursion for $\text{cost}_n$
+%depends on the implementation of the given pseudocode for $sort(L,n)$.
+%If the program were to perform some sort of trivial check when the list is
+%of length 1, then $\text{cost}_1 = 1$ and
+%the cost function would be given as
+%	\[
+%	\text{cost}_n = \frac{n(n+1)}{2}.
+%	\]
+%Worrying about such small details is cumbersome, so computer scientists prefer
+%to think about cost functions in terms of complexity classes, a concept covered
+%later in the text. For now we will write $\text{cost}_n = \mathcal{O}(n^2)$ to
+%mean that the cost function grows similarly to $n^2$.
+
 \section{Monotonous and Bounded Sequences}
 
 We are interested in investigating the long-term (that is, values for large indices)

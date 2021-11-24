@@ -671,7 +671,7 @@ algorithm, whose cost is given by a function $g$, we consider the first
 algorithm as not worse than the second, if $f(x)=\bigo{g(x)}$. If in
 addition $g(x)=\bigo{f(x)}$, the algorithms are considered
 equivalent.\mynote{There is a plethora of variants of $\bigo{}$ that provide
-modified kinds of comparisons.}
+modified kinds of comparisons.} We consider this more formally below.
 \smallskip
 
 The justification for such reasoning is that the constant $c$ will make such
@@ -805,4 +805,86 @@ The most prominent class distinctions are sub-linear, linear, polynomial and
 exponential+beyond, since the composition of functions in these classes
 (which corresponds one algorithm calling another one)
 again lies in the same class.
+
+
+\subsection{Complexity Equivalence}
+\label{equivcomp}
+
+%KB, edited AH
+We claimed above that two founctions could be considered equivalent if
+either is $\mathcal{O}$ of the other. What we shall show here is that this
+indeed defines an equivalence relation on functions, with this the objects
+$\bigo{f(x)}$ can be simply considered as equivalence classes of functions.
+
+As in Section~\ref{secequiv}, we start with a relation.
+Define a relation $\sim$ on the set of functions $\R\to\R$ as $f(x)\sim g(x)$
+if and only if $f(x) = \bigo{g(x)}$ and $g(x) = \bigo{f(x)}$. Now 
+we need to show that $\sim$ is reflexive, symmetric, and transitive, this
+will establish that $\sim$ is an equivalence relation,
+
+\begin{description}
+\item[\textit{Reflexivity:}] Let $f(x)$ be a function. We must show that $f(x)\sim
+f(x)$, that is, $f(x) = \bigo{f(x)}$ (and the identical a second time,
+formally swapping the two $f(x)$).
+Take $c=1$ and $N=0$, then for $x>N$ it follows immediately that $|f(x)| \leq |f(x)|$.
+
+\item[\textit{Symmetry:}] Let $f(x)$ and $g(x)$ be functions. We must show that if $f(x) \sim g(x)$, then $g(x) \sim f(x)$.
+This follows immediately from the symmetry in the definition of the equivalence relation. 
+If $f(x) = \bigo{g(x)}$ and $g(x) = \bigo{f(x)}$
+then we get the same statements if we swap the roles of $f(x)$ and $g(x)$.
+
+\item[\textit{Transitivity:}] Let $f(x)$, $g(x)$, and $h(x)$ be functions. We must show that
+if $f(x) \sim g(x)$ and $g(x)\sim h(x)$, then $f(x)\sim h(x)$. Suppose that
+$f(x) = \bigo{g(x)}$
+and $g(x) = \bigo{h(x)}$, then we have some $c_1,c_2,N_1,$ and $N_2$ such that
+\[
+	|f(x)|\leq c_1|g(x)| \text{ if } x\geq N_1 \text{ and } |g(x)|\leq c_2|h(x)| \text{ if } x \geq N_2.
+\]
+
+Note that both statements hold simultaneously if we take $x$ to be greater than the maximum of $N_1$ and $N_2$. Denote
+this maximum by $N$. Then we can combine the inequalities to obtain
+\[
+	|f(x)|\leq c_1 c_2|h(x)| \text{ if } x \geq N.
+\]
+
+Thus we have shown that $f(x) = \bigo{h(x)}$. Proceeding in the same way, we can
+find that $h(x) = \bigo{f(x)}$ as well.
+\end{description}
+
+We have thus shown that the relation $\sim$ satisfies all the requirements to
+be an equivalence relation. 
+
+%What if we relaxed the condition for $\sim$ to hold?
+%Perhaps we define a similar relation $\vdash$ by having $f(x) \vdash g(x)$
+%if $f(x) = \bigo(g(x))$. Is this still an equivalence relation?
+%It turns out that it is not. Notice that the proof of reflexivity
+%and transitivity still hold just as well in the case of $\vdash$, but
+%in contrast to $\sim$, symmetry is not built into the definition of our new
+%relation. Consider the functions $f(x) = x$ and $g(x)=x^2$. For $c=1$ and
+%$N=0$ it follows that $|x|\leq 1\cdot |x^2|$ for $x\geq0$. On the other
+%hand, it is impossible to find a $c$ and $N$ so that $|x^2\leq c|x|$ for
+%$x \geq N$. 
+%\smallskip
+%
+%Returning to the equivalence relation given by $\sim$, recall that
+%this gives us a notion of equivalence classes. 
+The relation $\sim$ thus creates a partition of the set of function onto
+equivalence classes (which we shall call \defini{complexity classes}). The
+notation
+$\bigo{f(x)}$ then can be interpreted as the complexity class containing $f(x)$.
+%We can partition the
+%set of all functions into smaller sets of functions which
+%are all related to each other by $\sim$. We will refer to these equivalence
+%classes as complexity classes 
+%%TODO: link to table of complexity classes
+%\smallskip
+
+%Thinking with complexity classes greatly simplifies our view of functions. This change in focus towards complexity classes
+%emphasizes growth rather than the nuance of any particular function.
+%Typically we distinguish $x$, $x+1$, and $50x$ as separate functions, however,
+%they all belong to the same complexity class $\bigo(x)$. 
+%We can think
+%of these minor variations as corresponding to the varying circumstances under which
+%a program may be executed, such as the programming languages or computer that is used.
+
 
