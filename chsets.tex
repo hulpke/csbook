@@ -215,6 +215,7 @@ $\{2,3\}\in A$ but $\{2,3\}\not\subset A$, and indeed (note the extra
 parentheses $\{\{2,3\}\}\subset A$. And of course $A\not=\{1,2,3,5\}$.
 
 \subsection{The Power Set, Hasse diagrams}
+\label{secpowerset}
 
 The \defini{power set} of a set $X$ is the set
 \[
@@ -714,6 +715,64 @@ follows
 Contrary to the $x/y$ coordinates of geometry, here the first entry
 typically indexes the row and the second entry the column. Again this can
 be generalized to objects of higher dimension
+
+\subsection{Generating Tuples and Subsets}
+
+%KB, edited AH
+
+In understanding tuples and index sets, it can be helpful to think about how
+one would generate such objects in algorithms. First, lets look how an
+algorithm would generate all pairs in $A\times B$: We select all
+possibilities for the first entry and for each such choice select all
+possibilities for the second entry. If the sets $A$ and $B$
+are given as input, this is simply a set of iterated \texttt{for} loops:
+\begin{verbatim}
+for a in A do
+  for b in B do
+    print (a,b); # or other processing, as desired
+  od;
+od;
+\end{verbatim}
+If we replaced the second \texttt{for} loop by \texttt{for b in A do}, we
+would get the pairs in $A\times A$. To enumerate $A\times A\times A$ would be
+three iterated for loops and so on.
+\medskip
+
+To describe all subsets of a set, we re-use the idea we already
+encountered in Section~\ref{secpowerset}, of indicating by bits whether an
+element lies in the set or not. If we have a set $A$ with $n$ elements, the
+subsets thus can be described as $n$-tuples in
+$\underbrace{B\times\cdots\times B}_{\mbox{$n$ factors}}$ where $B=\{0,1\}$.
+For example, if $n=3$, the following algorithm would construct these subsets
+\begin{verbatim}
+for a in {0,1} do
+  for b in {0,1} do
+    for c in {0,1} do
+      print (a,b,c);
+    od;
+  od;
+od;
+\end{verbatim}
+(Writing such an algorithm for an {\em arbitrary} (user-selected) value of
+$n$ is a bit more difficult, and recursion might be the easiest way to do
+so.)
+
+In using bit lists to describe subsets we of course need to fix an ordering
+of the elemenets of $A$. For example if we have
+$A=\{\text{dog},\text{bird},\text{cat}\}$, and consider the elements in this
+order, we get the following correspondences:
+\begin{align*}
+(0,0,0) &\longleftrightarrow \emptyset\\
+(1,0,1) &\longleftrightarrow \{\text{dog},\text{cat}\}\\
+(0,1,0) &\longleftrightarrow \{\text{bird}\}\\
+(1,1,1) &\longleftrightarrow \{\text{dog},\text{bird},\text{cat}\}.
+\end{align*}
+But if we used
+$A=\{\text{dog},\text{cat},\text{bird}\}$ (this is the {\em same} set, we
+just change the convention in how we order elements), the tuple $(1,0,1)$ would
+describe the subset $A=\{\text{dog},\text{bird}\}$. (Formally, each
+arrangement give us a different
+bijective function between the binary tuples and the subsets.)
 
 \subsection{Multisets}
 \label{secmultiset}
