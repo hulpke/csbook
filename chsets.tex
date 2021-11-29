@@ -26,6 +26,23 @@ the same.
 
 Sets are characterized by their membership with two sets being equal if and
 only if they have the same elements.
+\begin{note}
+Mathematicians try to be very exact in the language used. The expression {\em if
+and only if} means that the property (or what is defined) -- here {\em two
+sets are equal} -- holds under the given condition -- here {\em they have the same
+elements} -- but not if the condition is violated. 
+
+An analog would be to describe an animal as an elephant if (and only if) it
+is large, has large floppy ears and a trunk in place of the nose.
+\medskip
+
+A single {\em if} instead shows that one condition implies another, but is
+not the only reason:
+\begin{quote}
+I wear gloves, if it is snowing outside
+\end{quote}
+(but I also might be wearing them when it is cold and rainy).
+\end{note}
 When we describe sets
 by enumerating elements it does not matter in which order we write down the
 elements, nor if we write them down multiple times\mynote{Of course,
@@ -139,6 +156,8 @@ exclude $0$.
 \item[$\R$] The real numbers on the number line. These numbers can be
 described by possibly infinite decimal expansions. The proper, formal
 definition however is more complicated and it will take us quite 
+a while (at the end of Chapter~\ref{chseqs}) to describe their formal
+definition.
 \end{description}
 
 
@@ -167,8 +186,8 @@ To provide for examples in this section, let
 \begin{eqnarray*}
 C&=&\{x\in\Z\mid 0\le x\le9\}=\{0,1,2,3,4,5,6,7,8,9\}\\
 D&=&\{0,2,4\}\\
-E&=&\{x\in\Z\mid \mbox{$x$ is even}\}.\\
-F&=&\{0,1,2\}\\
+E&=&\{x\in\Z\mid \mbox{$x$ is even}\}\\
+F&=&\{0,1,2\}.\\
 \end{eqnarray*}
 Then (for example) $D\subset C$, $D\subset E$, $C\not\subset D$,
 $C\not\subset E$.
@@ -206,7 +225,8 @@ A=\{1,5,\{2,3\}\}
 \]
 then $1\in A$ and $\{2,3\}\in A$. Or consider
 \[
-B=\{S\subset\{1,2,3\}\mid \sz{S}=2\}=\{\{1,2\},\{1,3\},\{2,3,\}\}.
+B=\left\{S\subset\{1,2,3\}\bigm\mid
+\sz{S}=2\right\}=\left\{\{1,2\},\{1,3\},\{2,3\}\right\}.
 \]
 In such situations, the wrapping level is important: 
 Being in a subset contained in another set is not the same as being an
@@ -227,7 +247,8 @@ itself. For example, if $X=\{1,2,3\}$, then
 {\cal P}(X)=\left\{\{\},\{1\},\{2\},\{3\},\{1,2\},\{1,3\},\{2,3\},X\right\}.
 \]
 For a finite set $X$ with $\sz{X}=n$, we can describe the elements of the
-power set by the bit-lists of length $n$: Given a subset $S\subset X$, we
+power set by the bit\mynote{A bit is a variable that can have only two
+values, often denoted by $0$ and $1$, or by ``false'' and ``true''.}-lists of length $n$: Given a subset $S\subset X$, we
 form a bit-list by setting the $i$-th bit to $1$ if and only if the $i$-th
 element of $X$ is contained in $S$. (Indeed, such bit-lists are good way of
 representing the subsets of a set on a computer.) Thus there are as many
@@ -305,7 +326,7 @@ Clearly
 \end{description}
 \end{defn}
 In the examples from Section~\ref{secsubsets}, we have that
-$C\cap E=\{0,2,4,6,7\}$, $C\cap D=D$, $D\cap
+$C\cap E=\{0,2,4,6,8\}$, $C\cap D=D$, $D\cap
 F=\{0,2\}$, $D\cup F=\{0,1,2,4\}$, $C\cup D=C$, $C\setminus
 D=\{1,3,5,6,7,8,9\}$, $D\setminus F=\{4\}$.
 And if we assume that all sets are subsets of $C$ (such a set containing
@@ -395,7 +416,7 @@ b) Exercise
 \label{figvenndist}
 \end{figure}
 
-\subsection{De Morgan Laws}
+\subsection{De Morgan's Laws}
 
 Next we look at rules to simplify complement operations
 
@@ -563,10 +584,10 @@ larger than every other integer}, a nonsensical claim).
 Most mathematical statements (either as part of a definition, or in the
 claim of a theorem) can be formulated as a combination of $\exists$,
 $\forall$, $:$, and $\Rightarrow$ (implication) statements. A formal proof
-of such a statement then will follow this pattern: If
+of such a statement then will follow this pattern:
 \begin{center}
 \begin{tabular}{c|c}
-the statement starts with:&Then the proof:\\
+If the statement starts with:&Then the proof:\\
 \hline
 \begin{minipage}[t]{4cm}
 An existence statement: $\exists x\in S\ldots$
@@ -602,8 +623,10 @@ shows that $x$ also satisfies the predicate $Q$.
 
 \section{Pairs, Tuples, Cartesian Product}
 
-In general, we store items, not all things, in big bags that get everything thrown in
-together, but in more structured form. The same is true in mathematics,
+In general, we do not store all items we use in big bags that get everything
+thrown in together. Instead we often use more structured storage, say boxes
+in drawers.
+The same is true in mathematics,
 where we will often find it convenient to have objects stored in a form with
 more structure than a set. This section describes some of the ways how this
 can be done.
@@ -672,7 +695,7 @@ stated or be clear from the context.) We thus could write
 \[
 t=(t_1,t_2,\ldots,t_k)
 \]
-for a particular $k$-tuple. Programmers might prefer to write $t[i]$, the
+for a particular $k$-tuple. Programmers might prefer to write $t[i]$ instead. The
 index notation simply uses less ink and space.
 \smallskip
 
@@ -681,7 +704,7 @@ We can put the possible positions (i.e. the possible indices) into an
 $I=\{1,2,\ldots,k\}$ and we will talk about $t_i$
 for $i\in I$.  \mynote{The reader who already has some programming
 experience should think at this point of a \texttt{for}-loop. The $i$ (for
-``index'') from mathematics is also the reason, that the standard name of a
+``index'') from mathematics is also the reason that the standard name of a
 loop variable is \texttt{i} as well.}
 \smallskip
 
@@ -784,7 +807,7 @@ an ordinary set $S$, together with a counting set $C=\{c_s\in\N\mid s\in
 S\}$ indexed by $S$. This pair $(S,C)$ then represents a collection in which
 object $s\in S$ occurs  $c_s$ times. For example, we could describe a
 wallet's content by the set $S=\{p,n,d,q\}$ \mynote{US-centric {\em
-penny},{\em nickel} (5 cent),{\em dime} (10 cent), {\em quarter} (25 cent).}
+penny} (1 cent) ,{\em nickel} (5 cent),{\em dime} (10 cent), {\em quarter} (25 cent).}
 and have e.g. 
 \[
 W=(S,C),\quad C=\{c_p=3,c_n=1,c_d=0,c_q=3\}.

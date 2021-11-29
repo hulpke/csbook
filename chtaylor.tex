@@ -323,12 +323,112 @@ not possible} and find that this is the case for $n\ge 14$.
 \smallskip
 
 An somewhat obvious improvement of the approximation is by cranking up the
-degree. Basically, we want to show that a Taylor polynomial ``of degree
+degree. Basically, we shall show in Section~\ref{sectaylors}
+that a Taylor polynomial ``of degree
 infinity'' can be used in place of the function (with exact values, no
 approximation).
 
-%To do that, we however
-%need to introduce a bit more formality about such objects.
+\subsection{Fast inverse square root}
+
+%TN rewrite AH
+An application of Taylor approximations together with Newton's Method 
+is found in a famous example of an
+optimized routine, namely the evalulation of the function $a\mapsto
+\frac{1}{\sqrt(a)}$.
+
+This function is used in digital signal processing to re-scale a vector to
+length 1, which is required for example when calculating the illumination
+level and shading of a surface in 3D graphics. 
+
+When rendering a scene, this value has to be calculated separately for each
+triangle, its execution therefore is highly time critical.
+
+While the newer x86 SSE instruction set includes a dedicated operation
+\texttt{rsqrtss} for it, hstorically this functionality had to be coded from
+more basic operations. However both square root and division are expensive,
+which explains why other approaches have been considered.
+
+The following method became prominent in the early 2000s as being used in
+the video game \texttt{Quake III}, though it dates back to uses in computer
+graphics in the 1980s, for example on \texttt{SGI Indigo} graphics
+workstations. What we shall describe is a somewhat simplified version, that
+leaves out subtleties in how numbers are coded on the computer\footnote{this
+incidentally is also the
+reason for the name ``\texttt{0x5F3759DF} method'' that is sometimes used},
+and how error is minimized.
+\medskip
+
+The method works by first computing one rough approximation of the value,
+and then using one step of the Newton method to refine the result. (It turns
+out that the initial approximaltion is good enough that one step of the
+Newton method suffices, but we shall not show this.) We shall use a sli
+\smallskip
+
+The input number $a$ is given as a floating point number in the form
+\[
+a=2^e\cdot(1+m)
+\]
+with $0\le m<1$ (if we had $m>1$ one could instead increase $e$).
+That means that
+\[
+\frac{1}{\sqrt{a}}=2^{-\frac12e}\cdot\frac{1}{\sqrt{1+m}}.
+\]
+The term $2^{-\frac12e}$ can immediately be taken as a factor of a power of
+$2$. For the second factor we look at the Taylor polynomial (with respect to
+the variable $m$) for $\frac{1}{\sqrt{1+m}}$, which is 
+\[
+1-\frac{m}{2}+\frac{3m^2}{8}+\cdots
+\]
+and use the degree 1 approximation $1-\frac{m}{2}$. (Here in fact, the
+code uses a number different from $1$ to minimize the error, but
+how this is done is beyond the scope of this text.) Note that $m/2$ can be
+computed cheaply as a shift of a binary number.
+
+We thus have the initial approximation 
+\[
+a_0=2^{-\frac12e}\cdot\left(1-\frac{m}2\right).
+\]
+
+Now for the Newton method. The function we want to find a zero of is 
+\[
+f(x)=\frac{1}{x^2}-a,
+\]
+whose value will be zero exactly when
+$x=\frac1{\sqrt{x}}$. Newtons method (Section~\ref{secnewton}) states that
+the next iteration must be
+\[
+a_{n+1}=a_n-\frac{f(a_n)}{f'(a_n}).
+\]
+We calculate $f'(x)=-\frac{2}{x^3}$ and thus
+\[
+\frac{f(x)}{f'(x)}=\frac{\frac{1-x^2a}{x^2}}{-\frac{2}{x^3}}
+=\frac{x(1-ax^2)}{2}.
+\]
+The first Newton iterate is thus
+\[
+a_1=a_0+\frac{a_0(1-a_0x^2)}{2}
+=\frac{a_0(3-a_0x^2)}{2}=a_0\left(\frac{3}{2}-\frac{a}{2}a_0^2\right).
+\]
+This gives us the algorithm (as published on the web, e.g.
+\url{https://en.wikipedia.org/wiki/Fast_inverse_square_root}):
+\begin{verbatim}
+1   const float threehalfs = 1.5F;
+
+2   x2= number * 0.5F;
+3   y = number;
+4   i  = *(long*) &y;      // floating point hacking
+5   i = 0x5f3759df-(i>>1); 
+6   y = * ( float * ) &i;
+7   y = y * ( threehalfs - ( x2 * y * y ) ); // 1st iteration
+\end{verbatim}
+Lines 4-6 calculate $2^{-\frac12e}\cdot\left(c-\frac{m}2\right)$ with some
+trickery that uses bit operations on floating point numbers by reinterpreting
+their bit pattern as an integer -- the
+\texttt{(i>>1)} is the $\frac{m}{2}$ and the hexadecimal constant is the
+optimized value for $c$.
+Line 7 then is the Newton iteration. (The code in fact includes a second
+iteration that has been commented out, as the first one turned out to be good
+enough in practice.)
 
 \section{Taylor Series}
 \label{sectaylors}
@@ -379,7 +479,7 @@ We shall see below that such power series can be treated, for arithmetic, as
 well as for calculating derivatives, as if they were polynomials (albeit of
 infinite degree). This can make some arguments about such functions easier.
 
-\paragraph{Finding Taylor polynomials and Taylor seriers:} Taylor polynomials are just partial
+\paragraph{Finding Taylor polynomials and Taylor series:} Taylor polynomials are just partial
 sums of Taylor series. We shall see that we can manipulate Taylor series to
 obtain series for functions for which it would be harder to find Taylor
 polynomials by direct means (that is calculating derivatives).
@@ -575,9 +675,6 @@ x\frac{1537928439 x^{10}}{6179146071875}
 %+\frac{33834219408 x^{11}}{216270112515625}+\frac{75358081011 x^{12}}{1513890787609375}
 +\cdots
 \end{eqnarray*}
-
-
-
 
 %More elaborate manipulations are possible. For example we have (we will see
 %this in the homework) that the Taylor series for $\arctan(x)$ is:

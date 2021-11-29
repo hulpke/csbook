@@ -531,6 +531,7 @@ increased by one digit every three steps. This shows that the Newton
 method is far more powerful than interval halving.
 
 \section{Indefinite Limits and L'Hospital's rule}
+\label{seclhopital}
 
 For reasons we shall see in the next section, we want to be able to
 calculate limits of quotients.
@@ -648,7 +649,9 @@ forth between these equally-difficult-to-compute limits.
 \begin{defn}
 For two functions $f,g\colon\R\to\R$, we say that $f$ is of \defini{order
 of} $g$ (or $f$ is \defini{big O} of $g$) if there exists $c,N\in\R$, such
-that $\sz{f(x)}\le c \sz{g(x)}$ for all $x\ge N$. We write
+that $\sz{f(x)}\le c \sz{g(x)}$ for all $x\ge N$. We write\mynote{The use
+of the equal sign is somewhat misleading and awkward, but that is the
+convention that is usually used, so we stick with it.}
 $f(x)=\bigo{g(x)}$.
 \end{defn}
 
@@ -854,24 +857,34 @@ find that $h(x) = \bigo{f(x)}$ as well.
 We have thus shown that the relation $\sim$ satisfies all the requirements to
 be an equivalence relation. 
 
-%What if we relaxed the condition for $\sim$ to hold?
-%Perhaps we define a similar relation $\vdash$ by having $f(x) \vdash g(x)$
-%if $f(x) = \bigo(g(x))$. Is this still an equivalence relation?
-%It turns out that it is not. Notice that the proof of reflexivity
-%and transitivity still hold just as well in the case of $\vdash$, but
-%in contrast to $\sim$, symmetry is not built into the definition of our new
-%relation. Consider the functions $f(x) = x$ and $g(x)=x^2$. For $c=1$ and
-%$N=0$ it follows that $|x|\leq 1\cdot |x^2|$ for $x\geq0$. On the other
-%hand, it is impossible to find a $c$ and $N$ so that $|x^2\leq c|x|$ for
-%$x \geq N$. 
-%\smallskip
-%
-%Returning to the equivalence relation given by $\sim$, recall that
-%this gives us a notion of equivalence classes. 
 The relation $\sim$ thus creates a partition of the set of function onto
 equivalence classes (which we shall call \defini{complexity classes}). The
 notation
 $\bigo{f(x)}$ then can be interpreted as the complexity class containing $f(x)$.
+\medskip
+
+The reader might be wondering about why we defined the relation in such a
+complicated way. What if we 
+defined a similar relation $\vdash$ by having $f(x) \vdash g(x)$
+if $f(x) = \bigo(g(x))$. Is this still an equivalence relation?
+It turns out that it is not. Notice that the proof of reflexivity
+and transitivity still hold just as well in the case of $\vdash$, but
+in contrast to $\sim$, symmetry is not built into the definition of our new
+relation. Consider the functions $f(x) = x$ and $g(x)=x^2$. For $c=1$ and
+$N=0$ it follows that $|x|\leq 1\cdot |x^2|$ for $x\geq0$. On the other
+hand, it is impossible to find a $c$ and $N$ so that $|x^2\leq c|x|$ for
+$x \geq N$. 
+
+%What if we relaxed the condition for $\sim$ to hold?
+%Perhaps we 
+
+
+
+%\smallskip
+%
+%Returning to the equivalence relation given by $\sim$, recall that
+%this gives us a notion of equivalence classes. 
+
 %We can partition the
 %set of all functions into smaller sets of functions which
 %are all related to each other by $\sim$. We will refer to these equivalence

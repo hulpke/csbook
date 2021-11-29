@@ -7,7 +7,7 @@ In the same way that skis without slopes are of limited excitement, just
 talking about individual sets will not get us very far. Instead, we want to
 connect elements of one set with elemnts if other sets (could be different
 or the same). This can be used to describe information that is more than
-just an accumulation of objects: We can describe relations (such as
+just an accumulation of objects: we can describe relations (such as
 Parent/Child, or Sibling), properties associated to objects (such as age
 or color), or describe more complicated structures (a travel network,
 composed from point-to-point connections).
@@ -20,6 +20,8 @@ $R\subset A\times B$, that is $R$ is a set of pairs $(a,b)$ with $a\in A$
 and $b\in B$. We say that $a\in A$ is in relation to $b\in B$ (sometimes
 written $a\sim_R b$ (or even just $aRb$) if and only if $(a,b)\in R$.
 \end{defn}
+Similarly, we write $a\not\sim_R b$ (or $a\not R b$) to denote that
+$(a,b)\not\in R$.
 
 We could for example take $A$ the set of all students and $B$ the set of all
 majors with the relation describing the major(s) of every
@@ -29,7 +31,7 @@ that some students might have multiple majors.}
 Another example of a relation would be $A$ the set of natural numbers and
 $B$ the set of prime numbers with the relation $R$ defined as a number $a$
 being in relation to a prime $b$ if and only $b$ divides $a$. Then for
-example $4\sim_R 2$ but $4\not\sim_R 3$, nor $2\sim_R 4$. Then some of the
+example $4\sim_R 2$ but $4\not\sim_R 3$. Also note that $2\not\sim_R 4$. Then some of the
 elements of $R$ are
 \[
 (2,2), (4,2), (6,2), (3,3), (6,3), \ldots (20,2),(20,5),\ldots \in R.
@@ -44,7 +46,7 @@ relation.}
 What is important to remember is that a relation is a subset of $A\times B$.
 It can be as small as the empty set (no elements in relation, not
 particularly interesting), and as large as all of $A\times B$ (every element
-of $A$ in relation to every element of $BN$, agai not very interesting),
+of $A$ in relation to every element of $BN$, again not very interesting),
 but typically will be a proper nonempty subset.
 \medskip
 
@@ -52,7 +54,7 @@ The examples above show two basic uses of relations. One is to associate objects
 of a set with objects from another set. If each objects gets associated with
 a single object (e.g. the competition number on a bib, assigned to each runner
 in a race), this can be interpreted as an assignment and will later on get
-us to the concept of a functions.
+us to the concept of a function.
 
 The other use is a relation among objects in the same set, which can be used
 to establish clusters, families or hierarchies. Such a relation amongst
@@ -212,7 +214,7 @@ $\{2,3,4,5,6\}$.
 
 Sometimes it can be convenient to build new relations from existing ones --
 e.g. the relation of ``parent'' implies also the relations of ``child'' and
-of ``grandparent''. Here are some ways to build new relations from old ones:
+of ``grandparent''. Here are some ways to build new relations from old ones.
 \medskip
 
 The first observation is that a relation is a set and thus subject to set
@@ -220,8 +222,8 @@ operations. If $R\subset A\times B$ is a relation, the complement
 \[
 R^\mycomplement=\{(a,b)\mid (a,b)\not\in R\}\subset A\times B
 \]
-is the logical negation with $aR^\mycomplement b$ if and only if $a\not\!\!
-R\, b$. For example,
+is the logical negation with $aR^\mycomplement b$ if and only if
+$a\not\sim_R b$. For example,
 if we take for $R$ the relation ``parent'', then $R^\mycomplement$ is the
 relation ``is not parent''.
 \medskip
@@ -251,9 +253,11 @@ Note that we write the composition in {\em reverse order} as $S\circ R$,
 with a circle $\circ$ as connection. (Why so? Because it fits with how
 functions are used, as we will see later~\pointer{secfunccomposition}\.)
 
-An example, if $R$ is the relation ``is parent of'' and $S$ is the relation
-``is spouse of'', then $S\circ R$ is ``spouse of parent'' (that is parent or
-step-parent), while $R\circ S$ is ``parent of spouse'' or ``parent-in-law''.
+For example, if $R$ is the relation ``is parent of'' and $S$ is the relation
+``is spouse of'', then $S\circ R$ is ``parent of spouse'' or
+``parent-in-law'' -- $aRb$ and $bSc$ means that $a$ is parent of $b$ and $b$
+is spouse of $c$.  On the other hand, $R\circ S$ is ``spouse of parent''
+(that is parent or step-parent),
 \smallskip
 
 Composition is probably easiest visualized in the digraph model. We are
@@ -277,7 +281,7 @@ Composition is useful in that it can form genuinely new connections between
 objects. 
 
 (In the case of higher order relations (and relational databases),
-composition egeneralizes to an operation {\em join}.)
+composition generalizes to an operation {\em join}.)
 
 \section{Properties of Relations}
 
@@ -295,20 +299,21 @@ properties that such a relation might have:
 \begin{defn}
 Let $\sim$ be a binary relation on a set $A$. Then $\sim$ is called
 \begin{description}
-\item[\defini{reflexive}], if $a\sim a$ for every $a\in A$.
-\item[\defini{symmetric}], if (for $a,b\in A$) $a\sim b$ implies that $b\sim a$.
-\item[\defini{antisymmetric}], if (for $a,b\in A$) $a\sim b$ and $b\sim a$ together
+\item[\defini{reflexive},] if $a\sim a$ for every $a\in A$.
+\item[\defini{symmetric},] if (for $a,b\in A$) $a\sim b$ implies that $b\sim a$.
+\item[\defini{antisymmetric},] if (for $a,b\in A$) $a\sim b$ and $b\sim a$ together
 imply that $a=b$. (This means that, apart from a trivial case we might have either
 $a\sim b$ or $b\sim a$, but not both. Think of the $\le$ relation on numbers.)
 \item[\defini{transitive}], if (for $a,b,c\in A$) $a\sim b$ and $b\sim c$ imply that
 $a\sim c$.
 \end{description}
 \end{defn}
-In the digraph model (with one set, identifying $A$ and $B$, a relation is reflexive is
-there is an arrow from every vertex to itself, it is symmetric, if for every arrow there
-is an arrow in the opposite direction, and it is transitive, if for every pair of arrows
-following each other, there is a ``composite arrow. Figure~\ref{figreppropsdigraph}
-illustrates this (the full lines are required, if the dashed lines exist).
+In the digraph model (with one set, identifying $A$ and $B$, a relation is
+reflexive if there is an arrow from every vertex to itself, it is symmetric,
+if for every arrow there is an arrow in the opposite direction, and it is
+transitive, if for every pair of arrows following each other, there is a
+``composite arrow''. Figure~\ref{figreppropsdigraph} illustrates this (the full
+lines are required, if the dashed lines exist).
 
 We give some examples: 
 \begin{enumerate}
@@ -322,8 +327,8 @@ This relation is reflexive, symmetric and transitive
 Let $A$ be the set of all people in a country with two people in relation if they have
 the same last name. This relation is reflexive, symmetric and transitive.
 \item
-Let $A$ be the set of all people living in the United States
-\mynote{Constitutional
+Let $A$ be the set of all people living in the United
+States\mynote{Constitutional
 scholars should take the continental US without Washington DC here} with two people in
 relation if they live in the same state. Again this relation is reflexive, symmetric and
 transitive.
@@ -347,16 +352,17 @@ reflexive any more.
 Let $A$ be a set and $R=A\times A$ (i.e. all elements are in relation). This relation
 is reflexive, symmetric and transitive.
 \item
-Let $A$ be an arbitrary nonempty set and $R=\emptyset$ (that is no elements are in
-relation). Then $R$ is symmetric and transitive (both conditions are vacuously true
-since they are ``if-then'' with a condition that never can be fulfilled), but not
-reflexive.
+Let $A$ be an arbitrary nonempty set and $R=\emptyset$ (that is no elements
+are in relation). Then $R$ is symmetric and transitive (both conditions are
+true\mynote{This situation of true statements is sometimes called
+\defini{vacuously true}} since they are ``if-then'' with a condition that
+never can be fulfilled.), but not reflexive.
 \item Let $A=\Q$ with the usual ``smaller or equal'' relation $\le$. This relation is
 reflexive, antisymmetric and transitive, but not symmetric.
 \item Let $A=\Q$ with the ``strictly smaller'' relation to be smaller but not equal. 
 This relation is antisymmetric (again vacuously as it is not possible that $a<b$ and
 $b<a$ for inequal $a,b$) and transitive, but not reflexive.
-\item The relation $x^2+y^2=1$ on $\R$ has none of these properties.
+\item The relation $x^2+y^3=1$ on $\R$ has none of these properties.
 \end{enumerate}
 
 For the graph of a relation defined on (subsets) of $\R$, reflexivity (that is $(x,x)\in
@@ -381,7 +387,7 @@ properties we just defined:
 A binary relation $\sim$ on a set $A$ is an \defini{equivalence relation} if
 it is reflexive, symmetric and transitive.
 \end{defn}
-Equivalence relations can be though of as a `less picky'' version of
+Equivalence relations can be though of as a ``less picky'' version of
 \defini{equality} that allow us to forget about differences between objects (say the
 color or size  of (physical) numbers). Often one deliberately wants to
 consider formally different things as the same. 
@@ -434,21 +440,24 @@ cannot be in more than one.
 \end{proof}
 
 If $S\in P$ and $a\in S$, we call $a$ a \defini{representative} of $S$.  It often is
-convenient to describe cells by giving such a representative. Typically representatives
-are not unique, by the prior lemma,any element of a cell can serve as its
-representative.
+convenient to describe cells by giving such a representative.
+Typically representatives are not unique. Indeed, by the prior lemma, any
+element of a cell can serve as its representative.
 \bigskip
 
-We now want to show that partitions and equivalence relations are closely related:
+We now want to show that partitions and equivalence relations are closely related.
 
 Given a partition $P$ of $A$, we define a relation on $A$ by
 defining $a\sim b$ if and only if $a$ and $b$ are in the {\em same} set of
 the partition. In the example above, this would yield the relation
 \[
-\{(1,3),(3,1),(2,4),(4,2),(2,5),(5,2),(4,5),(5,4)\}
+\begin{split}
+RP=\{&(1,1),(2,2),(3,3),(4,4),(5,5),\\
+&(1,3),(3,1),(2,4),(4,2),(2,5),(5,2),(4,5),(5,4)\}
+\end{split}
 \]
-Such a relation is clearly an equivalence relation: An element is in the
-same set as itself. If $a$ and $b$ are ih the same set, so are $b$ and $a$,
+Such a relation is clearly an equivalence relation: an element is in the
+same set as itself. If $a$ and $b$ are in the same set, so are $b$ and $a$,
 and if $a$ and $b$, as well as $b$ and $c$ are in the same set, this set
 contains $a$ and $c$.
 
@@ -463,17 +472,15 @@ Clearly $a\in[a]$ is in its own equivalence class, and equivalence classes
 thus are not empty, and every element of $A$ lies in an equivalence class.
 We also note that if $a\sim b$, then $[a]=[b]$, since any $c\in[a]$
 satisfies $c\sim a$ and thus $c\sim b$ by transitivity (and vice versa for
-$c\in[b]$). Thus, if two equivalence classes intersect nonempty, they are
-equal: Let $c\in [a]\cap [b]$, then $c\sim a$, $c\sim b$ (and thus $b\sim c$
+$c\in[b]$). Thus, if two equivalence classes have non-empty intersection,
+they are equal: let $c\in [a]\cap [b]$, then $c\sim a$, $c\sim b$ (and
+thus $b\sim c$
 because of symmetry) and by transitivity $b\sim a$ and thus $[a]=[b]$.
 
 This means that the set of equivalence classes forms a partition of the set
 $A$. If $a$ is the representative of a class $S$, then $S=\{b\in A\mid b\sim a\}$.
 
-In the above example, the relation 
-\[
-\{(1,3),(3,1),(2,4),(4,2),(2,5),(5,2),(4,5),(5,4)\}
-\]
+In the above example, the relation  $RP$
 creates the equivalence classes
 \[
 \{1,3\}\mbox{\ and\ }\{1,4,5\},
@@ -481,6 +488,7 @@ creates the equivalence classes
 
 For another, prototypical, example, suppose we define a relation $\sim$ on the set $\Z$ of
 integers by defining $a\sim b$ if $2$ divides $a-b$. Then we get two
+(infinitely large)
 equivalence classes, namely the even and the odd numbers. If we change the
 equivalence to $a-b$ being divisible by $3$, we get three
 (infinite) equivalence classes:
@@ -519,8 +527,8 @@ problem)
 as two graphs being equivalent if they become the same after a
 relabelling of the vertices. For example, the graph with the edge set
 $\{\{1,2\}\}$ can be transformed into the graph with edge set $\{\{2,3\}\}$ by
-relabelling
-\mynote{This is not unique. Another opion would be $\begin{array}{c}1\to
+relabelling\mynote{This
+is not unique. Another opion would be $\begin{array}{c}1\to
 3\\2\to2\\3\to1\end{array}$.} 
 the vertices $\begin{array}{c}1\to 2\\2\to3\\3\to1\end{array}$.
 
@@ -539,7 +547,7 @@ equivalence relations or equivalence classes are used to construct
 interesting objects.
 \smallskip
 
-The first example, is to construct (all, including the negative) integers
+The first example is to construct (all, including the negative) integers
 from the positive numbers (that correspond to counting objects). This
 requires more than adding a possible minus-sign, since we need that $-0=0$.
 Instead we form equivalence classes on pairs:
@@ -601,7 +609,7 @@ example above) define a relation on $\Z$ by
 \[
 a\sim b\Leftrightarrow m\mid (b-a)
 \]
-using the vertical line $\mid$ as a shorthand for ``divides''.  Divinding
+using the vertical line $\mid$ as a shorthand for ``divides''.  Dividing
 means that there exists a $q$ (depending on $b-a$) such that $mq=b-a$.
 For example, if we had chosen $m=7$ we would have $3\sim 10$, but $3\not\sim
 5$.
@@ -612,7 +620,7 @@ then $m(-q)=a-b$. And transitivity from the fact that if $a\sim b$ there
 exists $q$ such that $mq=b-a$ and if $b\sim c$ there exists $r$ such that
 $mr=c-b$. But then
 \[
-c-a=a-b+b-a=mr+mq=m(r+q)
+c-a=c-b+b-a=mr+mq=m(r+q)
 \]
 and thus $m\mid (c-a)$, i.e. $a\sim c$.
 \medskip
@@ -637,12 +645,14 @@ otherwise $r-m\in C$.
 \item[This element $r$ is unique,] that is in the class $C$ there cannot be
 two different elements $r_1,r_2\in C$ with $0\le r_1,r_2\lneqq m$. Since if
 this was, we would have
-(without loss of generality\footnote{This is a useful tool in proofs.
+(without loss of generality\mynote{This is an example of a useful tool in proofs.
 We could have $r_1<r_2$ or $r_2>r_1$ and would need to consider both cases.
-But there is freedom in labelling the two numbers and we simply assume that
-they are labelled so that the first condition holds. Since the labelling did
-not need to satisfy any other restriction we can do so, and still cover
-every sitution (i.e. are still general)}) $r_1<r_2$, but then $0<r_2-r_1$
+But there is freedom in labelling the two numbers and we use this freedom 
+to dictate that $r_1$ shall be the smaller of the two numbers.
+Such a choice does not conflict with any other requirement, and thus is
+permissible. This means that such a choice does not restrict the argument to
+a special case, but still is applicable to all situations.}
+$r_1<r_2$, but then $0<r_2-r_1$
 and $m\mid r_2-r_1\lneqq m$, which is impossible.
 \item[There are $m$ equivalence classes, namely \hbox{$[r]$}
 for $0\le r\lneqq m$.]
@@ -658,6 +668,9 @@ such that $a=qm+r$ with $0\le r\lneqq m$.
 
 For example, if we choose $m=3$ there will be $3$ equivalence classes,
 namely $[0]=[3]$, $[1]$, and $[2]$.
+
+If the number $m$ is chosen and fixed, sometimes the convention is used to
+denote this remainder $r$ by $\overline a$.
 
 \subsection{Modular Arithmetic}
 
@@ -675,29 +688,32 @@ $a$ by $a+k\cdot m$ and $b$ by $b+l\cdot m$:
 \hbox{$[a+km]+[b+lm]$}&=&[(a+km+b+lm)]=[a+b+m(l+k)]=[a+b]\\
 \hbox{$[a+km][b+lm]$}&=&[(a+km)(b+lm)]=[ab+m(al+bk+klm)]=[ab]
 \end{eqnarray*}
+These results imply that the standard arithmetic rules
+we know for integers also hold for these operations on equivalence classes.
+
 We have thus defined a new kind of arithmetic, involving addition, subtraction (from
 addition of the negative) and multiplication, on the $m$ equivalence classes
 $[0],[1],\ldots,[m]$. It is called \defini{modular arithmetic} (or \defini{modulo}
 arithmetic). One often writes
-$\overline{i}$ or $i\bmod m$ instead of $[i]$.
+$i\bmod m$ instead of $[i]$.
 
-The calculations we just did show that
+Using the $\overline\cdot$ notation for remainders, the same result can be
+interpreted as
 $\overline{a+b}=\overline{\overline{a}+\overline{b}}$ and
-$\overline{a\cdot b}=\overline{\overline{a}\cdot \overline{b}}$, that is taking modulo
-is compatible with addition and multiplication. Therefore all standard arithmetic rules
-we know for integers also hold for modular arithmetic!
+$\overline{a\cdot b}=\overline{\overline{a}\cdot \overline{b}}$.
 \medskip
 
-Modular arithmetic is particulary well suited for computers, because the set of objects
-is finite. Binary arithmetic is just arithmetic modulo $2$. And standard arithmetic on a
-64-bit processor is simply arithmetic modulo $2^{64}$.
-Modular arithmetic also has important applications in data transmission and information
-security. You will encounter it again in more advanced classes.
+Modular arithmetic is particulary well suited for computers, because the set
+of objects is finite. Binary arithmetic on bits is just arithmetic modulo
+$2$. And standard arithmetic on a 64-bit processor is simply arithmetic
+modulo $2^{64}$.  Modular arithmetic also has important applications in data
+transmission and information security. You will encounter it again in more
+advanced classes.
 
 \subsection{Examples of Modular Arithmetic}
 
 One way of describing modular arithmetic is by giving tables for addition and
-multiplication. We do this here, for example, for $m=7$.:
+multiplication. We do this here, for example, for $m=7$:
 \begin{center}
 \begin{tabular}{cc}
 $\begin{array}{c|ccccccc}
@@ -731,7 +747,7 @@ every column contain every entry exactly once. The multiplication table (this is
 $m$ is prime, but we shall not prove this here) restricted to $\overline{1}$ to $\overline{6}$ has the same property.
 Having $\overline{1}$ in every row and every column means that we can invert every
 nonzero number, for example $\overline{1}/\overline{3}=\overline{5}$. This means that
-one can solve equations in modulo arithmetic as one would do normally. We illustrate
+one can solve equations in modular arithmetic as one would do normally. We illustrate
 this in the following examples:
 \medskip
 Consider the equation

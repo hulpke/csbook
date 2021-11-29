@@ -63,7 +63,8 @@ Two functions are equal if they have the same domain, the same target, and
 if they assign to every element of the domain the same value.
 %\method{Equality of functions}
 To show that two functions $f,g$ are equal, we need to compare their
-domains, their codomains, and finally show that for \textbf{every} $x$ in the
+domains, their targets\mynote{In the context of functions, the target is
+sometimes called \defini{codomain}.}, and finally show that for \textbf{every} $x$ in the
 domain we have that $f(x)=g(x)$.
 But if $f(a)=g(a)$ for just one argument $a$, this does not imply equality
 of the functions.
@@ -87,12 +88,12 @@ function for every element of the domain. This value must be an element of
 the target.
 
 Concretely, we write the name of the
-function, a colon $\colon$, the domain, an arrow, and the codomain. If the
+function, a colon $\colon$, the domain, an arrow, and the target. If the
 value is given by a formula, often the notation $a\mapsto f(a)=\mbox{formula}(a)$
 is used. In many cases, it is convenient to describe a function informally
 by text and makes for easier understanding. On the other hand, a formal
 description avoids ambiguity and often makes it easier to formally prove
-statements. Finally formal definitions are often easier to implement of a
+statements. And of course formal definitions are often easier to implement on a
 computer.
 
 The following thus are all perfectly good definitions of functions:
@@ -148,10 +149,10 @@ password used by a particular student.)
 minutes in a day. We define the ``sunrise time in Denver'' function $f_5\colon
 D\to T$ as assigning to each date the time of sunrise (in Denver, CO).
 \item Let $S$ the set of students in this class and $G$ the set of grades.
-Define $f_6\colon S\to G$ the function that assigns each student the
+Define the function $f_6\colon S\to G$ that assigns to each student the
 grade they will obtain in the class.
 (To be a function, it is only required that the value is unique and
-unambiguous, not that it is easily computable or known at the moment)
+unambiguous, not that it is easily computable or known at the moment.)
 \item For $A=\N$ the set of nonnegative integers,
 let $f_7\colon A\to A$, $x\mapsto x+1$. Other examples would be
 $f_8\colon A\to A$, $x\mapsto x$, or
@@ -180,7 +181,7 @@ reasons indicated).
 \begin{enumerate}
 \item The relation $R=\{(a^2,a)\mid a\in\Q\}\subset\Q\times\Q\}$ is not a
 function, {\em since there are multiple elements in $R$ -- e.g. $(4,2)$ and
-$(-4,2)$ with the same first entry, so images are not uniquely defined.}
+$(4,-2)$ with the same first entry, so images are not uniquely defined.}
 \item
 Let $f\colon\Q\to\Z$ assigning to every rational number the
 closest integer. {\em Not a function, as the closest integer is ambiguous,
@@ -286,10 +287,9 @@ $\mbox{id}\colon A\to A$, $a\mapsto a$ the function that maps every element to t
 image.
 
 \medskip
-Let $A,B$ be sets and $b\in B$ some element. The \defini{constant function} (with value
-$b$) is the function $A\to B$, $a\mapsto b$. If $A=B=\R$, the graph of the constant
-function is a horizontal line.
-
+Let $A,B$ be sets and $b\in B$ some element. A \defini{constant function}
+(with value $b$) is the function $A\to B$, $a\mapsto b$. If $A=B=\R$, the
+graph of a constant function is a horizontal line.
 \medskip
 
 Let $A$ be a set and $S\subset A$. We let $B=\{0,1\}\subset \Q$. The
@@ -317,7 +317,7 @@ The highest power of $x$ that arises (in the example: $5$) is called the
 are called \defini{coefficients} of the polynomial.
 We can describe the general case of a polynomial as
 \[
-c_d\cdot x^d+c_{d-1}x^{d-1}+\cdots+c_2x^2+c_1x+c_0=\sum_{i=0}^d c_ix^i
+c_d\cdot x^d+c_{d-1}\cdot x^{d-1}+\cdots+c_2\cdot x^2+c_1\cdot x+c_0=\sum_{i=0}^d c_ix^i
 \]
 where the $c_i\in\Q$ are the coefficients.
 \bigskip
@@ -380,20 +380,20 @@ l) $f(-\frac{3}{2}x)$\\
 \label{figfctTrafo}
 \end{figure}
 
-We want to investigate what happens how a function (and the graph of a
+We want to investigate what happens to a function (and the graph of a
 function) under arithmetic operations. This also can be useful to modify a
 given function in a desired way.
 
 We illustrate this, using an example (Figure~\ref{figfctTrafo}, we transform the
 function given under a)): If we add a constant to $f$, i.e. replace $f(x)$ by $f(x)+k$
 we add $k$ to all function values. This means the graph of $f$ shifts up by $k$ units
-(b), respectively down (c) if $k$ is negative.
+b), respectively down c) if $k$ is negative.
 
-If instead we subtract $f$ from a constant (d) and e)) we get the graph of $f$, flipped
+If instead we subtract $f$ from a constant d) and e)) we get the graph of $f$, flipped
 upside down and shifted vertically.
 
-Multiplying by a constant will stretch (f) the graph vertically by this factor, respectively
-compress if the factor is (of absolute value) $<1$ and flip if negative (g).
+Multiplying by a constant will stretch f) the graph vertically by this factor, respectively
+compress if the factor is (of absolute value) $<1$ and flip if negative g).
 \smallskip
 
 More generally, we can take the sum of two functions, which is the function $f+g$ that
@@ -422,7 +422,7 @@ but {\em in reverse} of what the same transformation would do vertically.
 \label{secfunccomposition}
 
 When, in the last section, we modified the argument $x$ of a function $f$ we actually
-used a special case of the composition of function, composing $f$ with a function
+used a special case of the composition of functions, composing $f$ with a function
 $x\mapsto x+k$ or $x\mapsto kx$.
 
 Since functions are relations, the composition of functions is just a special case of
@@ -452,10 +452,11 @@ $g\colon\Q\to\Q$, $x\mapsto 2x$, then $g\circ f\colon x\mapsto 2(x+1)=2x+2$, whi
 $f\circ g\colon x\mapsto (2x)+1$.
 \smallskip
 
-Unless one of the function is relatively basic\mynote{these are \defini{linear}
-functions}, that is only adding constants or multiplying with a scaling factor as we did
-in the previous section, the effect of composition on the graph of the function is more
-complicated than can be describe by easy rules.
+Unless one of the functions is relatively basic, that is only adding
+constants or multiplying with a scaling factor as we did in the previous
+section \mynote{these are called \defini{linear} functions}, the effect of
+composition on the graph of a function is more complicated than can be
+described by easy rules.
 
 \section{Properties of Functions}
 
@@ -476,10 +477,10 @@ is related to solving $b=f(a)$ for $a$.
 
 \subsection{Onto}
 
-A function is onto, if it takes every possible value, that is if its image
+A function is onto if it takes every possible value, that is if its image
 equals its target.
 For example, we could take a function that maps the visitors of a hotel to
-the hotels guest rooms. This function is onto whenever the hotel is booked
+the hotel's guest rooms. This function is onto whenever the hotel is booked
 out.
 
 Formally:
@@ -507,7 +508,7 @@ The left two images in Figure~\ref{figoneonto} illustrate the concept.
 \end{figure}
 
 If a function is given by a graph, it is onto if the projection of the graph
-on the $y$-axis is all of $B$, respectively that every horizontal line intersects the
+on the $y$-axis is all of $B$, equivalently that every horizontal line intersects the
 graph.
 For example (see Figure~\ref{figoneontofcts}), the function $f_1\colon\R\to\R$, $x\mapsto x^3$ is onto, while
 the function $f_2\colon x\mapsto x^2$ is not onto (it takes only positive
@@ -523,7 +524,7 @@ onto.
 \medskip
 
 To show algebraically that a function is onto, we need to show that every
-element $b\in B$ in the target is obtained as image. The easiest way of
+element $b\in B$ in the target is obtained as an image. The easiest way of
 doing so is to find an explicit $a\in A$ such that $f(a)=b$. We might be
 able to do so (but are not guaranteed) by solving for $a$.
 
@@ -534,7 +535,7 @@ and for $-2\le b\le 2$ there are multiple possible $a$.
 
 A function being onto guarantees that the source of the converse relation
 equals its domain, i.e. it has pairs
-$(b,*)$ for every $b\in B$, 
+$(b,*)$ for every $b\in B$.
 
 \subsection{One-to-One}
 
@@ -543,8 +544,9 @@ assigning objects in B to objects in A, the
 intention is to use the assigned object in B in place of the original object in $A$.
 That is, there is an assumption that for a given $b\in B$ we can look-up the unique
 $a\in A$ for which $f(a)=b$. Examples of this are Social Security numbers, student ID
-numbers, car number plates\footnote{That is the reason for a number plate such as
-\texttt{COOLGUY14} -- the number 14 is not special, but 1--13 were used already},
+numbers, car number plates\mynote{That is the reason for a number plate such as
+\texttt{COOLGUY14} -- the number 14 is not special, but 1--13 were used
+already.},
 or bar codes on supermarket items.
 
 But this is not always guaranteed. If we map people to names, or dates of birth there
@@ -573,7 +575,7 @@ one-to-one, but the other two are not.
 Again, being one-to-one does not only depend on the rule of the function, but its
 declaration. It might be possible to restrict the domain $A$ to a subset $A_1\subset A$
 and get a new function that is one-to-one. In the examples, both $f_2$ and $f_3$ would
-become one-to-one, if we restricted their domain to $\{x\in\R|mid x>2\}$.
+become one-to-one, if we restricted their domain to $\{x\in\R\mid x>2\}$.
 \medskip
 
 To test algebraically for a function being one-to-one requires that one can solve
@@ -588,10 +590,10 @@ An important application of the concept of one-to-one in computer science is
 that of \defini{hash functions}. In short, a hash function takes a digital
 object (stored information, or a binary file) and maps it to a large
 integer. The hope is that the function is one-to-one\mynote{on the set of
-plausible inputs. That is not all possible binary files, but say binary
+plausible inputs. That is not all possible binary files, but -- say -- binary
 files that would be valid programs. Often it is impossible to prove that
 such a hash function is one-to-one, but the property is only observed
-through examples or in approximation}, that is the hash value allows to
+through examples or in approximation.}, that is the hash value allows to
 identify the data/file and for example to use the hash to verify that it has
 not been tampered with but is the original file.
 
@@ -608,7 +610,7 @@ the case of finite sets:
 \begin{lemma}
 \label{lemoneonto}
 If $A$ and $B$ are finite sets with $\sz{A}=\sz{B}$, then a function $f\colon A\to B$ is
-one-to-one, if and only it is onto.
+one-to-one, if and only if it is onto.
 \end{lemma}
 \begin{proof}
 We set $n=\sz{A}=\sz{B}$.
@@ -626,7 +628,7 @@ Figure~\ref{figoneontofcts} are counterexamples.
 \section{Bijections and Inverse Functions}
 
 A function $f\colon A\to B$ that is both one-to-one and onto is called
-\defini{bijective} or an \defini{bijection}. Being bijective means that for every $b\in
+\defini{bijective} or a \defini{bijection}. Being bijective means that for every $b\in
 B$ there is a unique $a\in A$ such that $f(a)=b$.
 
 The converse property, i.e. that for every
@@ -681,7 +683,8 @@ Once we numbered the elements of $A$ and $B$, we can consider the pairs in the C
 product as coordinates in an $n\times m$ rectangle. Thus $\sz{A\times B}=n\cdot m$.
 
 \paragraph{Power Set}
-Every subset of $A$ can be described by bit-string of length $n$ that indicates for each
+Every subset of $A$ can be described by bit-string (a string of $0$'s and
+$1$'s) of length $n$ that indicates for each
 element of $A$ whether it is contained in the subset. These bit strings lie in the
 $n$-fold Cartesian product $\{0,1\}\times\{0,1\}\times\cdots\times\{0,1\}$, and thus
 there are $2^n$ such strings. Thus $\sz{{\cal P}(A)}=2^n$.
@@ -691,7 +694,7 @@ We note, without proof, that the number of subsets of fixed size $k$ is given by
 \[
 {n\choose k}=\frac{n!}{k!(n-k)!}
 \]
-(where $n!=1\cdot 2\cdot 3\cdot\cdots\cdot n$ is called $n$-\defini{factorial})
+(where $n!=1\cdot 2\cdot 3\cdot\cdots\cdot n$ is called $n$ \defini{factorial})
 
 \paragraph{Relations}
 Every relation is a subset of $A\times B$. Thus the number of relations between $A$ and
@@ -703,9 +706,9 @@ the value of the $i$-th element of $A$. The formula for the order of a Cartesian
 thus gives $\sz{B\times \cdots\times B}=m^n$ different functions.
 
 \paragraph{One-to-One Functions}
-To ensure the function is one-to-one, the image of the second element cannot be chosen
+To ensure a function $A\to B$ is one-to-one, the image of the second element cannot be chosen
 freely, but needs to be different than the image of the first element. Thus we do not
-have $m$ choices, but only $m-1$ choices. And for the third element there are $m-2$
+have $m$ choices for the image of the second element, but only $m-1$ choices. And for the third element there are $m-2$
 possible images and so on until the $n$-th element has $m-n+1$ possible images. Thus there are
 \[
 m\cdot (m-1)\cdot (m-2)\cdot \cdots\cdot (m-n+1)=m!/(m-n)!
@@ -715,7 +718,10 @@ itself) if $n>m$.
 
 \paragraph{Bijective Functions}
 Note that such functions can only exist if $n=m$, but then, by Lemma~\ref{lemoneonto},
-it is sufficient for the function to be one-to-one. Thus there are $n!/(n-n)!=n!/1=n!$
+it is sufficient for the function to be one-to-one. Thus there
+are\mynote{We have that $0!=1$ as product over an empty set, in the same way
+a sum over an empty set is $0$.}
+$n!/(n-n)!=n!/1=n!$
 bijective function if $m=n$ (and zero otherwise).
 
 \paragraph{Onto Functions}

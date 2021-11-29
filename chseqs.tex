@@ -8,8 +8,9 @@ picture''. For this, we first consider functions on integers.
 \label{secsequences}
 
 \begin{defn}
-A \defini{sequence} is a function $a\colon N_0\to\R$, defined on the set $N_0=\{z\in Z\mid
-z\ge 0\}$. If $i\in N_0$ and $a(i)$ is a value, we also call $i$ the \defini{index} or
+A \defini{sequence} is a function $a\colon \mathbb{N}_0\to\R$, defined on the
+set $\mathbb{N}_0=\{z\in Z\mid
+z\ge 0\}$. If $i\in \mathbb{N}_0$ and $a(i)$ is a value, we also call $i$ the \defini{index} or
 the \defini{position} in the sequence.
 Sometimes we ignore index $0$ and only consider sequences indexed by strictly positive
 integers.
@@ -18,7 +19,7 @@ integers.
 The word ``index'' (plural: {\em indices})is the reason for denoting the argument by $i$ (and thus ultimately
 the reason why ``i'' is the standard name for a loop variable when programming).
 
-It often is convenient to write indices as subscript and to write $a_i$ in place of
+It often is convenient to write indices as subscripts and to write $a_i$ in place of
 $a(i)$. We will write $(a_i)$ to designate a sequence (that is the set of all values) in
 contrast to a single value $a_i$.
 \smallskip
@@ -29,11 +30,12 @@ $a_i=i+1$ for the sequence
 \[
 a_0=1,\qquad a_1=2,\qquad a_2=3,\ldots
 \]
-Other examples would be the sequences $b_i=i^2+5$, $c_i [=\sum_{j=0}^i j]=${\em the sum
+Other examples would be the sequences $b_i=i^2+5$,
+$\displaystyle c_i=\sum_{j=0}^i j=${\em the sum
 of the numbers from $1$ to $i$}, or $d_i=${\em the $i$-th prime number}.
 \smallskip
 
-With indices arranged easily as $1,2,3$, it also can be tempting to write a sequence by
+With indices arranged easily as $1,2,3,\ldots$, it also can be tempting to write a sequence by
 giving its first few values, and expecting the reader to identify and continue the
 pattern. For example
 \begin{eqnarray*}
@@ -41,10 +43,11 @@ a_i&:&1,3,5,7,9,1,\ldots\\
 b_i&:&10,9,8,7,\ldots\\
 c_i&:&3, 3.1, 3.14, 3.141, 3.1415,\ldots
 \end{eqnarray*}
-While this seems convenient, guessing the right pattern can be difficult, and is
-ambiguous. Indeed, despite its use in popular tests that ask the reader to identify the
-rule for a given set of values, it is impossible to decide what the ``correct'' rule should
-be. For example, consider the sequence
+While this seems convenient, guessing the right pattern can be difficult, and
+is ambiguous. Indeed, despite its use in popular intelligence tests that ask
+the reader to identify the rule for a given set of values, it is impossible
+to decide what the ``correct'' rule should be. For example, consider the
+sequence
 \[
 2,4,6,8,10,\ldots
 \]
@@ -72,7 +75,7 @@ Sequences are important in computer science, in that they can arise when indicat
 cost (that is number of calculation steps required) of an algorithm, for an input of a
 given size $i$. In this context, sequences often are given through a \defini{recursion}.
 That is, we give one (or several) initial values of the sequence, and then give a
-formula how further values are determined from the previous ones. For example:
+formula that determines further values from the previous ones. For example:
 \[
 a_1=3,\qquad a_i=a_{i-1}+2\mbox{\ for $i>1$}
 \]
@@ -81,7 +84,7 @@ gives us the sequence $a_i=1+2i$, while
 s_1=1,\qquad s_i=s_{i-1}+i\mbox{\ for $i>1$}
 \]
 gives the sequence, whose $i$-th entry is the sum of integers from $1$ to $i$. It is
-also possible to instead give values for new indices bigger than $i$, in the example
+also possible to instead give values for new indices bigger than $i$, as in the example
 \[
 s_{i+1}=s_i+(i+1).
 \]
@@ -192,7 +195,7 @@ check. Thus $\text{cost}_1 = 0$.
 
 For $n>1$, the algorithm calls itself recursively for length $n-1$ (at cost
 $\text{cost}_{n-1}$, and then compares the last element $a$ to potentially
-all\footnote{The clever reader might already think on how to improve the
+all\mynote{The clever reader might already think on how to improve the
 algorithm by using {\em binary search} to find the correct position in fewer
 steps.} $n-1$ elements in the list. The cost thus satisfies the recursion
 \[
@@ -249,11 +252,12 @@ behavior of sequences. For this we define the following properties:
 Let $(a_i)$ be a sequence. Then this sequence is
 \begin{description}
 \item[\defini{monotonically increasing}], if $a_{i+1}\ge a_i$ for all $i$.
-\item[\defini{strictly monotonically increasing}], if $a_{i+1}> a_i$ (and $a_{i+1}\not=a_i$) for all $i$.
+\item[\defini{strictly monotonically increasing}], if $a_{i+1}> a_i$ 
+( $a_{i+1}\not=a_i$) for all $i$.
 \item[\defini{bounded from above}], if there exists a number $B\in\R$, such that $a_i\le B$ for all $i$.
 \end{description}
 We define \defini{monotonically decreasing}, \defini{strictly monotonically decreasing},
-and \defini{bounded from below} in the obvious way by reverting the inequalities.
+and \defini{bounded from below} in the obvious way by reversing the inequalities.
 \end{defn}
 
 For example, consider the sequences
@@ -264,9 +268,9 @@ c_i&=&5+(-1)^i.\\
 \end{eqnarray*}
 Then the sequences $(a_i)$ and $(b_i)$ are (strictly) monotonically increasing, since
 \[
-a_{i+1}=5-\frac{1}{i+1}\ge 5-\frac{1}{i}=a_i
+a_{i+1}=5-\frac{1}{i+1}> 5-\frac{1}{i}=a_i
 \mbox{\ and \ }
-b_{i+1}=5+(i+1)\ge 5+i=b_i.
+b_{i+1}=5+(i+1)> 5+i=b_i.
 \]
 The sequence $(c_i)$ is not monotonically increasing, as 
 \[
@@ -285,7 +289,7 @@ b_i=5+i\ge5+B>B,
 in contradiction to the assumption that $B$ is an upper bound.
 
 All three sequences $(a_i)$, $(b_i)$, $(c_i)$ are bounded from below (e.g. by $1$).
-However it is possible that a sequence is neither monotonous, nor bounded; for example 
+However it is possible that a sequence is neither monotonic, nor bounded; for example 
 $d_i=5+(-1)^i\cdot i$.
 
 \section{Convergence}
@@ -302,9 +306,14 @@ and $L$ the \defini{limit} of the
 sequence and write $L=\lim\limits_{i\to\infty}a_i$. (We will give a more formal
 definition below.)
 
-In the examples of the last section, this should be the case for the sequence $\{a_i\}$
-which gets closer and closer to $5$, while the sequence $\{b_i\} $and $\{d_i\} $``run
-away'' and $\{c_i\}$ jumps around but never settles down.
+In the examples of the last section, this should be the case for the sequence
+$\{a_i\}$ which gets closer and closer to $5$. On the other hand the
+sequences $\{b_i\} $and $\{d_i\} $ ``run away'' and the sequence $\{c_i\}$
+jumps around but never settles down.
+
+Note that one can also talk about the limit of a sequence being infinity (say
+for the sequence $a_i=i$), but we will not consider it in this section, as
+the formal statement of it needs to be different.
 
 \subsection{Finding limits}
 
@@ -323,13 +332,19 @@ there actually is a rule (we will see it later in~\pointer{seclhopital}):
 \item If the degree of the denominator is larger than the degree of the numerator, the
 sequence converges to zero.
 \item If the degree of the denominator is smaller than the degree of the numerator, the
-sequence values will get arbitrary large in absolute value, the sequence does not
+sequence values will get arbitrary large in absolute value, so the sequence does not
 converge (or converges to $\pm\infty$).
-\item If the degree of numerator and denominator are equal, the sequence converges to
-the quotient of the leading coefficients -- in the example $6/5$.
+\item If the degree of the numerator and the denominator are equal, the
+sequence converges to the quotient of the leading coefficients -- in the
+example $6/5$.
 \end{itemize}
 
-We also note (without proof) that limits behave reasonably with respect to arithmetic:
+We also note (without proof) that limits behave reasonably with respect to
+arithmetic, that is if we define a new sequence whose entries are given by
+simple arithmetic operations on existing sequences (e.g. if $(a_i)$ and
+$(b_i)$ are sequences given by $a_i=(1/i)$ and
+$(b_i)=i+1$, then $(a_i+b_i)$ is the sequence whose $i$-th entry is
+$1/i+1+i$).
 \begin{lemma}
 \label{limitlaws}
 Let $\{a_i\}$, $\{b_i\}$ be sequences such that
@@ -342,9 +357,8 @@ $\lim\limits_{i\to\infty} b_i=B$. Then
 \item If $B\not=0$ then $\lim\limits_{i\to\infty} (a_i/b_i)=A/B$.
 \end{itemize}
 \end{lemma}
-
-We also note that while it can be useful to talk about a limit infinity (say for the
-sequence $a_i=i$), but these limit laws do not necessarily apply to such a situation.
+These laws explicitly require finite limits and do not necessarily generalize
+to limits of infinity.
 
 \subsection{Proving Limits}
 
@@ -356,12 +370,13 @@ seem somewhat complicated, but ultimately evolved (over decades of failed attemp
 This definition also will serve as a model for the formalization of concepts in calculus.
 \medskip
 
-The basic idea is that we want to be able to corral-in the terms of the sequence at some
-time, and then can (again at a suitable point in time) make that corral smaller (without
-moving it around), and
-smaller again, to become arbitrary small (and not become larger again).
-In other words: If someone tells us how small the corral should be, we must be able to
-point to a time (that is: to an index!) from when on the corral will be that small.
+The basic idea is that we want to be able to corral-in the terms of the
+sequence at a given time, and then (again at a
+later point in time) make that corral smaller (without moving it around), and
+smaller again.  As time goes on, it will become arbitrary small (and not
+become larger again).  In other words: If someone tells us how small the
+corral should be, we must be able to point to a time (that is: to an index!)
+from when on the corral will be that small.
 
 Formally, what we just called a corral, will be the set of numbers around (at a given
 distance) a fixed,
@@ -435,7 +450,7 @@ uses the work of this scratch calculation:
 \underline{Let $\varepsilon>0$ and set} $N=\frac{10}{\varepsilon}$.
 \underline{Then, for $i\ge N$ we have that}
 \begin{eqnarray*}
-\sz{a_i-L}&=&\sz{5-(-1)^i\frac{10}{i}-g}=\sz{-(-1)^i\frac{10}{i}}=
+\sz{a_i-L}&=&\sz{5-(-1)^i\frac{10}{i}-5}=\sz{-(-1)^i\frac{10}{i}}=
 \frac{10}{i}\\
 &\le&\frac{10}{N}=\frac{10}{10/\varepsilon}=\varepsilon.
 \end{eqnarray*}
@@ -453,38 +468,43 @@ while the remainder is basically built from the scratch calculation.
 
 \begin{note}
 \label{cauchycrit}
-You might find this criterion for convergence somewhat unsatisfactory, in that it requires
-the limit $L$ to be given. Is is clear that we can always calculate, or represent this
-limit exactly? Consider for example the recursive sequence, defined by
+You might find this criterion for convergence somewhat unsatisfactory, in
+that it requires the limit $L$ to be given. Is is clear that we can always
+calculate, or represent this limit exactly? Consider for example the
+recursive sequence, defined by
 \[
 a_1=1,\qquad a_{i+1}=1+\frac{1}{a_i}.
 \]
-If we write a program to calculate values $a_i$ for increasingly large indices, we find that
-the sequence seems to converge to a number $1.618033988749894848\ldots$. But what is
-this limit\footnote{In this case, one can actually calculate it as a solution to the
-quadratic equation $x=1+1/x$}, how can we express it and use it in a limit proof? 
-To work around such problems, mathematicians often use a somewhat different criterion,
-called the~\defini{Cauchy criterion} 
-(see Wikipedia), that uses not the distance from sequence values to
-the limit, but of sequence values never straying too far apart from each other. It
-however is a bit more complicated to work with, which is the reason for the choice of
-a more basic criterion here.
+If we write a program to calculate values $a_i$ for increasingly large
+indices, we find that the sequence seems to converge to a number
+$1.618033988749894848\ldots$. But what is this limit\mynote{In this case,
+one can actually calculate it as a solution to the quadratic equation
+$x=1+1/x$}, and how can we express it and use it in a limit proof?  To work
+around such problems, mathematicians often use a somewhat different
+criterion, called the~\defini{Cauchy criterion} (see Wikipedia), that uses
+not the distance from sequence values to the limit, but of sequence values
+never straying too far apart from each other. It however is a bit more
+complicated to work with, which is the reason for the choice of a more basic
+criterion here.
 \end{note}
 
-The reason for looking at formal proofs is that this is a prototype for the way formal
-proofs work in Calculus\footnote{When doing proofs, the topic is often called
-``Analysis''}. One argues about differences, typically denoted by $\varepsilon$ or its
-causing $\delta$, becoming arbitrary small, but still being nonzero.
+The reason for looking at formal proofs is that this is a prototype for the
+way formal proofs work in Calculus\mynote{When doing proofs, the topic is
+often called ``Analysis''}. One argues about differences, typically denoted
+by $\varepsilon$, in function values becoming arbitrary small, but still
+being nonzero, as sequence indices go to infinity, or $x$-arguments becoming
+arbitrarily close (the latter then being denoted by another greek letter, 
+$\delta$ denoting a small entity).
 
 \section{Limits, Bounds and the Real numbers}
 
-IF a sequence converges, its values cannot become arbitrary large, since at some point
+If a sequence converges, its values cannot become arbitrary large, since at some point
 they need to start getting close to the limit. This implies that a convergent sequence
 must be bounded.
 On the other hand, being bounded does not make a sequence
 convergent, as the example $(-1)^i$ shows.
 
-Things however become interesting if a sequence is monotonous and bounded (that is
+Things however become interesting if a sequence is monotonic and bounded (that is
 increasing and bounded from above, or decreasing and bounded from below). We have the
 following theorem:
 \begin{thm}
@@ -495,7 +515,7 @@ Conceptually this seems clear -- if we can never go back, nor cross a line, we e
 must become stationary. A formal proof however is far beyond the scope of this course.
 
 Note that the limit in such a case is not necessarily the bound used, but it is the
-``best possible'' bound (formally called the \defini{suprenum}).
+``best possible'' bound (formally called the \defini{supremum}).
 \medskip
 
 This statement might seem more of a curiosity and have little relevance for
@@ -506,25 +526,26 @@ numbers with infinite decimal expansions. But that is
 only half the truth. Formally:
 
 \begin{quote}
-The real numbers are the limits of bounded, monotonous sequences.
+The real numbers are the limits of bounded, monotonic sequences.
 \end{quote}
 
-This construction is also the reason for why we use the real numbers (and not just
-rational numbers of arbitrary large denominator and arbitrarily good expansions): They
-are required to get limits of sequences that should converge. Such limits do not
-necessarily exist in the rational numbers -- take for example the sequence recursively
-defined in Note~\ref{cauchycrit}, whose limit is the irrational number
-$\frac{1+\sqrt{5}}{2}$.
-(There is a formal construction of the real numbers that defines an equivalence
-relation on sequences -- multiple sequences might have the same limit -- and defines
+This construction is also the reason for why we use the real numbers (and not
+just rational numbers of arbitrarily large denominator and arbitrarily good
+expansions): real numbers are required to get limits of sequences that should
+converge. Such limits do not necessarily exist in the rational numbers --
+take for example the sequence recursively defined in Note~\ref{cauchycrit},
+whose limit is the irrational number $\frac{1+\sqrt{5}}{2}$.  (There is a
+formal construction of the real numbers that defines an equivalence relation
+on sequences -- multiple sequences might have the same limit -- and defines
 the real numbers as equivalence classes of sequences under this relation.)
 
-But the real numbers do not only numbers involving roots. Actually there are infinitely
-(in an overwhelming sense) more real numbers, than numbers that can be expressed as
-roots of polynomials. (Such numbers are called \defini{transcendental}.) You will have
-seen some examples in school: $\pi$, $e$. But these numbers are like dark matter. While
-they are overly abundant and around everywhere, it is hard to get hold of them (as one
-would have to give a sequence that has them as limit).
+But the real numbers are not only what one can obtain by arithmetic involving
+roots.  Actually there are infinitely (in an overwhelming sense) more real
+numbers, than numbers that can be expressed as roots of polynomials. (Such
+numbers are called \defini{transcendental}.) You will have seen some examples
+in school: $\pi$, $e$. But these numbers are like dark matter. While they are
+overly abundant and around everywhere, it is hard to get hold of them (as one
+can only give a numerical approximation or a sequence that has them as limit).
 \smallskip
 
 Of course anything we can measure in the real world, anything we can represent as number
@@ -535,19 +556,19 @@ limits exist!
 
 A series is a special sequence, in which we sum up the terms of another
 sequence, that is it is the sequence of \defini{partial sums}.  If the
-sequence we are summing over is $a_i$, we have the $i$-th partial sum as
+sequence we are summing over is $(a_j)$, we have the $i$-th partial sum as
 \[
-p_i=a_0+a+1+a_2+\cdots+a_{i-1}+a_i=\sum_{j=0}^i a_j,
+p_i=a_0+a_1+a_2+\cdots+a_{i-1}+a_i=\sum_{j=0}^i a_j,
 \]
 where the $\sum$ notation is basically a mathematician's version of a for-loop.
 (Note that we need to use a different variable for the loop than for the loop end.)
 
 If this sequence of partial sums converges we write the limit as an infinite sum.
 \[
-\sum_{j=0}^\infty a_i=\lim_{i\to\infty} p_i=\lim_{i\to\infty} \sum_{j=0}^i a_j.
+\sum_{j=0}^\infty a_j=\lim_{i\to\infty} p_i=\lim_{i\to\infty} \sum_{j=0}^i a_j.
 \]
 For example, we could sum over the
-sequence $a_i=1/2^i$ and get the sequence of partial sums:
+sequence $a_j=1/2^j$ and get the sequence of partial sums:
 \[
 p_0=1,
 p_1=1+\frac{1}{2}=\frac{3}{2}, 
@@ -559,9 +580,9 @@ p_i=\frac{2^{i+1}-1}{2^i}
 \]
 and this sequence thus has the limit
 \[
-\sum_{i=0}^\infty \frac{1}{2^i}=2,
+\sum_{j=0}^\infty \frac{1}{2^j}=2,
 \]
-that is the infinite summation yields a finite number.
+that is, the infinite summation yields a finite number.
 \smallskip
 
 Clearly, the sequence over which we are summing must go to zero for the series to
@@ -578,13 +599,16 @@ old=-1
 i=1
 while s>old :
     old=s
+    s=s+1/i
     print(i, ": ",s)
     i=i+1
 \end{verbatim}
 %    s=round(s+1/i,6)
 (which calculates the partial sums $\sum_{i=1}^n \frac{1}{i}$ for increasing
 values of $n$ and terminates when they stop increasing) will
-actually terminate (due to rounding errors) after a long time and thus
+actually terminate (due to rounding errors) after a long time\mynote{You
+can replace the line incrementing \texttt{s} by \texttt{s=round(s+1/i,6)} to
+reduce accuracy and make it happen sooner.} and thus
 make it look as if the the series converges. But it does not!
 \medskip
 
@@ -672,7 +696,7 @@ If we ask for the total number of visitors after $n$ years we get:
 \]
 
 %As an example of a geometric series we look at the ``Race course paradox'' of
-%Zeno\footnote{Zeno of Elea, Greek philosopher, ca. 490 BC - ca. 430 BC}.
+%Zeno\mynote{Zeno of Elea, Greek philosopher, ca. 490 BC - ca. 430 BC}.
 %Suppose a runner wanted to travel a given distance, say one kilometer. Then
 %he must first travel the first half kilometer, and the next half kilometer
 %remains.  Next the runner must travel half of the next half kilometer -- a
@@ -811,7 +835,7 @@ p_{k}=\sum_{n=0}^{k}ar^n=a\frac{1-r^{k+1}}{1-r}.
 %\end{center}
 
 (What happens in the case where r=1?
-We get $s_{k}= a + a(1) + a(1)^{2} + \ldots + a(1)^{k-1}=ka$.)
+We get $p_{k}= a + a(1) + a(1)^{2} + \ldots + a(1)^{k}=(k+1)a$.)
 \medskip
 
 Before we go on to get a formula for the infinite sum, we see
@@ -832,7 +856,7 @@ Since there are 64 squares on the chess board (from $0$ to $63$), we want to com
 $p_{63}$.  Our ratio is 2 and $a$ is one, hence we are asked to find
 \[
 p_{63}=1+2+4+ \ldots +2^{63} =
-\frac{1(1-2^{64})}{1-2} = 1.84467 \times 10^{19}
+\frac{1(1-2^{64})}{1-2} \approx 1.84467 \times 10^{19}
 \]
 %\end{Example}
 
@@ -876,7 +900,7 @@ necessary monthly repayment, given the loan sum and interest rate.
 For example, if we have a mortgage of $L=\$200,000$, an annual
 interest rate of $6$\% (leading to a monthly rate of
 $i=.06/12=0.005$, i.e. $r=1.005$) and a monthly repayment
-sum\footnote{Slightly moralistic remark: Incidentally, initial interest amounts
+sum\mynote{Slightly moralistic remark: Incidentally, initial interest amounts
 to {\$}$1000$ per month at the start of the loan. An
 \textit{interest only} loan thus does not save much and is a very
 bad deal!} of $a=\$1,200$, we find that the outstanding sum after
@@ -887,10 +911,10 @@ b_k=200,000\cdot{1.005^k}-1,200\frac{1.005^k-1}{0.005}
 \]
 After $10$ years ($120$ months) this leaves an outstanding amount of
 {\$}$167,224.13$, after $20$ years {\$}$107,591.82$, roughly
-half\footnote{In general, this means that a loan is paid off half
+half\mynote{In general, this means that a loan is paid off half
 after roughly $\frac{2}{3}$ of its planned life time}, after $30$
 years {\$}$-903.00$ (i.e. the loan is paid off after $30$ years less
-one month\footnote{The total cost of the loan then will have been
+one month\mynote{The total cost of the loan then will have been
 {\$}$430,800$, more than double the loan amount. (Though inflation
 means that the actual value will be less.)}).
 
@@ -898,7 +922,7 @@ If the interest rate instead was $7$\% annually ($i=.07/12=0.005833$
 monthly), we get with same repayment sum a remaining loan amount of
 {\$}$159,256.18$ after $30$ years, which is not even halfway paid
 off. A monthly repayment sum of {\$}$1330$ would be
-needed\footnote{I.e. a change of one percentage point in the
+needed\mynote{I.e. a change of one percentage point in the
 interest rate increased the monthly payment (and thus the total loan
 cost) by $10$\%! No wonder people go bonkers about interest rates.}
 to have the loan paid off after $30$ years.
@@ -906,7 +930,7 @@ to have the loan paid off after $30$ years.
 \medskip
 
 Since the sequence $p_0, p_{1}, p_{2}, 
-\ldots, s_{k}, \ldots$ of partial sums converges to
+\ldots, p_{k}, \ldots$ of partial sums converges to
 $\displaystyle{\sum_{n=1}^{\infty} ar^{n-1}}$, we can use the
 formula just derived to compute a value for the limit of a geometric series:
 
@@ -1061,7 +1085,7 @@ $$\frac{\frac{8}{100}}{1-\frac{1}{100}}=\frac{\frac{8}{100}}{\frac{99}{100}}=\fr
 %any round off error.  \\
 %\end{Example}
 
-For another example, consider the following paradox of Zeno\footnote{Zeno
+For another example, consider the following paradox of Zeno\mynote{Zeno
 of Elea, Greek philosopher, ca. 490 BC - ca. 430 BC}:
 
 Achilles, the fastest runner in ancient Greece, runs 100 times as
@@ -1103,7 +1127,7 @@ The summation over a constant sequence with fixed value $a$,
 \]
 is basically just the definition of multiplication. But what happens if the
 terms change by a constant sum, that is we have that $a_{i+1}-a_i=c$
-constant.
+constant?
 
 Let us first observe this for the basic case of 
 \[
@@ -1128,7 +1152,7 @@ For example, we get that
 1+2+\cdots+100=\frac{100\cdot 101}{2}=\frac{10100}{2}=5050.
 \]
 If subsequent terms differ by a different constant, we can handle this with
-a factor (and possibly a starting term. Suppose we start at 5 and differ by
+a factor (and possibly a starting term). Suppose we start at 5 and differ by
 3 in each step:
 \[
 5+8+11+14+\cdots+32
