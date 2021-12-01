@@ -262,7 +262,7 @@ the following four functions:
 \label{figfourtayapprox}
 \end{figure}
 All four have value $1$ at $0$ and increase, in a plot
-(Figure~\ref{figfourtayapprox}, deliberately not labelled)
+(Figure~\ref{figfourtayapprox}, deliberately not labeled)
 they are close for small values of $\sz{x}$. It seems hard to determine by
 hand which graph belongs to which function.
 
@@ -290,7 +290,7 @@ c). This means that for small values of $x$, we expect $1+\sin(x)$ to be the
 smallest and $\frac{1}{\sqrt{1-2x}}$ to be the largest. Since $x^2=(-x)^2$
 this will hold for both positive and negative $x$, as the plot shows.
 And for $\sz{x}$ sufficiently small the graph of $1+x+\frac34x^2$
-would\mynote{not depicted in the plot as this reuires serious zooming in for
+would\mynote{not depicted in the plot as this requires serious zooming in for
 negative $x$.} lie in the middle between the top and bottom two lines.
 
 
@@ -333,7 +333,7 @@ approximation).
 %TN rewrite AH
 An application of Taylor approximations together with Newton's Method 
 is found in a famous example of an
-optimized routine, namely the evalulation of the function $a\mapsto
+optimized routine, namely the evaluation of the function $a\mapsto
 \frac{1}{\sqrt(a)}$.
 
 This function is used in digital signal processing to re-scale a vector to
@@ -344,7 +344,7 @@ When rendering a scene, this value has to be calculated separately for each
 triangle, its execution therefore is highly time critical.
 
 While the newer x86 SSE instruction set includes a dedicated operation
-\texttt{rsqrtss} for it, hstorically this functionality had to be coded from
+\texttt{rsqrtss} for it, historically this functionality had to be coded from
 more basic operations. However both square root and division are expensive,
 which explains why other approaches have been considered.
 
@@ -360,11 +360,14 @@ and how error is minimized.
 
 The method works by first computing one rough approximation of the value,
 and then using one step of the Newton method to refine the result. (It turns
-out that the initial approximaltion is good enough that one step of the
-Newton method suffices, but we shall not show this.) We shall use a sli
+out that the initial approximation is good enough that one step of the
+Newton method suffices, but we shall not show this.)
 \smallskip
 
-The input number $a$ is given as a floating point number in the form
+\begin{bsp}
+The input number $a$ (when computing $1/\sqrt{a}$)
+is given as a floating point number in the form\mynote{This is dictated by
+the CPU of the computer}
 \[
 a=2^e\cdot(1+m)
 \]
@@ -394,7 +397,7 @@ Now for the Newton method. The function we want to find a zero of is
 f(x)=\frac{1}{x^2}-a,
 \]
 whose value will be zero exactly when
-$x=\frac1{\sqrt{x}}$. Newtons method (Section~\ref{secnewton}) states that
+$x=\frac1{\sqrt{x}}$. Newton's method (Section~\ref{secnewton}) states that
 the next iteration must be
 \[
 a_{n+1}=a_n-\frac{f(a_n)}{f'(a_n}).
@@ -429,6 +432,7 @@ optimized value for $c$.
 Line 7 then is the Newton iteration. (The code in fact includes a second
 iteration that has been commented out, as the first one turned out to be good
 enough in practice.)
+\end{bsp}
 
 \section{Taylor Series}
 \label{sectaylors}
@@ -736,7 +740,8 @@ F(x)&=& x\cdot
 \sum_{i=0}^\infty\left(\frac{-a}{\alpha^{i+1}}+\frac{-b}{\beta^{i+1}}\right)x^{i+1}
 =\sum_{i=1}^\infty\left(\frac{-a}{\alpha^{i}}+\frac{-b}{\beta^{i}}\right)x^{i}.
 \end{eqnarray*}
-Comparing the coefficients of $x^i$ gives us that for $i>0$ we have
+Comparing the coefficients of $x^i$ (which we can do because Taylor series
+are unique) gives us that for $i>0$ we have
 \begin{eqnarray*}
 f_i&=&\frac{-a}{\alpha^{i}}+\frac{-b}{\beta^{i}}
 =
@@ -746,4 +751,4 @@ f_i&=&\frac{-a}{\alpha^{i}}+\frac{-b}{\beta^{i}}
 +\frac{-1}{\sqrt{5}\cdot \left(\frac{-1-\sqrt{5}}{2}\right)^i}\\
 &=&\frac{1}{\sqrt{5}}\left(\left(\frac{2}{\sqrt{5}-1}\right)^i+\left(\frac{2}{\sqrt{5}+1}\right)^i\right),
 \end{eqnarray*}
-which is an explict formula for the Fibonacci numbers.
+which is an explicit formula for the Fibonacci numbers.

@@ -5,7 +5,7 @@
 
 In the same way that skis without slopes are of limited excitement, just
 talking about individual sets will not get us very far. Instead, we want to
-connect elements of one set with elemnts if other sets (could be different
+connect elements of one set with elements if other sets (could be different
 or the same). This can be used to describe information that is more than
 just an accumulation of objects: we can describe relations (such as
 Parent/Child, or Sibling), properties associated to objects (such as age
@@ -71,7 +71,7 @@ defining $a\sim b$ if $-10^{-5}<a-b<10^{-5}$.
 \label{descrel}
 
 We have already seen two ways of defining a relation. The first is to
-decribe the elements in relation as a list of pairs in the cartesian
+describe the elements in relation as a list of pairs in the cartesian
 product. For example, if we take the set $A=\{1,2,\ldots,6\}$ and the
 relation ``strictly smaller``, we get
 \[
@@ -518,26 +518,26 @@ on $n$ vertices with the numbers $1,2,\ldots,n$. An edge then is a set of
 two vertices. For example (\figuref{3vertexgraphs}) consider graphs on $n=3$
 vertices. There are 3 potential edges and each edge can be selected or not,
 so we get $2^3=8$ possibilities for \defini{labelled graphs}, that is graphs
-where the labelling of the vertices matters.
+where the labeling of the vertices matters.
 
-But often we do not care about this labelling but only  about the possible
+But often we do not care about this labeling but only  about the possible
 connection patterns. We thus can define an equivalence relation
 (called~\defini{graph isomorphism}, this is an important, hard, algorithmic
 problem) 
 as two graphs being equivalent if they become the same after a
-relabelling of the vertices. For example, the graph with the edge set
+relabeling of the vertices. For example, the graph with the edge set
 $\{\{1,2\}\}$ can be transformed into the graph with edge set $\{\{2,3\}\}$ by
-relabelling\mynote{This
-is not unique. Another opion would be $\begin{array}{c}1\to
+relabeling\mynote{This
+is not unique. Another option would be $\begin{array}{c}1\to
 3\\2\to2\\3\to1\end{array}$.} 
 the vertices $\begin{array}{c}1\to 2\\2\to3\\3\to1\end{array}$.
 
 We thus get (for the example of three vertices) $4$ equivalence classes
 (as indicated by shaded areas in the figure). These equivalence classes are
-what one considers typically as (unlabelled) graphs and the objects one would
+what one considers typically as (unlabeled) graphs and the objects one would
 like to classify. On the other hand, when storing a graph on the computer,
-one needs to identify vertices in some way, which (implictily) gives them
-labels. What is stored is thus a labelled graph as representative of its
+one needs to identify vertices in some way, which (implicitly) gives them
+labels. What is stored is thus a labeled graph as representative of its
 conjugacy class.
 
 \section{The Integers and the Rationals}
@@ -561,7 +561,7 @@ Our goal is to have the integer $z$ to be represented by the set
 $\{(a,b)\in S\mid b-a=z\}$. To define this set as an equivalence class, we
 want to define a relation on $S$ that $(a,b)$ is related to
 $(c,d)$, if $b-a=d-c$. Since this might involve negative numbers (which we
-are just constructing), we use insted: $b+c=a+d$:
+are just constructing), we use instead: $b+c=a+d$:
 \[
 (a,b)\sim(c,d)\Leftrightarrow b+c=a+d.
 \]
@@ -631,7 +631,7 @@ To understand what these classes are, we make a number of observations:
 \begin{description}
 \itemsep0mm
 \item[If $a\in\Z$, we have that the class
-containg $a$ is]
+containing $a$ is]
 \[
 [a]=\{a,a+m,a-m,a+2m,a-2m,a+3m,\ldots\}=\{a+k\cdot m\mid k\in\Z\},
 \]
@@ -647,7 +647,7 @@ two different elements $r_1,r_2\in C$ with $0\le r_1,r_2\lneqq m$. Since if
 this was, we would have
 (without loss of generality\mynote{This is an example of a useful tool in proofs.
 We could have $r_1<r_2$ or $r_2>r_1$ and would need to consider both cases.
-But there is freedom in labelling the two numbers and we use this freedom 
+But there is freedom in labeling the two numbers and we use this freedom 
 to dictate that $r_1$ shall be the smaller of the two numbers.
 Such a choice does not conflict with any other requirement, and thus is
 permissible. This means that such a choice does not restrict the argument to
@@ -660,7 +660,7 @@ This is since each number $0\le r\lneqq m$ must be in an equivalence class,
 but no two of them are in the same class. And each class must contain such
 an $r$.
 \end{description}
-Part of these observations are sumarized in the following theorem:
+Part of these observations are summarized in the following theorem:
 \begin{thm}[Division with remainder]
 For any integer $m>1$ and any integer $a$, there exist unique $q,r\in\Z$
 such that $a=qm+r$ with $0\le r\lneqq m$.
@@ -703,7 +703,7 @@ $\overline{a+b}=\overline{\overline{a}+\overline{b}}$ and
 $\overline{a\cdot b}=\overline{\overline{a}\cdot \overline{b}}$.
 \medskip
 
-Modular arithmetic is particulary well suited for computers, because the set
+Modular arithmetic is particularly well suited for computers, because the set
 of objects is finite. Binary arithmetic on bits is just arithmetic modulo
 $2$. And standard arithmetic on a 64-bit processor is simply arithmetic
 modulo $2^{64}$.  Modular arithmetic also has important applications in data
