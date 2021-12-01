@@ -30,7 +30,7 @@ function that is to be integrated}.
 If we have one antiderivative, all other antiderivatives will differ by an
 additive constant.\mynote{Formally, we can define an equivalence relation on
 functions as having the same derivative. The equivalence classes then are
-the indefinit integrals.} We therefore often will express indefinite
+the indefinite integrals.} We therefore often will express indefinite
 integrals by giving one representative function, and add a $+C$ to indicate
 that an arbitrary constant could be added. For example:
 \[
@@ -58,11 +58,11 @@ values and to calculate areas~\pointer{RiemannIntegral}.
 
 While calculating derivatives is a straightforward process that can easily
 be automated, calculating antiderivatives is much harder. In particular,
-there are many situations weher it is not possible to give an easy formula
+there are many situations whether it is not possible to give an easy formula
 for an antiderivative of a function given by a formula.
 
 Engineering Calculus courses spend a large amount of time to teach
-strategies that can be used to find antiderivaties in many practical cases.
+strategies that can be used to find antiderivatives in many practical cases.
 However much of this work can be done nowadays by
 computer algebra systems that implement such strategies as well as
 a more generic algorithm (called
@@ -180,7 +180,7 @@ expression involving an integral over another product $f(x)g'(x)$ that
 requires us to find the antiderivative of one factor and replace the other
 factor by its derivative. If this second integral is easier than the first
 one (e.g. if the derivative of $g$ makes some factor disappear), this can be of
-use. Thuis process is called \defini{integration by parts}
+use. This process is called \defini{integration by parts}
 
 For example, consider the integral
 $\displaystyle\int \cos(x)\cdot x\dm{x}$. We set $f(x)=\sin(x)$ and observe
@@ -243,7 +243,7 @@ The process of doing this is called \defini{substitution} since we replace
 an expression in $x$ with a new variable (often called $u$).
 
 However, in practice, it can be an art to
-find the ``correct'' (which is sometimes not obvious) expresion to substitute. A
+find the ``correct'' (which is sometimes not obvious) expression to substitute. A
 regular calculus course will cover many strategies and heuristics for this,
 while this course will only consider basic cases (or situations in which the
 substitution is provided).
@@ -428,7 +428,7 @@ While we can define the area under the graph, we have so far no general
 formula from geometry to calculate it, unless $f$ has a very particular
 form\mynote{say a straight line, or a half-circle}.
 
-But we can approximate or estmate the area by covering it with smaller
+But we can approximate or estimate the area by covering it with smaller
 pieces, whose area we can calculate. In the picture in
 Figure~\ref{figareabelow}, the grid depicted helps with such an
 approximation, giving an area between about 32 and 36 units\mynote{while the
@@ -440,7 +440,7 @@ functions. The approach we shall employ, named \defini{Riemann
 sums}\mynote{named after the German mathematician \textsc{Bernhard Riemann},
 1826-1866} is
 simple enough to allow for an easy description, while allowing for the
-definiton of exact results: We split the area in vertical stripes of equal
+definition of exact results: We split the area in vertical stripes of equal
 width, such that the height of the stripe matches the function value on the
 left side. Figure~\ref{figriemannsums} depicts such approximations for
 $n=1,2,3,4,10,25$ stripes. The area of the stripes becomes a better and
@@ -530,7 +530,7 @@ $\dm{x}$.
 The reader might worry that we now defined the definite integral twice -- once as
 area, and once as limit. Indeed, the proper approach would be to define the
 improper integral as a limit as in definition~\ref{defdefn}, show that it obeys
-the properties, in particular the area aditivity of Note~\ref{defintprop}, and
+the properties, in particular the area additivity of Note~\ref{defintprop}, and
 show that in cases that a graph defines an area that is a geometric object defined
 in school, the geometric area, and the value of the improper integral agree. Doing
 so is not particularly illustrative, and thus we do not do so here.
@@ -590,7 +590,7 @@ green in Figure~\ref{figfundthm}.
 \caption{Proof of the Fundamental Theorem}
 \label{figfundthm}
 \end{figure}
-As $h\to 0$, this area is apprixmated by a single vertical strip of width $h$ and
+As $h\to 0$, this area is approximated by a single vertical strip of width $h$ and
 height $f(x)$, and thus area $f(x)\cdot h$. The quotient thus has the limit
 $f(x)$.\\
 b) By the rules for additivity of area, we have that
@@ -620,17 +620,17 @@ Some examples of applications of definite integrals are:
 \paragraph{Areas and Volumes}
 If we can describe an regions using functions, we can often use integrals to calculate their areas. Building on this we can calculate not
 only the volumes of prisms (area of the base times height), but also volumes of objects that can be built from areas in a regular way --
-pyramids and cones, or volumes obtained by rotating a region throuigh higher dimensional space.
+pyramids and cones, or volumes obtained by rotating a region through higher dimensional space.
 \paragraph{Averages}
 We have already seen that one can define an ``average'' value of a function over an interval as the quotient of the definite integral by
 the interval length. In similar way one can calculate other statistical measures, determine centers of mass, or renormalize functions to
 make them comparable.
 \paragraph{Infinite summations}
 The definition of definite integrals is as limit of a sum. There are other measures that can be described as such a limit -- for example
-the length of a curve, or a more compiclated surface area, and the limit expression then can be interpreted as a definite integral.
+the length of a curve, or a more complicated surface area, and the limit expression then can be interpreted as a definite integral.
 \paragraph{Geometry on Functions}
 What is probably the most important application of definite integrals for
-computer science might also initialy seem the most cryptic one. You will see
+computer science might also initially seem the most cryptic one. You will see
 in Linear Algebra classes, that definite integrals can be used to define an
 ``length'' of functions on an interval $[a,b]$. Concretely, the length of
 the functions $f$ can be defined as
