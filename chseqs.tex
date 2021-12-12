@@ -16,7 +16,7 @@ Sometimes we ignore index $0$ and only consider sequences indexed by strictly po
 integers.
 \end{defn}
 
-The word ``index'' (plural: {\em indices})is the reason for denoting the argument by $i$ (and thus ultimately
+The word ``index'' (plural: {\em indices}) is the reason for denoting the argument by $i$ (and thus ultimately
 the reason why ``i'' is the standard name for a loop variable when programming).
 
 It often is convenient to write indices as subscripts and to write $a_i$ in place of
@@ -39,7 +39,7 @@ With indices arranged easily as $1,2,3,\ldots$, it also can be tempting to write
 giving its first few values, and expecting the reader to identify and continue the
 pattern. For example
 \begin{eqnarray*}
-a_i&:&1,3,5,7,9,1,\ldots\\
+a_i&:&1,3,5,7,9,11,\ldots\\
 b_i&:&10,9,8,7,\ldots\\
 c_i&:&3, 3.1, 3.14, 3.141, 3.1415,\ldots
 \end{eqnarray*}
@@ -55,8 +55,8 @@ which one might guess is given (assume we start indexing at $1$) by the rule $a_
 and has the next value $12$. But one can also argue that the next value is $-17$, based
 on the rule
 \[
-a_i=-\frac{29}{120}x^{5}+\frac{29}{8}x^{4}-\frac{493}{24}x^{3}+\frac{435}{8}x^{2}
--\frac{3853}{60}x+29.
+a_i=-\frac{29}{120}i^{5}+\frac{29}{8}i^{4}-\frac{493}{24}i^{3}+\frac{435}{8}i^{2}
+-\frac{3853}{60}i+29.
 \]
 Such problems therefore only make sense if we ask for the {\em simplest possible} answer
 (however we might want to measure it), which immediately makes it a far more difficult
@@ -370,7 +370,7 @@ seem somewhat complicated, but ultimately evolved (over decades of failed attemp
 This definition also will serve as a model for the formalization of concepts in calculus.
 \medskip
 
-The basic idea is that we want to be able to corral-in the terms of the
+The basic idea is that we want to be able to corral in the terms of the
 sequence at a given time, and then (again at a
 later point in time) make that corral smaller (without moving it around), and
 smaller again.  As time goes on, it will become arbitrary small (and not
@@ -394,7 +394,7 @@ We thus have established criterion for convergence:
 \item There is a number $L$ so that
 \item Given an (arbitrary small) corral size $\varepsilon$
 \item We can find an index (we shall call $N$. This $N$ will depend on $\varepsilon$)
-\item from when on (i.e. for $i\ge N$) all entries $a_i$ of the sequence will be
+\item From when on (i.e. for $i\ge N$) all entries $a_i$ of the sequence will be
 at most $\varepsilon$ away from $L$.
 \end{itemize}
 Or, more formally:
@@ -504,7 +504,7 @@ must be bounded.
 On the other hand, being bounded does not make a sequence
 convergent, as the example $(-1)^i$ shows.
 
-Things however become interesting if a sequence is monotonic and bounded (that is
+Things however become interesting if a sequence is monotonic and bounded (that is,
 increasing and bounded from above, or decreasing and bounded from below). We have the
 following theorem:
 \begin{thm}
