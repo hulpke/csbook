@@ -16,7 +16,7 @@ $\infty$) to the limit of a function at a point.
 \begin{defn}
 Let $f\colon\R\to\R$ be a function and $a\in\R$. If, for every sequence
 $\{a_n\}$ with $\lim_{n\to\infty} a_n=a$, the sequence of function values
-$\{f(a_n\}$ also converges to $L=\lim_{n\to\infty} f(a_n)$, and the limit
+$\{f(a_n)\}$ also converges to $L=\lim_{n\to\infty} f(a_n)$, and the limit
 $L$ does not depend on the choice of the sequence, we call this the limit
 of $f$ at $a$, written
 \[
@@ -79,7 +79,7 @@ We see for example that the ``rounding down''
 function $f(x)=\lfloor x\rfloor$  is not continuous at $1$,
 since the sequence $a_i=1-1/i$ has $\lim_{i\to\infty} a_i=1$, but
 $f(a_i)=f(1-1/i)=\lfloor 1-1/i\rfloor=0$, and thus $\lim_{i\to\infty}
-f(a_i)=0i\not=1=f(1)$.
+f(a_i)=0\not=1=f(1)$.
 \medskip
 
 Informally, a function is continuous, if small changes in the argument imply small
@@ -98,7 +98,7 @@ we study what continuity is good for.
 \subsection{Some continuous functions}
 
 Many functions you know from school are continuous. And due to the laws of
-limits it is not just these functions, but also functions composed by
+limits, it is not just these functions, but also functions composed by
 arithmetic operations (as long as a denominator does not become zero), and
 also compositions of such functions:
 
@@ -252,7 +252,7 @@ and have that the $b_i$ are the *partial sums* over the sequence $a_i$.
 Can we do the same thing backwards? Surely -- solving for $a_i$ finds that
 $$a_i=\sum_{j=1}^ia_i-\sum_{j=1}^{i-1}a_i=b_i-b_{i-1}.$$
 
-The two sequences are thus "related" in that each sequence completely
+The two sequences are thus ``related" in that each sequence completely
 determines the other one and vice versa. We shall call the sequence $\{a_i\}$
 the \defini{derivative sequence} of the sequence $\{b_i\}$ and the sequence
 $\{b_i\}$ 
@@ -291,7 +291,7 @@ Denote the sequence given by the third column in this ledger by $c_i$. We
 note that $c_i$ is built from the *same changes* as $b_i$ is. Thus $a_i$ is
 also the derivative of $c_i$ and $c_i$ is an integral of $a_i$. (That is why
 we said ``an integral'' and not ``the integral''.) It is not hard to see that
-there are many more antiderivatives (namely different starting values in the
+there are many more antiderivatives (namely, different starting values in the
 bank), but that any two antiderivatives simply differ by a constant (namely
 the difference of their starting account values).
 
@@ -360,7 +360,7 @@ Figure~\ref{figpythder2}.
 \label{figpythder2}
 \end{figure}
 
-We note that at these index values (for which the function $bn$ is maximal,
+We note that at these index values (for which the function $b_n$ is maximal,
 respectively minimal), which are aligned along the $x$-axis, the derivative
 is zero. (An eagle-eyed reader might notice that we are slightly cheating
 here: Since we sum up the values of the derivative, the maximum happens at
@@ -622,7 +622,7 @@ f'(x_0)=\sum_{i=1}^n a_i\cdot i\cdot x_0^{i-1}
 
 We have so far, for a given function $f$ defined a derivative at a point
 $x_0$, as the slope of the tangent line to the graph of the function at
-point $(x_0,f(x_0)$ and denoted it as $f'(x_0)$. Assuming the function $f$
+point $(x_0,f(x_0))$ and denoted it as $f'(x_0)$. Assuming the function $f$
 is differentiable at every
 $x_0\in\R$, we can calculate these derivative values $f'(x_0)$ for every
 $x_0$ and consider $f'$ as a function itself (that assigns to $x_0$ the
@@ -641,7 +641,7 @@ We already know how to determine a formula for this derivative function for
 polynomials:
 \begin{bsp}
 Let $f(x)=x^{5}+x^{4}-20x^{3}-20x^{2}+64x+64$.
-Figure~\ref{figmultitangent} shows tangents (green) to the graph (red)of $f$
+Figure~\ref{figmultitangent} shows tangents (green) to the graph (red) of $f$
 at some points. If we determine the slope of these tangents at all points
 $(x,f(x))$, we get the graph (blue) of the derivative $f'(x)$.
 
@@ -672,7 +672,7 @@ derivative. If we look at multiple functions (or functions with a
 parameter), a function expression might contain other symbols, though only
 one will be considered the variable with respect to which we take the
 derivative. In the case of $\displaystyle\frac{\mbox{d}f}{\mbox{d}x}$ this
-variable is $x$,. though one also might write
+variable is $x$, though one also might write
 $\displaystyle\frac{\mbox{d}f}{\mbox{d}a}$ to indicate that the relevant
 variable is called $a$.
 
@@ -984,7 +984,7 @@ prove the result, and making it look as if it was basic arithmetic with
 differentials:
 \[
 \frac{\mbox{d}p}{\mbox{d}x}=
-\frac{\mbox{d}f}{\mbox{d}g}\cdot \frac{\mbox{d}f}{\mbox{d}x}
+\frac{\mbox{d}f}{\mbox{d}g}\cdot \frac{\mbox{d}g}{\mbox{d}x}
 \]
 \end{description}
 In the context of machine learning, the (multi-variable) version of the
@@ -1123,7 +1123,7 @@ and thus the \defini{quotient rule}
 
 All the differentiation rules we have seen so far can be combined into an
 algorithm that provides a purely mechanical way to calculate the derivative
-of a function given by a formula. (Indeed, it is a no-too-hard exercise to
+of a function given by a formula. (Indeed, it is a not-too-hard exercise to
 implement this in a programming language of your choice. The most difficult
 part will actually be to parse a string representing a formula, as to be able
 to take it apart into its constituent parts.)
@@ -1179,7 +1179,7 @@ f^{\prime\prime}(x)=(f'(x))'
 =\frac{\mbox{d}^2}{\mbox{d}x^2}f(x)
 \]
 for this derivative. Similarly we can define third derivatives etc. Since
-the notation of multiple dashes can get overly complicated, one also writes
+the notation of multiple apostrophes can get overly complicated, one also writes
 \[
 f^{(n)}(x)=
 \frac{\mbox{d}^n}{\mbox{d}x^n}f(x)
