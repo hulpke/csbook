@@ -370,6 +370,38 @@ R$) means that the (increasing) diagonal through the origin must be part of the 
 Symmetry means that the graph is symmetric when reflecting along this diagonal.
 (Transitivity is somewhat more complicated and probably less helpful to visualize.)
 
+%rest of section by MM
+
+We have in fact seen an example of a binary relation in the previous chapter: the relation ``is a subset of" between two sets.
+Let $X$ be a set, and recall that the power set $\mathcal{P}(X) = \{S \mid S \subset X\}$ is the set of all subsets of $X$.
+We can define a binary relation $R = \{ (S,T) \in \mathcal{P}(X) \times \mathcal{P}(X) \mid S \subset T \}$, but we will normally simply write $S \subset T$ to indicate that $(S,T) \in R$.
+This relation is reflexive, since $A \subset A$ for all $A \in \mathcal{P}(X)$.
+It is antisymmetric, since $A=B$ if and only if $A\subset B$ and $B \subset
+A$ (see Lemma~\ref{lemseteq}).
+Finally, we can show that it is transitive: if $A \subset B$ and $B \subset C$, then for any $a \in A$, we must have $a \in B$ since $A \subset B$, and this implies $a \in C$ since $B \subset C$.  Therefore, we conclude $A \subset C$, so the relation is transitive.
+
+%\michael{It seems like it would be easy to introduce partial orders here, since the properties ``reflexive," ``antisymmetric," and ``transitive" have already been introduced. Can choose one of the following subsections based on whether to officially introduce partial orders.}
+
+%\subsection{Option introducing partial orders}
+
+%Relations that are reflexive, antisymmetric, and transitive are called \textit{partial orders}, as they provide a way to order, or compare, certain elements of a set.
+%We showed above that the subset relation on $\mathcal{P}(X)$ is a partial order.
+%Note that in this case, we cannot necessarily compare any two given elements.
+%For instance, if $X = \{ 1,2,3 \}$, then the subsets $A = \{ 1,2 \}$ and $B = \{ 2,3 \}$ are not comparable, as $A$ is not a subset of $B$ and $B$ is not a subset of $A$.
+%This example can be visualized using the Hasse diagram in \michael{reference figure I.1}.
+%The ``smaller than or equal to" relation $\leq$ on $\mathbb{Q}$ is also a partial order, as described above, and this provides one of the most familiar examples of ordering the elements of a set.
+%In this case, any two numbers in $\mathbb{Q}$ can be compared.
+%Similarly, we have a ``smaller than or equal to" relation on the integers $\mathbb{Z}$, the natural numbers $\mathbb{N}$, or the real numbers $\mathbb{R}$, and it can be checked that these relations are reflexive, antisymmetric, and transitive as well.
+
+Compare this example to the ``smaller than or equal to" relation $\leq$ on $\mathbb{Q}$, which, as we saw above, is also reflexive, antisymmetric, and transitive.
+In the case of $\mathbb{Q}$ with the $\leq$ relation, any two elements can be compared.
+That is, for any $x,y \in \mathbb{Q}$, we have either $x \leq y$ or $y \leq x$ (or both if $x=y$).
+Both of these relations provide some sort of comparison of the relative size of two objects.
+However, in the case of $\mathcal{P}(X)$ with the $\subset$ relation, only certain pairs of elements can be compared; we cannot necessarily compare any two arbitrary elements.
+For instance, if $X = \{ 1,2,3 \}$, then the subsets $A = \{ 1,2 \}$ and $B = \{ 2,3 \}$ are not comparable, as $A$ is not a subset of $B$ and $B$ is not a subset of $A$.
+This example can be visualized using the Hasse diagram in 
+Figure~\ref{fighasse3set}.
+
 \section{Equivalence Relations, Equivalence Classes and Partitions}
 \label{secequiv}
 
@@ -673,6 +705,7 @@ If the number $m$ is chosen and fixed, sometimes the convention is used to
 denote this remainder $r$ by $\overline a$.
 
 \subsection{Modular Arithmetic}
+\label{secmodular}
 
 We now define arithmetic on the equivalence classes by the following rules:
 \begin{eqnarray*}
@@ -781,4 +814,25 @@ x&=&\overline{3}\\
 \end{array}
 \end{eqnarray*}
 
+\subsection{Application: Divisibility Criteria}
 
+%by MM
+
+Modular arithmetic can be used to justify the following well-known test for divisibility by 3: a positive integer is divisible by 3 if and only if the sum of its digits is divisible by 3.  
+For instance, to determine if the number 12345 is divisible by 3, we may add the digits: $1+2+3+4+5 = 15$, and since 15 is divisible by 3, we know 12345 is divisible by 3.
+The same test also works with 3 replaced by 9 (so for instance, 12345 is not divisible by 9 because 15 is not divisible by 9).
+
+We may prove this fact using arithmetic modulo 3.
+First, we notice that $10 = 1 \hspace{.15cm} \text{(mod 3)}$.  
+This means that $10^a = 1$ for any integer $a \geq 0$, since we have $10^2 = 10 \cdot 10 = 1 \cdot 1 = 1 \hspace{.15cm} \text{(mod 3)}$ and $10^3 = 10 \cdot 10 \cdot 10 = 1 \cdot 1 \cdot 1 = 1 \hspace{.15cm} \text{(mod 3)}$ and so on.
+Now suppose we have an $n$-digit positive integer $x$ written as $d_{n-1} \dots d_1 d_0$, where each $d_i$ is a digit from 0 to 9.
+Then 
+\[x = d_{n-1}10^{n-1} + \dots + d_1 10^1 + d_0 10^0,\]
+and since modular arithmetic is compatible with the usual operations of addition and multiplication,
+\[x = d_{n-1}10^{n-1} + \dots + d_1 10^1 + d_0 10^0 = d_{n-1}+ \dots + d_1  + d_0 \hspace{.25cm} \text{(mod 3)}.\]
+A number is divisible by 3 exactly when it is equal to 0 modulo 3, so the equation above tells us that $x$ is divisible by 3 if and only if the sum of its digits is divisible by 3.
+The same reasoning works with 9 in place of 3, since $10 = 1\hspace{.15cm} \text{(mod 9)}$ as well.
+
+A similar idea can be used to construct divisibility tests for other numbers as well, although these will often be more complicated than for 3 or 9.
+For instance, the reader may use arithmetic modulo 11 to verify the following test for divisibility by 11: a positive integer is divisible by 11 if and only if the \textit{alternating sum} of its digits is divisible by 11. 
+Here, an alternating sum means we alternate between addition and subtraction, so the alternating sum of the digits of the number $d_{n-1} \dots d_1 d_0$ is given by $d_0 - d_1 + d_2 - \dots + (-1)^{n-1} d_{n-1}$.

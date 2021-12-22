@@ -196,6 +196,7 @@ Since membership test is the basic operation for sets, one often reduces
 equality of sets to two subset test:
 \begin{lemma}
 %\method{test equality of sets}
+\label{lemseteq}
 Let $A,B$ two sets. Then $A=B$ if and only if $A\subset B$ and $B\subset A$.
 \end{lemma}
 \begin{proof}
@@ -416,7 +417,8 @@ b) Exercise
 \label{figvenndist}
 \end{figure}
 
-\subsection{De Morgan's Laws}
+\subsection{De~Morgan's Laws}
+\label{demorganlaws}
 
 Next we look at rules to simplify complement operations
 
@@ -424,11 +426,11 @@ Next we look at rules to simplify complement operations
 \begin{center}
 \includegraphics[width=6cm]{pic/VennDeMorganLaws.pdf}
 \end{center}
-\caption{De Morgan's Laws for Sets}
+\caption{De~Morgan's Laws for Sets}
 \label{figdemorganset}
 \end{figure}
 
-\begin{thm}[De Morgan's laws]
+\begin{thm}[De~Morgan's laws]
 Let $U$ be a set (a universe) with $A,B\subset U$.
 Then (Figure~\ref{figdemorganset}):\\
 a) $(A\cup B)^\mycomplement=A^\mycomplement\cap B^\mycomplement$.\\
@@ -490,6 +492,7 @@ If we imagine a Venn diagram of the sets, the disjunctive normal form
 describes how the set can be composed from minimal intersecting parts.
 
 \section{Connections to Logic}
+\label{seclogic}
 
 The distributive laws and De Morgan laws might to some readers look very
 similar to statements about operations in logic. Here we have truth values
@@ -529,6 +532,62 @@ Such a form can be useful in evaluating the truth value of a more
 complicated logical expression, and there is a method (called the
 {\em Quine-McCluskey algorithm}) to convert a logical expression into a
 unique, minimal disjunctive normal form.
+
+%rest of section by MM
+We illustrate De~Morgan's laws and the distributive laws 
+(Section~\ref{demorganlaws})
+with an example.
+Let $U = \{ x \in \mathbb{Z} \mid 0 \leq x \leq 9 \} = \{0,1, \dots, 9\}$.
+For this example, we will take complements of subsets of $U$.
+Let 
+\[A = \{ x \in U \mid 0 \leq x \leq 4 \} = \{ 0, 1, 2, 3, 4 \}\] 
+\[B = \{ x \in U \mid x \text{ is even}\} = \{0,2,4,6,8\}.\]
+For visualization, we can imagine the numbers in $A$ are colored red and the numbers in $B$ are written larger:
+\[
+\big\{\,
+\textcolor{red}{\Large \textbf{0}},\textcolor{red}{1},\textcolor{red}{\Large\textbf{2}},\textcolor{red}{3},\textcolor{red}{\Large\textbf{4}},5,\textbf{\Large6},7,\textbf{\Large8},9
+\,\big\}.
+\]
+We can use the first of De~Morgan's laws to find
+\[
+(A \cup B)^\mycomplement = A^\mycomplement \cap B^\mycomplement = \{ 5,6,7,8,9 \} \cap \{ 1,3,5,7,9 \} = \{ 5,7,9 \}.
+\]
+Viewing this in terms of operations in logic, we can interpret $A^\mycomplement \cap B^\mycomplement$ as the set of numbers in $U$ that are not red and not large.
+This is in fact the complement of $A \cup B = \{ 0,1,2,3,4,6,8 \}$, which is the set of numbers in $U$ that are red or large (or both).
+De~Morgan's law is simply an observation that such statements are two different ways to identify the same set.
+
+Similarly, by applying the second of De~Morgan's laws, we find
+\[
+(A \cap B)^\mycomplement = A^\mycomplement \cup B^\mycomplement = \{ 5,6,7,8,9 \} \cup \{ 1,3,5,7,9 \} = \{ 1,3,5,6,7,8,9 \},
+\]
+and this is in fact the complement of $A \cap B = \{ 0,2,4 \}$.
+We may interpret this second law as saying that the set of numbers in $U$ that are not both red and large is the same as the set of numbers that are not red or not large.
+
+For an example of the distributive laws, let $C = A^\mycomplement = \{ 5,6,7,8,9 \}$; these are the numbers in $U$ that are not red.
+Then
+\[
+A \cap (B \cup C) = \{ 0,1,2,3,4 \} \cap \{ 0,2,4,5,6,7,8,9 \} = \{ 0,2,4 \}
+\]
+and
+\[
+(A \cap B)\cup(A \cap C) = \{ 0,2,4 \} \cup \varnothing = \{ 0,2,4 \},
+\]
+so the distributive law $A \cap (B \cup C) = (A \cap B)\cup(A \cap C)$ holds.
+Again, we may reinterpret this law as a logical statement, and each piece of the equations above can be described in these terms. 
+For instance, $A \cap C$ is the set of numbers in $U$ that are both red and not red, and therefore this is the empty set.
+
+
+Likewise, we can verify that the other distributive law holds as well, since
+\[
+A \cup (B \cap C) = \{ 0,1,2,3,4 \} \cup \{ 6,8 \} = \{ 0,1,2,3,4,6,8 \}
+\]
+and
+\[
+(A \cup B)\cap(A \cup C) = \{0,1,2,3,4,6,8\} \cap U = \{0,1,2,3,4,6,8\},
+\]
+and thus $A \cup (B \cap C) = (A \cup B)\cap(A \cup C)$.
+
+
 
 \section{Predicate Logic and Quantifiers}
 

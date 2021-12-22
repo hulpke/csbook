@@ -359,6 +359,41 @@ $\lim\limits_{i\to\infty} b_i=B$. Then
 \end{lemma}
 These laws explicitly require finite limits and do not necessarily generalize
 to limits of infinity.
+\bigskip
+
+%rest by MM
+We illustrate these limit rues with a few examples.
+For instance, we may compute:
+\[
+\lim_{i \to \infty} \left( \frac{i+1}{i} + \frac{i^2-2}{2i^2+i} \right)
+= \lim_{i \to \infty}  \frac{i+1}{i} + \lim_{i \to \infty} \frac{i^2-2}{2i^2+i} 
+= 1 + \frac{1}{2} 
+= \frac{3}{2}
+\]
+where we have used the rule for a limit of a sum, followed by two applications of the rule for quotients of polynomials.
+Alternately, we obtain the same answer if we first simplify the sum:
+\[
+\lim_{i \to \infty} \left( \frac{i+1}{i} + \frac{i^2-2}{2i^2+i} \right)
+= \lim_{i \to \infty} \frac{(i+1)(2i+1)+i^2-2}{2i^2+i}
+= \lim_{i \to \infty} \frac{3i^2+3i-1}{2i^2+i}
+=\frac{3}{2}.
+\]
+
+We can also use these rules to help us determine limits of other types of sequences.
+For instance, since $i! \geq i$ for all positive integers $i$, we have $\frac{1}{i!} \leq \frac{1}{i}$ for each $i$. 
+Furthermore, $\left( \frac{1}{i!} \right)$ is a sequence consisting of all positive numbers, so it cannot converge to a negative number.
+So we find
+\[
+0 \leq \lim_{i \to \infty} \frac{1}{i!} \leq \lim_{i \to \infty} \frac{1}{i} = 0,
+\]
+and therefore $\lim_{i \to \infty} \frac{1}{i!} = 0$.
+Similarly, since $2^i \geq i$ for all positive integers $i$, we have $\left(\frac{1}{2}\right)^i \leq \frac{1}{i}$ for each $i$.
+Thus,
+\[
+0 \leq \lim_{i \to \infty} \left(\frac{1}{2}\right)^i \leq \lim_{i \to \infty} \frac{1}{i} = 0,
+\]
+so we conclude $\lim_{i \to \infty} \left(\frac{1}{2}\right)^i = 0$.
+More generally, $\lim_{i \to \infty} r^i = 0$ if $|r|<1$.
 
 \subsection{Proving Limits}
 
@@ -1115,6 +1150,24 @@ overtakes!) the Tortoise}. The paradox arises from the implicit
 (and wrong, as we have calculated!)
 suggestion, that it describes the events for all time.
 %\end{Example}
+\bigskip
+
+%example by MM
+An example of geometric series arising in different areas of mathematics is
+the following simple application of an infinite geometric series in probability.
+
+Suppose Player A and Player B play a game where they take turns flipping a coin.
+Player A flips first, and the first person to flip a heads is declared the winner.
+What is the probability Player A wins?
+
+We consider the possible scenarios in which Player A wins.
+First, it is possible Player A flips a heads on the first flip: the probability this happens is $\frac{1}{2}$.
+Next, in order for Player A to win on their second flip, both Player A and Player B would need to have flipped a tails on their first flip.
+In this case, the sequence of flips must have been TTH, and the probability that this happens is $\frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2} = \frac{1}{8}$.
+Similarly, the next possible sequence of flips resulting in a win for Player A is TTTTH, and the probability that this happens is $\left( \frac{1}{2} \right)^5 = \frac{1}{32}$.
+We can recognize the pattern and generalize: the probability that Player A wins by flipping a heads after $2i$ tails have been flipped is $\left( \frac{1}{2} \right)^{2i+1}$, so the total probability that Player A wins is given by the infinite geometric series 
+\[\frac{1}{2} + \frac{1}{8} + \frac{1}{32} + \frac{1}{128} + \, \dots \,  = \sum_{i=0}^\infty \left( \frac{1}{2} \right)^{2i+1} = \sum_{i=0}^\infty \frac{1}{2} \left( \frac{1}{4} \right)^i = \frac{\frac{1}{2}}{1-\frac{1}{4}} = \frac{2}{3}.
+\]
 
 \section{Arithmetic Series}
 

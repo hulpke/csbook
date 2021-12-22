@@ -465,6 +465,38 @@ constants or multiplying with a scaling factor as we did in the previous
 section \mynote{these are called \defini{linear} functions}, the effect of
 composition on the graph of a function is more complicated than can be
 described by easy rules.
+\bigskip
+
+% rest by MM
+In cases where functions are given by formulas, we may compose two functions by substituting the formula for one into the other.
+For instance, if $f \colon \mathbb{R} \to \mathbb{R}$, $f(x)=\frac{x+1}{x^2+1}$ and $g \colon \mathbb{R} \to \mathbb{R}$, $g(x) = x-2$, then 
+\[
+f \circ g(x) = f(g(x)) = f(x-2) = \frac{(x-2)+1}{(x-2)^2+1}=\frac{x-1}{x^2-4x+5}
+\]
+and
+\[
+g \circ f(x) = g(f(x)) = g\left(\frac{x+1}{x^2+1} \right) = \frac{x+1}{x^2+1} -2 = \frac{x+1 - 2(x^2+1)}{x^2+1} = \frac{-2x^2+x-1}{x^2+1}.
+\]
+
+We should note that $f \circ g$ and $g \circ f$ here are different functions (they take different values at $x=1$, for instance).
+In general, composing two functions in opposite orders will often result in different functions; this should match our intuition from everyday life, in which doing the same actions in different orders can produce different results.
+
+This technique of finding composite functions by substituting formulas also applies to functions defined using modular arithmetic.
+For instance, let $X = \{ \overline{0}, \overline{1}, \dots, \overline{9}\}$ be the set of equivalence classes of integers modulo 10.
+Using arithmetic modulo 10, let $f \colon X \to X$, $f(x) = \overline{3}\cdot x + \overline{1}$ and let $g \colon X \to X$, $g(x) = \overline{5} \cdot x+\overline{8}$.
+Then
+\[
+f \circ g(x) = f(g(x)) = f(\overline{5} \cdot x+\overline{8}) = \overline{3}\cdot (\overline{5} \cdot x+\overline{8}) + \overline{1}
+= \overline{15} \cdot x + \overline{25} = \overline{5} \cdot x + \overline{5}
+\]
+and
+\[
+g \circ f(x) = g(f(x)) = g(\overline{3}\cdot x + \overline{1}) = \overline{5} \cdot (\overline{3}\cdot x + \overline{1})+\overline{8}
+= \overline{15}\cdot x + \overline{13}
+= \overline{5}\cdot x + \overline{3}.
+\]
+Once again, the functions $f \circ g$ and $g \circ f$ are different.
+
 
 \section{Properties of Functions}
 
@@ -672,6 +704,82 @@ $x\to x^3$ is onto and one-to-one, and its inverse will be the function
 $f_1^{-1}\colon\R\to\R$, $x\mapsto\sqrt[3]{x}$. But the function $f_5\colon\R\to\R$,
 $x\mapsto x^3+x$ is also one-to-one and  onto, but we will be hard pressed to solve
 $a^3+a=b$ for $a$.
+
+% rest of section by MM
+\subsection{Two examples}
+
+\paragraph{Lines in the plane}
+Consider the function $f \colon \mathbb{R} \to \mathbb{R}$ given by $f(x) = 2x+3$.
+We could plot this in the $xy$-plane as $y=2x+3$, a line with a slope of 2 and a $y$-intercept of 3.
+Visually, this function appears to be both one-to-one and onto, so we can attempt to verify this by finding an inverse.
+We thus solve for $x$:
+\[
+2x+3 = f(x)
+\]
+\[
+2x = f(x)-3
+\]
+\[
+x = \frac{1}{2}f(x) - \frac{3}{2}.
+\]
+Therefore, the inverse function $f^{-1} \colon \mathbb{R} \to \mathbb{R}$ is given by $f^{-1}(x) = \frac{1}{2}x - \frac{3}{2}$.
+It can be checked that $f \circ f^{-1}$ and $f^{-1} \circ f$ are both the identity function on $\mathbb{R}$.  That is, $f(f^{-1}(x)) = x$ and $f^{-1}(f(x))=x$.
+
+More generally, we can consider any function $g \colon \mathbb{R} \to \mathbb{R}$ given by $g(x) = ax+b$, where $a,b \in \mathbb{R}$ are constants.  
+Functions of this form are simple examples of polynomials, and they often appear in practice when data is scaled and shifted.
+For instance, the function that converts a temperature from degrees Celsius to degrees Fahrenheit is $x \mapsto \frac{9}{5} x + 32$.
+We should expect that this function is a bijection since we should be able to express any temperature uniquely in either degrees Celsius or degrees Fahrenheit.
+Many other unit conversions are in this form as well.
+
+We may attempt to find an inverse for the function $g(x) = ax+b$ in the same way as above:
+\[
+ax+b = g(x)
+\]
+\[
+ax=g(x)-b
+\]
+\[
+x = \frac{1}{a}g(x)-\frac{b}{a}
+\]
+where the last step is valid as long as $a \neq 0$.
+This shows that if $a \neq 0$, then the inverse function $g^{-1} \colon \mathbb{R} \to \mathbb{R}$ is given by $g^{-1}(x) = \frac{1}{a}x-\frac{b}{a}$.
+If $a=0$, then $g$ does not have an inverse because it is not one-to-one: it is the constant function $g(x)=b$.
+
+For the example $x \mapsto \frac{9}{5} x + 32$ above, which converts from degrees Celsius to degrees Fahrenheit, we find that the inverse function is $x \mapsto \frac{5}{9} x - 32 \cdot \frac{5}{9}$, which converts back from degrees Fahrenheit to degrees Celsius.
+
+\paragraph{A function on integers mod 7}
+
+Let $X = \{ \overline{0}, \overline{1}, \overline{2}, \overline{3}, \overline{4}, \overline{5}, \overline{6}\}$ be the set of equivalence classes of integers modulo 7.
+We define a function $f \colon X \to X$ by $f(x) = \overline{2} \cdot x$, where multiplication is modulo 7.
+We can calculate this function for each value in $X$:
+\[
+f(\overline{0}) = \overline{0}, \hspace{.3cm}
+f(\overline{1}) = \overline{2}, \hspace{.3cm}
+f(\overline{2}) = \overline{4}, \hspace{.3cm}
+f(\overline{3}) = \overline{6}, \hspace{.3cm}
+f(\overline{4}) = \overline{1}, \hspace{.3cm}
+f(\overline{5}) = \overline{3}, \hspace{.3cm}
+f(\overline{6}) = \overline{5}
+\]
+We can verify from the above that $f$ is onto, since each element of $X$ is the image of some element, and $f$ is one-to-one, since no two elements of $X$ yield the same value of $f$.
+Therefore $f$ is a bijection.
+Note by Lemma~\ref{lemoneonto},
+it would be enough to check that $f$ is either onto or one-to-one, as the other is then implied.
+
+Since $f$ is a bijection, it must have an inverse function.
+We could write down the values of the inverse using the values of $f$ above, but in this case the inverse has a particularly nice description.
+Recall from Section~\ref{secmodular}
+that in arithmetic modulo 7, each nonzero number can be inverted.
+In particular, the class $\overline{2}$ has an inverse of $\overline{4}$, which means $\overline{2} \cdot \overline{4} = \overline{1}$.
+So if we define $g \colon X \to X$ by $g(x) = \overline{4} \cdot x$, we find
+\[
+f(g(x)) = f(\overline{4} \cdot x) = \overline{2} \cdot \overline{4} \cdot x = \overline{1} \cdot x = x
+\]
+and
+\[
+g(f(x)) = g(\overline{2} \cdot x) = \overline{4} \cdot \overline{2} \cdot x = \overline{1} \cdot x = x.
+\]
+Therefore $g = f^{-1}$.
 
 \section{Counting and Cardinality}
 \label{defcardinality}
