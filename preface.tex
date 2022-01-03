@@ -1,8 +1,10 @@
 \chapter{Preface}
 
-For many decades, Calculus has been the epitome of College level mathematics.
-This is due to its undoubted usefulness in modelling the physical world for
-applications in Engineering and in the Physical Sciences.
+For many decades, Calculus has been the epitome of College level
+mathematics and the $800$lb gorilla --- make that a $800/\varepsilon$ lb
+gorilla ---  of challenging STEM classes.
+This is due to its undoubted usefulness in modeling the physical world for
+applications in Engineering and in the Physical Sciences. 
 
 But this apex role, and the associated standardization of the subject as seen
 in the manifold Calculus textbooks on the market, have led to a number of
@@ -22,42 +24,89 @@ heavily reliant on being able to execute recipe methods for finding
 computer programs.
 \item 
 With standard problems and scores providing an easy grade distribution, and
-asa a class with a significant failure rate, Calculus is often abused as a
+as a a class with a significant failure rate, Calculus is often abused as a
 filter, standing in as a test for study skills and {\em grit}.
 \end{itemize}
 All of this makes the standard Calculus course an awkward choice for majors
 in disciplines that focus on data analysis and information processing --
-disciplines that barely existed when the standard Calculus sequence was
-created.
+disciplines that barely existed when todays standard Calculus sequence was
+created. The huge amount of material that is at best peripherally relevant,
+\medskip
 
 This book therefore takes a new approach to an introductory College
 mathematics course for students in Computational Science disciplines: It
 starts with mathematical foundations, sufficient to enable students to take
+subsequently
 more advanced courses such as Linear Algebra, Combinatorics, Elementary
 Number Theory, or Abstract Algebra, which are highly relevant to their major.
-It then presents 
 
-The focus here is on functions as data, and what Calculus tools can do
-conceptionally, rather than on modelling physical phenomena or practicing
+Overall, the focus is on functions as data, and what Calculus tools can do
+conceptionally, rather than on modeling physical phenomena or practicing
 manipulation of functions given through term expressions. Nor shall we delve
 into the borderline cases of the definitions -- such as functions that are
 once but not twice differentiable, discontinuities for the sake of being
 discontinuous, or the behavior of series on the circle of convergence.
 
-This does not mean that we will be superficial. We shall cover the concepts
+This does not mean that we will be superficial. We cover most concepts
 from univariate calculus, with applications to, and as relevant to,
 Computational Science, but we do not focus on solving the ``standard''
 problems one will find on a typical Calculus exam.
+\medskip
 
+Compared with a ``classical'' Calculus course, the concept of discontinuous
+or non-differential functions is deemphasized -- data is discrete and as
+such always differentiable. Nor is the rote training of calculating
+(anti)derivatives touched upon -- appropriately for computational
+applications we present symbolic differentiation as an algorithm.  Limits
+occur mainly in the context of asymptotic growth classes as needed for
+computational complexity.  Taylor polynomials introduce the concept of
+approximation and error estimations for desired accuracy. They also serve to
+justify statements about the derivatives of elementary functions and to
+introduce relevant manipulations of power series.
 
+The fundamental theorem of calculus, and basic integration techniques are
+introduced, but the underlying assumption is that students will never
+have to calculate an antiderivative by hand.
+\medskip
 
+This reflects my experience as a professional mathematician in an
+area\mynote{Abstract Algebra, concretely Computational Group Theory}
+close to Theoretical Computer Science: Since the third year of College I
+have, outside teaching a Calculus class myself, not
+encountered the need to calculate a symbolic (anti-)derivative, prove
+convergence of a series, or work around a one-sided limit.
+\smallskip
+
+Forcing students to master these techniques, that they will never need
+professionally, is a disservice. While progress in the 19th and 20th Century 
+was ultimately shaped through classical Engineering,  the 21st Century has
+shown itself to be built on understanding and manipulating data. This book
+presents Calculus fit for this time.
+
+On the other hand, it
+needs to be clear that disciplines built on describing the physical world.
+through differential equations might find the version of Calculus presented
+here as too weak. 
+\medskip
+
+Still, I can imagine, and indeed would welcome, if this version of Calculus
+would be of use for other disciplines, and I hope that students and
+instructors will find it a useful addition to the existing market of
+Calculus books.
 
 \section*{Thanks}
 
-
-I am grateful to Kirk Bonney, Harley Meade, Michael Moy, Tristan Neighbors
-and  Rachel Tremaine, graduate students at CSU, who corrected mistakes,
+I am immensely grateful to Kirk Bonney, Harley Meade, Michael Moy, Tristan Neighbors
+and  Rachel Tremaine, graduate students in the mathematics department at
+Colorado State University, who corrected mistakes,
 provided examples and applications, as well as alternative text for graphics.
+
 Their work was supported by an Open Educational Materials grant from the
 Colorado Department of Higher Education, administered through the CSU
 Libraries, which is gratefully acknowledged.
+
+\bigskip
+
+Fort Collins, CO, in January 2022,
+
+Alexander Hulpke
