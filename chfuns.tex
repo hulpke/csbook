@@ -31,7 +31,10 @@ See \figuref{figgeneralfct} for illustration.
 
 \begin{figure}[t]
 \begin{center}
-\includegraphics[width=6cm]{pic/GeneralFct.pdf}
+%\includegraphics[width=6cm]{pic/GeneralFct.pdf}
+\anngraphics{6cm}{pic/GeneralFct.pdf}{Arrows are drawn from points within a
+cloud labelled Domain (Source) to a subset of points within a cloud labelled
+Target. The subset is the Image, or Range.}
 \end{center}
 \caption{A function}
 \label{figgeneralfct}
@@ -132,7 +135,10 @@ Or someone might draw the function pictorially, as in
 \figuref{figfroghorsesheep}.
 \begin{figure}[t]
 \begin{center}
-\includegraphics[width=6cm]{pic/AnimalColor.pdf}
+%\includegraphics[width=6cm]{pic/AnimalColor.pdf}
+\anngraphics{6cm}{pic/AnimalColor.pdf}{Arrows are drawn from "frog" in the
+Domain to "green" in the Range, from "horse" in the Domain to "red" in the
+Range, and from "sheep" in the Domain to "blue" in the Range.}
 \end{center}
 \caption{A function assigning colors to animals}
 \label{figfroghorsesheep}
@@ -342,45 +348,63 @@ function. It is called a \defini{rational function}.
 \begin{tabular}{lll}
 \begin{minipage}[t]{3.5cm}
 a) $f(x)=x^3-3x^2+2$\\
-\includegraphics[width=3cm]{pic/fctshift0.png}
+%\includegraphics[width=3cm]{pic/fctshift0.png}
+\anngraphics{3cm}{pic/fctshift0.png}{Original function graph}
 \end{minipage}&\begin{minipage}[t]{3.5cm}
 b) $f(x)+1$\\
-\includegraphics[width=3cm]{pic/fctshift1.png}
+%\includegraphics[width=3cm]{pic/fctshift1.png}
+\anngraphics{3cm}{pic/fctshift1.png}{Graph shifted up one unit}
 \end{minipage}&\begin{minipage}[t]{3.5cm}
 c) $f(x)-3$\\
-\includegraphics[width=3cm]{pic/fctshift2.png}
+%\includegraphics[width=3cm]{pic/fctshift2.png}
+\anngraphics{3cm}{pic/fctshift2.png}{Graph shifted down 3 units}
 \end{minipage}\\
 \\
 \begin{minipage}[t]{3.5cm}
 d) $-f(x)$\\
-\includegraphics[width=3cm]{pic/fctshift3.png}
+%\includegraphics[width=3cm]{pic/fctshift3.png}
+\anngraphics{3cm}{pic/fctshift3.png}{Graph reflexted on x axis}
 \end{minipage}&\begin{minipage}[t]{3.5cm}
 e) $2-f(x)$\\
-\includegraphics[width=3cm]{pic/fctshift4.png}
+%\includegraphics[width=3cm]{pic/fctshift4.png}
+\anngraphics{3cm}{pic/fctshift4.png}{Graph reflexted on x axis and shifted
+up 2 units}
 \end{minipage}&\begin{minipage}[t]{3.5cm}
 f) $2f(x)$\\
-\includegraphics[width=3cm]{pic/fctshift10.png}
+%\includegraphics[width=3cm]{pic/fctshift10.png}
+\anngraphics{3cm}{pic/fctshift10.png}{Graph stretched vertically by a factor
+of 2}
 \end{minipage}\\
 \\
 \begin{minipage}[t]{3.5cm}
 g)$-1/3\cdot f(x)$\\
-\includegraphics[width=3cm]{pic/fctshift11.png}
+%\includegraphics[width=3cm]{pic/fctshift11.png}
+\anngraphics{3cm}{pic/fctshift11.png}{Graph flipped vertiocally and
+compressed by a factor of 3}
 \end{minipage}&\begin{minipage}[t]{3.5cm}
 h) Sum of $f(x)$ and $x^2$\\
-\includegraphics[width=3cm]{pic/fctshift9.png}
+%\includegraphics[width=3cm]{pic/fctshift9.png}
+\anngraphics{3cm}{pic/fctshift9.png}{The original graph in red, the parabola
+y=x^2 in blue, and their sum x^3-2x^2+2 in green}
 \end{minipage}&\begin{minipage}[t]{3.5cm}
 i) $f(x+2)$\\
-\includegraphics[width=3cm]{pic/fctshift6.png}
+%\includegraphics[width=3cm]{pic/fctshift6.png}
+\anngraphics{3cm}{pic/fctshift6.png}{Graph shifted 2 units left}
 \end{minipage}\\
 \begin{minipage}[t]{3.5cm}
 j)$f(x-1)$\\
-\includegraphics[width=3cm]{pic/fctshift5.png}
+%\includegraphics[width=3cm]{pic/fctshift5.png}
+\anngraphics{3cm}{pic/fctshift5.png}{Graph shifted 1 units right}
 \end{minipage}&\begin{minipage}[t]{3.5cm}
 k) $f(\frac{2}{3}x)$\\
-\includegraphics[width=3cm]{pic/fctshift12.png}
+%\includegraphics[width=3cm]{pic/fctshift12.png}
+\anngraphics{3cm}{pic/fctshift12.png}{Graph stretched horizontally (by a
+factor 3/2)}
 \end{minipage}&\begin{minipage}[t]{3.5cm}
 l) $f(-\frac{3}{2}x)$\\
-\includegraphics[width=3cm]{pic/fctshift13.png}
+%\includegraphics[width=3cm]{pic/fctshift13.png}
+\anngraphics{3cm}{pic/fctshift13.png}{Graph flipped along the y-axis and
+compressed horizontally}
 \end{minipage}\\
 \end{tabular}
 \end{center}
@@ -531,7 +555,16 @@ term \defini{surjective}), if every element of $B$ is obtained as an image, that
 
 \begin{figure}[t]
 \begin{center}
-\includegraphics[width=\the\textwidth]{pic/OntoPics.pdf}
+%\includegraphics[width=\the\textwidth]{pic/OntoPics.pdf}
+\anngraphics{\the\textwidth}{pic/OntoPics.pdf}{Each of four diagrams
+contains two ovals, labelled A and B respectively. In the diagram labelled
+"onto", arrows are drawn from all 5 points in A to all 4 points in B. In the
+diagram labelled "not onto", arrows are drawn from each of the 5 points in A
+to 3 of the 4 points in B. In the diagram labelled "one-to-one", arrows are
+drawn from each of the 4 points in A to four of five separate points in B.
+In the diagram labelled "not one-to-one", arrows are drawn from each of the
+4 points in A to 3 of the 5 points in B, resulting in two points from A
+being mapped to the same point in B.}
 \caption{Onto and One-To-One}
 \label{figoneonto}
 \end{center}
@@ -541,7 +574,10 @@ The left two images in Figure~\ref{figoneonto} illustrate the concept.
 
 \begin{figure}[t]
 \begin{center}
-\includegraphics[width=8cm]{pic/OneToOneOnto.pdf}
+%\includegraphics[width=8cm]{pic/OneToOneOnto.pdf}
+\anngraphics{8cm}{pic/OneToOneOnto.pdf}{The concepts of "onto" and
+"one-to-one" are illustrated through the graphs of four functions defined on
+the real numbers.}
 \caption{Onto and One-To-One for functions $\R\to\R$}
 \label{figoneontofcts}
 \end{center}
