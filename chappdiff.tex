@@ -30,17 +30,17 @@ with sequences:
 Let $D\subset\R$ and $f\colon D\to\R$ a differentiable function and $x_0\in
 D$. We say that $f$ is
 \begin{description}
-\item[\defini{increasing} at $x_0$] if $f(x_0)\ge 0$.
-\item[\defini{strictly increasing} at $x_0$] if $f(x_0)\gneqq 0$.
-\item[\defini{decreasing} at $x_0$] if $f(x_0)\le 0$.
-\item[\defini{strictly decreasing} at $x_0$] if $f(x_0)\lneqq 0$.
+\item[\defini{increasing} at $x_0$] if $f'(x_0)\ge 0$.
+\item[\defini{strictly increasing} at $x_0$] if $f'(x_0)\gneqq 0$.
+\item[\defini{decreasing} at $x_0$] if $f'(x_0)\le 0$.
+\item[\defini{strictly decreasing} at $x_0$] if $f'(x_0)\lneqq 0$.
 \end{description}
 We say that $f$ is increasing (\& c.) on $D$, if it its increasing
 (\& c.) at every $x_0\in D$
 \end{defn}
 Note that $f$ is increasing on $D$ if $f(a)\ge f(b)$ (strictly, if
 $f(a)\gneqq f(b)$) whenever $a>b$. We have analogous definitions for
-decreasing. (and
+decreasing. 
 
 This allows us to characterize when differentiable functions are one-to-one:
 A function that is strictly increasing must be one-to-one, since two
@@ -103,7 +103,7 @@ We have seen that (local) maxima and minima occur only at critical points,
 namely a maximum if the derivative changes from positive to negative, and a
 minimum if the derivative changes from negative to positive.
 
-In the example we have critical points at $-2.5$,$0$,and $6$ (maxima) as
+In the example we have critical points at $-2.5$,$0$, and $6$ (maxima) as
 well as at $-2$ and $2$ (minima).
 
 But there is a further critical point,
@@ -406,7 +406,7 @@ function.
 As we have seen, these extrema must happen at critical points. We just need
 to decide which ones are maxima, which ones minima, and, if there are
 several, which ones are best. Furthermore, if the set of valid parameter
-values if not the whole real axis, it is possible that a maximum/minimum is
+values is not the whole real axis, it is possible that a maximum/minimum is
 reached at the maximal/minimal parameter values: The function $f(x)=x+1$ has,
 for values $2\le x\le 5$ the maximal value $6$ at $x=5$, though this is not
 even a critical point.
@@ -503,7 +503,7 @@ the points $(x_{n+1},0)$ and $(x_n,f(x_n))$ and has slope $f'(x_n)$. Thus
 \[
 f'(x_n)=\frac{f(x_n)-0}{x_n-x_{n+1}}
 \]
-and we solve (assuming that $f'(x_0)\not=0$) for
+and we solve (assuming that $f'(x_n)\not=0$) for
 \[
 x_{n+1}=x_n-\frac{f(x_n)}{f'(x_n)}
 \]
@@ -584,7 +584,7 @@ For example, we have that
 Note that a situation of $\infty/\infty$ can give us finite (nonzero)
 limits. For example
 \[
-\lim_{x\to\infty}\frac{3x-5}{73-15}=
+\lim_{x\to\infty}\frac{3x-5}{7x-15}=
 \lim_{x\to\infty}\frac{3}{7}=\frac{3}{7}
 \]
 
@@ -668,7 +668,7 @@ comparing the performance of algorithms. Here $f(n)$
 common to give these classes as functions of a variable $n$, rather than
 $x$}
 is a
-function that, for a given algorithm indicates the cost (number or
+function that, for a given algorithm indicates the cost (number of
 operations) required for an input that has size $n$. If there is a second
 algorithm, whose cost is given by a function $g$, we consider the first
 algorithm as not worse than the second, if $f(x)=\bigo{g(x)}$. If in
