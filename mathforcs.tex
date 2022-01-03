@@ -18,7 +18,15 @@
 \hypersetup{colorlinks=true, unicode=true, linkcolor=[rgb]{0.10,0.05,0.67}, citecolor=[rgb]{0.10,0.05,0.67}, filecolor=[rgb]{0.10,0.05,0.67}, urlcolor=[rgb]{0.10,0.05,0.67}}
 \usepackage[pdftex]{accsupp}
 \usepackage{accessibility}
+\usepackage{pdfcomment}
 %\usepackage[accsupp]{axessibility}
+
+%Image with text as PDF tooltip 
+% temporary workaround until accessibility support in LaTeX gets cleaned up
+\newcommand\anngraphics[3]{%
+\pdftooltip{\includegraphics[width=#1]{#2}}{#3}}
+
+%
 
 \let\cal=\mathcal
 \def\qed{\hfill{$\square$}}
@@ -85,7 +93,9 @@ R.~Tremaine}
 \ \hspace{8cm}
 \vspace{2mm}
 \begin{center}
-\includegraphics[width=10.5cm]{pic/Kandinsi_CirclesInACircle.jpg}
+%\includegraphics[width=10.5cm]{pic/Kandinsi_CirclesInACircle.jpg}
+\anngraphics{10.5cm}{pic/Kandinsi_CirclesInACircle.jpg}{Decorative cover
+image: Kandinsky, Circles in a circle, alluding to subset relations}
 \end{center}
 \vspace{5mm}
 %\vfill
