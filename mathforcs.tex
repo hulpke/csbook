@@ -10,7 +10,8 @@
 \usepackage{algpseudocode}
 \usepackage{algorithmicx}
 \usepackage[pdftex]{color,graphicx}
-\usepackage{lecmath,lecmemoir,lecpagesize}
+\input{lecmath.sty}
+\usepackage{lecmemoir,lecpagesize}
 \theoremstyle{mybem}
 \usepackage{exercise}
 \usepackage{makeidx}
@@ -19,12 +20,13 @@
 \usepackage[pdftex]{accsupp}
 \usepackage{accessibility}
 \usepackage{pdfcomment}
-%\usepackage[accsupp]{axessibility}
 
-%Image with text as PDF tooltip 
+%Image with text as PDF tooltip
 % temporary workaround until accessibility support in LaTeX gets cleaned up
 \newcommand\anngraphics[3]{%
-\pdftooltip{\includegraphics[width=#1]{#2}}{#3}}
+%\pdftooltip{\includegraphics[width=#1]{#2}}{#3}%
+\includegraphics[width=#1,alt={#3}]{#2}%
+}
 
 %
 
@@ -58,7 +60,7 @@
 %Subject to final Proof-reading
 %\bigskip\bigskip
 %
-%Final Version will be available 
+%Final Version will be available
 %
 %in time for SP'22
 %}
@@ -79,7 +81,7 @@
 \bigskip
 
 {\Large\theauthor}\\
-{with\\ 
+{with\\
 K.~Bonney,
 H.~Meade,
 M.~Moy,
@@ -127,7 +129,7 @@ Fort Collins, CO, 80523
 \bigskip
 
 \copyright 2022 Alexander Hulpke.\\
-This work is licensed under a 
+This work is licensed under a
 Creative Commons Attribution-NonCommercial-ShareAlike License (CC~BY-NC-SA,
 {\footnotesize \url{https://creativecommons.org/licenses/by-nc-sa/4.0/}})\\
 \includegraphics[width=2cm]{pic/by-nc-sa.png}
@@ -140,6 +142,7 @@ Creative Commons Attribution-NonCommercial-ShareAlike License (CC~BY-NC-SA,
 \setlength{\cftsubsectionindent}{4em}
 \tableofcontents
 \input{preface}
+\endfrontmatter
 \mainmatter
 \input{chsets.tex}
 \input{chrels.tex}
@@ -149,10 +152,12 @@ Creative Commons Attribution-NonCommercial-ShareAlike License (CC~BY-NC-SA,
 \input{chappdiff.tex}
 \input{chtaylor.tex}
 \input{chanti.tex}
+\endmainmatter
 
 \backmatter
 \long\def\thechapter{I} % to force the bar width small
 %\bibliographystyle{amsalpha}
 %\bibliography{combook}
 \printindex
+\endbackmatter
 \end{document}

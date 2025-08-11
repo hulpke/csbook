@@ -86,7 +86,7 @@ shown in Figure~\ref{figtayexp}.
 \begin{figure}
 \begin{center}
 %\includegraphics[width=6cm]{pic/TaylorExp.pdf}
-\anngraphics{6cm}{pic/TaylorExp.pdf}{The first five Taylor approximations
+\anngraphics{6cm}{pic/TaylorExp.png}{The first five Taylor approximations
 for $f(x)=e^x$ are graphed on a coordinate plane. All intersect the point
 $(0,1)$, but have varying degrees of curvature. As the $k$ value of the
 Taylor approximation increases, the graph more closely conforms to the graph
@@ -117,7 +117,7 @@ These polynomials are shown in Figure~\ref{figtayoneo}.
 \begin{figure}
 \begin{center}
 %\includegraphics[width=6cm]{pic/TaylorOneOverxP2.pdf}
-\anngraphics{6cm}{pic/TaylorOneOverxP2.pdf}{The first five Taylor
+\anngraphics{6cm}{pic/TaylorOneOverxP2.png}{The first five Taylor
 approximations for $f(x)=(x+2)^{-1}$ are graphed on a coordinate plane.
 Again we see that as the $k$ value of the Taylor approximation increases,
 the graph of the approximation more closely comforms to the graph of
@@ -145,7 +145,7 @@ as shown in Figure~\ref{figtaysin}.
 \begin{figure}
 \begin{center}
 %\includegraphics[width=6cm]{pic/TaylorSin.pdf}
-\anngraphics{6cm}{pic/TaylorSin.pdf}{Several Taylor approximations for
+\anngraphics{6cm}{pic/TaylorSin.png}{Several Taylor approximations for
 $f(x)=sin(x)$ are graphed on a coordinate plane, including those of degree
 7, 9, and 11. }
 \end{center}
@@ -181,7 +181,7 @@ the \defini{center} of the Taylor polynomial.
 \end{defn}
 Note that for $a=0$ this just gives the prior definition.
 
-For example, using the calculations of the derivatives we already did, 
+For example, using the calculations of the derivatives we already did,
 we find the Taylor
 polynomial of degree $5$ for $f(x)=\frac{1}{x+2}$ around $x=-1$ as
 \[
@@ -194,7 +194,7 @@ around $a=0$ approximates better for $x$-values closer to $0$.
 \begin{figure}
 \begin{center}
 %\includegraphics[width=6cm]{pic/TaylorOneOverxP2Plus.pdf}
-\anngraphics{6cm}{pic/TaylorOneOverxP2Plus.pdf}{The graph of
+\anngraphics{6cm}{pic/TaylorOneOverxP2Plus.png}{The graph of
 $f(x)=(x+2)^{-1}$ is plotted on a coordinated plane with a Taylor polynomial
 centered at $a=0$ and a Taylor polynomial centered at $a=-1$. We see that
 the Taylor polynomials approximate well near the center, but less well
@@ -232,7 +232,7 @@ called {\em first order approximation}). A
 \defini{nonlinear} phenomenon is one that cannot be explained by using a
 Taylor polynomial approximation of degree 1, but which requires a higher
 degree.
-\item 
+\item
 The factor $\sz{x-a}^{n+1}$ in the error term tells us that the
 approximation is the better the closer $x$ is to the center $a$.
 \item
@@ -276,7 +276,7 @@ the following four functions:
 \begin{center}
 %\includegraphics[width=6cm]{pic/fourtayapprox.png}
 \anngraphics{6cm}{pic/fourtayapprox.png}{Graphs of $1+sin(x)$, $exp(x)$,
-$\frac{1}{\sqrt{1-2x}}, and $\frac{1}{1-x}$ are plotted on a coordinate
+$\frac{1}{\sqrt{1-2x}}$, and $\frac{1}{1-x}$ are plotted on a coordinate
 plane. While all intersect at the point $(0,1)$, their varying curvatures
 result in slightly different-looking functions.}
 \end{center}
@@ -315,7 +315,6 @@ And for $\sz{x}$ sufficiently small the graph of $1+x+\frac34x^2$
 would\mynote{not depicted in the plot as this requires serious zooming in for
 negative $x$.} lie in the middle between the top and bottom two lines.
 
-
 \subsection{Using the error estimate}
 
 We briefly illustrate how the error term formula can be used to get a
@@ -353,14 +352,15 @@ approximation).
 \subsection{Fast inverse square root}
 
 %TN rewrite AH
-An application of Taylor approximations together with Newton's Method 
+An application of Taylor approximations together with Newton's Method
 is found in a famous example of an
 optimized routine, namely the evaluation of the function $a\mapsto
-\frac{1}{\sqrt(a)}$.
+\frac{1}{\sqrt(a)}$. This section is intended purely to give a real-world
+application of the material, but is not relevant for homework or exams.
 
 This function is used in digital signal processing to re-scale a vector to
 length 1, which is required for example when calculating the illumination
-level and shading of a surface in 3D graphics. 
+level and shading of a surface in 3D graphics.
 
 When rendering a scene, this value has to be calculated separately for each
 triangle, its execution therefore is highly time critical.
@@ -400,7 +400,7 @@ That means that
 \]
 The term $2^{-\frac12e}$ can immediately be taken as a factor of a power of
 $2$. For the second factor we look at the Taylor polynomial (with respect to
-the variable $m$) for $\frac{1}{\sqrt{1+m}}$, which is 
+the variable $m$) for $\frac{1}{\sqrt{1+m}}$, which is
 \[
 1-\frac{m}{2}+\frac{3m^2}{8}+\cdots
 \]
@@ -409,12 +409,12 @@ code uses a number different from $1$ to minimize the error, but
 how this is done is beyond the scope of this text.) Note that $m/2$ can be
 computed cheaply as a shift of a binary number.
 
-We thus have the initial approximation 
+We thus have the initial approximation
 \[
 a_0=2^{-\frac12e}\cdot\left(1-\frac{m}2\right).
 \]
 
-Now for the Newton method. The function we want to find a zero of is 
+Now for the Newton method. The function we want to find a zero of is
 \[
 f(x)=\frac{1}{x^2}-a,
 \]
@@ -442,7 +442,7 @@ This gives us the algorithm (as published on the web, e.g.
 2   x2= number * 0.5F;
 3   y = number;
 4   i  = *(long*) &y;      // floating point hacking
-5   i = 0x5f3759df-(i>>1); 
+5   i = 0x5f3759df-(i>>1);
 6   y = * ( float * ) &i;
 7   y = y * ( threehalfs - ( x2 * y * y ) ); // 1st iteration
 \end{verbatim}
@@ -707,14 +707,14 @@ x\frac{1537928439 x^{10}}{6179146071875}
 %\[
 %x-\frac{x^3}{3}+\frac{x^5}{5}-\frac{x^7}{7}+\cdots
 %\]
-%If we use that 
+%If we use that
 
 \section{Outlook: Solving Recursions}
 \label{solvfibo}
 
 A powerful mathematical tool, called \defini{generating functions} uses
 Taylor series manipulations to find explicit expressions for recursively
-defined series. 
+defined series.
 
 We illustrate this with the example of the Fibonacci
 numbers, defined as:
@@ -749,7 +749,7 @@ for
 \alpha=\frac{-1+\sqrt{5}}{2},\quad\beta=\frac{-1-\sqrt{5}}{2},\quad
 a=\frac{-1}{\sqrt{5}},\quad b=\frac{1}{\sqrt{5}}.
 \]
-The geometric series gives us (as above) that 
+The geometric series gives us (as above) that
 \[
 \frac{a}{x-\alpha}=\sum_{i=0}^\infty \frac{-a}{\alpha^{i+1}}x^i,\quad
 \frac{b}{x-\beta}=\sum_{i=0}^\infty \frac{-b}{\beta^{i+1}}x^i,

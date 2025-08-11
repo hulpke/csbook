@@ -86,7 +86,7 @@ a&b\\
 1&2\\
 1&3\\
 \vdots&\vdots
-\end{array} 
+\end{array}
 \]
 This notation indicates that it is possible to add further columns, leading
 to the concept of an $n$-ary relation. Such relations are the underlying
@@ -97,12 +97,12 @@ further here.
 \begin{figure}[t]
 \begin{center}
 %\includegraphics[width=6cm]{pic/RelDigraph.pdf}
-\anngraphics{6cm}{pic/RelDigraph.pdf}{The numbers 1 through 6 appear in two
+\anngraphics{6cm}{pic/RelDigraph.png}{The numbers 1 through 6 appear in two
 ovals. Arrows are drawn from each number in the first oval to all numbers in
 the second oval than which that number is strictly smaller.}
 \qquad
 %\includegraphics[width=3cm]{pic/RelOneDigraph.pdf}
-\anngraphics{3cm}{pic/RelOneDigraph.pdf}{The numbers 1 through 6 are
+\anngraphics{3cm}{pic/RelOneDigraph.png}{The numbers 1 through 6 are
 arranged in such a way as 1, 2, and 3 are above 4, 5, and 6. Arrows are
 drawn between each number to connect it to each other number than which it
 is strictly smaller.}
@@ -122,7 +122,7 @@ of $A=B$.
 
 \medskip
 
-The second way of description is to give a predicate that 
+The second way of description is to give a predicate that
 identifies the pairs in relation. In the example, this predicate would be:
 $S(a,b)$ if
 $a<b$. It then is often convenient to write the predicate as a connecting
@@ -133,7 +133,7 @@ $\subset$, or $\in$ before, formally they all denote relations.
 \begin{figure}[t]
 \begin{center}
 %\includegraphics[width=10cm]{pic/StrictlySmallerRel.pdf}
-\anngraphics{10cm}{pic/StrictlySmallerRel.pdf}{LEFT: A coordinate plane with a dot
+\anngraphics{10cm}{pic/StrictlySmallerRel.png}{LEFT: A coordinate plane with a dot
 at every whole-numbered point for which the x-value is strictly smaller than
 the y-value (for example, there is a point at (1, 2), (1, 3), (2, 3), etc.;
 RIGHT: A coordinate plane for which the whole area above the diagonal (given
@@ -267,7 +267,7 @@ The third operation turns out the most useful, but also maybe most
 complicated one. Here we take two relations $R\subset A\times B$ and
 $S\subset B\times C$ such that the target of the first relation is the
 source of the first. The \defini{composition} of $R$ with $S$ is the
-relation 
+relation
 \begin{eqnarray*}
 S\circ R&=&\{(a,c)\in A\times C\mid \exists b\in B: (a,b)\in R\mbox{\ and\
 }(b,c)\in S\}\\
@@ -297,7 +297,7 @@ Note that the fact that $3Rs$ or $rSw$ do not contribute to the composition.
 \begin{figure}[t]
 \begin{center}
 %\includegraphics[width=10cm]{pic/CompositionDigraph.pdf}
-\anngraphics{10cm}{pic/CompositionDigraph.pdf}{LEFT: Three ovals contain four different variables. The relation R, represented by an arrow, sends a variable from the first oval to a variable in the second oval. The relation S, also represented by an arrow, then sends the variable in the second oval to a variable in the third oval.
+\anngraphics{10cm}{pic/CompositionDigraph.png}{LEFT: Three ovals contain four different variables. The relation R, represented by an arrow, sends a variable from the first oval to a variable in the second oval. The relation S, also represented by an arrow, then sends the variable in the second oval to a variable in the third oval.
 RIGHT: A different representation of the previous figure in which an arrow
 from a variable in the first oval is drawn directly to a variable in the
 third oval via the relation S composed with R.}
@@ -307,7 +307,7 @@ third oval via the relation S composed with R.}
 \end{figure}
 
 Composition is useful in that it can form genuinely new connections between
-objects. 
+objects.
 
 (In the case of higher order relations (and relational databases),
 composition generalizes to an operation {\em join}.)
@@ -350,10 +350,10 @@ transitive, if for every pair of arrows following each other, there is a
 ``composite arrow''. Figure~\ref{figreppropsdigraph} illustrates this (the full
 lines are required, if the dashed lines exist).
 
-We give some examples: 
+We give some examples:
 \begin{enumerate}
 \item
-Let $A$ be the set of rational numbers and $R$ be ordinary equality. (That is 
+Let $A$ be the set of rational numbers and $R$ be ordinary equality. (That is
 \[
 R=\{(a,b)\in\Q\times\Q\mid a=b\}.)
 \]
@@ -394,7 +394,7 @@ true\mynote{This situation of true statements is sometimes called
 never can be fulfilled.), but not reflexive.
 \item Let $A=\Q$ with the usual ``smaller or equal'' relation $\le$. This relation is
 reflexive, antisymmetric and transitive, but not symmetric.
-\item Let $A=\Q$ with the ``strictly smaller'' relation to be smaller but not equal. 
+\item Let $A=\Q$ with the ``strictly smaller'' relation to be smaller but not equal.
 This relation is antisymmetric (again vacuously as it is not possible that $a<b$ and
 $b<a$ for inequal $a,b$) and transitive, but not reflexive.
 \item The relation $x^2+y^3=1$ on $\R$ has none of these properties.
@@ -434,7 +434,7 @@ That is, for any $x,y \in \mathbb{Q}$, we have either $x \leq y$ or $y \leq x$ (
 Both of these relations provide some sort of comparison of the relative size of two objects.
 However, in the case of $\mathcal{P}(X)$ with the $\subset$ relation, only certain pairs of elements can be compared; we cannot necessarily compare any two arbitrary elements.
 For instance, if $X = \{ 1,2,3 \}$, then the subsets $A = \{ 1,2 \}$ and $B = \{ 2,3 \}$ are not comparable, as $A$ is not a subset of $B$ and $B$ is not a subset of $A$.
-This example can be visualized using the Hasse diagram in 
+This example can be visualized using the Hasse diagram in
 Figure~\ref{fighasse3set}.
 
 \section{Equivalence Relations, Equivalence Classes and Partitions}
@@ -457,7 +457,7 @@ it is reflexive, symmetric and transitive.
 Equivalence relations can be though of as a ``less picky'' version of
 \defini{equality} that allow us to forget about differences between objects (say the
 color or size  of (physical) numbers). Often one deliberately wants to
-consider formally different things as the same. 
+consider formally different things as the same.
 
 This concept of different levels of ``being the same'' occurs naturally in
 everyday life. For example, if we say that {\em all persons are equal}, we do not
@@ -479,20 +479,20 @@ Let $A$ be a set. A \defini{partition} of $A$ is a set $P$ consisting of nonempt
 subsets $S\subset A$ (often called \defini{cells}), such that:
 \begin{enumerate}
 \item No two different subsets share an element\mynote{This is a somewhat slick
-definition. You probably would have written ($S=T$ or $S\cap T=\emptyset$). 
+definition. You probably would have written ($S=T$ or $S\cap T=\emptyset$).
 Doings so would
 describe the same (logic), but the way we write it down here makes verifying the property
 less work to write.}:
 \[
 \forall S,T\in P: (S\cap T\not=\emptyset\Rightarrow S=T).
 \]
-\item Every element of $A$ is in a subset: 
+\item Every element of $A$ is in a subset:
 \[
 \forall a\in A\exists S\in P: a\in S.
 \]
 \end{enumerate}
 \end{defn}
-For example, we could take $A=\{1,2,3,4,5\}$ and 
+For example, we could take $A=\{1,2,3,4,5\}$ and
 \[
 P=\{\{1,3\},\{2,4,5\}\}.
 \]
@@ -529,7 +529,7 @@ and if $a$ and $b$, as well as $b$ and $c$ are in the same set, this set
 contains $a$ and $c$.
 
 The same holds in reverse. For this, assume we are given an equivalence
-relation $\sim$ on a set $A$. For every $a\in A$ we 
+relation $\sim$ on a set $A$. For every $a\in A$ we
 define its \defini{equivalence class} as the set of all elements in relation
 to $a$:
 \[
@@ -571,7 +571,7 @@ of objects, in particular arithmetic objects.
 \begin{figure}[t]
 \begin{center}
 %\includegraphics[width=10cm]{pic/GraphIsoClasses.pdf}
-\anngraphics{10cm}{pic/GraphIsoClasses.pdf}{The possibilities for connecting
+\anngraphics{10cm}{pic/GraphIsoClasses.png}{The possibilities for connecting
 three points, labelled 1, 2, and 3, are grouped based upon how many
 connections they contain. Graphs can have no connections between points, 1
 connection, 2 connections, or 3 connections.}
@@ -594,13 +594,13 @@ where the labeling of the vertices matters.
 But often we do not care about this labeling but only  about the possible
 connection patterns. We thus can define an equivalence relation
 (called~\defini{graph isomorphism}, this is an important, hard, algorithmic
-problem) 
+problem)
 as two graphs being equivalent if they become the same after a
 relabeling of the vertices. For example, the graph with the edge set
 $\{\{1,2\}\}$ can be transformed into the graph with edge set $\{\{2,3\}\}$ by
 relabeling\mynote{This
 is not unique. Another option would be $\begin{array}{c}1\to
-3\\2\to2\\3\to1\end{array}$.} 
+3\\2\to2\\3\to1\end{array}$.}
 the vertices $\begin{array}{c}1\to 2\\2\to3\\3\to1\end{array}$.
 
 We thus get (for the example of three vertices) $4$ equivalence classes
@@ -718,7 +718,7 @@ two different elements $r_1,r_2\in C$ with $0\le r_1,r_2\lneqq m$. Since if
 this was, we would have
 (without loss of generality\mynote{This is an example of a useful tool in proofs.
 We could have $r_1<r_2$ or $r_2>r_1$ and would need to consider both cases.
-But there is freedom in labeling the two numbers and we use this freedom 
+But there is freedom in labeling the two numbers and we use this freedom
 to dictate that $r_1$ shall be the smaller of the two numbers.
 Such a choice does not conflict with any other requirement, and thus is
 permissible. This means that such a choice does not restrict the argument to
@@ -857,15 +857,15 @@ x&=&\overline{3}\\
 
 %by MM
 
-Modular arithmetic can be used to justify the following well-known test for divisibility by 3: a positive integer is divisible by 3 if and only if the sum of its digits is divisible by 3.  
+Modular arithmetic can be used to justify the following well-known test for divisibility by 3: a positive integer is divisible by 3 if and only if the sum of its digits is divisible by 3.
 For instance, to determine if the number 12345 is divisible by 3, we may add the digits: $1+2+3+4+5 = 15$, and since 15 is divisible by 3, we know 12345 is divisible by 3.
 The same test also works with 3 replaced by 9 (so for instance, 12345 is not divisible by 9 because 15 is not divisible by 9).
 
 We may prove this fact using arithmetic modulo 3.
-First, we notice that $10 = 1 \hspace{.15cm} \text{(mod 3)}$.  
+First, we notice that $10 = 1 \hspace{.15cm} \text{(mod 3)}$.
 This means that $10^a = 1$ for any integer $a \geq 0$, since we have $10^2 = 10 \cdot 10 = 1 \cdot 1 = 1 \hspace{.15cm} \text{(mod 3)}$ and $10^3 = 10 \cdot 10 \cdot 10 = 1 \cdot 1 \cdot 1 = 1 \hspace{.15cm} \text{(mod 3)}$ and so on.
 Now suppose we have an $n$-digit positive integer $x$ written as $d_{n-1} \dots d_1 d_0$, where each $d_i$ is a digit from 0 to 9.
-Then 
+Then
 \[x = d_{n-1}10^{n-1} + \dots + d_1 10^1 + d_0 10^0,\]
 and since modular arithmetic is compatible with the usual operations of addition and multiplication,
 \[x = d_{n-1}10^{n-1} + \dots + d_1 10^1 + d_0 10^0 = d_{n-1}+ \dots + d_1  + d_0 \hspace{.25cm} \text{(mod 3)}.\]
@@ -873,5 +873,5 @@ A number is divisible by 3 exactly when it is equal to 0 modulo 3, so the equati
 The same reasoning works with 9 in place of 3, since $10 = 1\hspace{.15cm} \text{(mod 9)}$ as well.
 
 A similar idea can be used to construct divisibility tests for other numbers as well, although these will often be more complicated than for 3 or 9.
-For instance, the reader may use arithmetic modulo 11 to verify the following test for divisibility by 11: a positive integer is divisible by 11 if and only if the \textit{alternating sum} of its digits is divisible by 11. 
+For instance, the reader may use arithmetic modulo 11 to verify the following test for divisibility by 11: a positive integer is divisible by 11 if and only if the \textit{alternating sum} of its digits is divisible by 11.
 Here, an alternating sum means we alternate between addition and subtraction, so the alternating sum of the digits of the number $d_{n-1} \dots d_1 d_0$ is given by $d_0 - d_1 + d_2 - \dots + (-1)^{n-1} d_{n-1}$.

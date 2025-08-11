@@ -143,9 +143,9 @@ $s_{i+1}=\frac{(i+1)(i+1+1)}{2}$.)
 An important application of sequences and recursion is in estimating the
 number of steps a recursive algorithm will take to completion. Here the
 sequence value at position $i$ is defined to be the number (or a bound
-thereof) of steps taken by the algorithm for an input of size $n$. 
+thereof) of steps taken by the algorithm for an input of size $n$.
 
-Consider, for example, the following (very naive) insertion-sort algorithm. 
+Consider, for example, the following (very naive) insertion-sort algorithm.
 To sort a list $L$ consisting of $n$ numbers, we first sort (by a recursive
 call) the first $n-1$
 numbers and then insert the $n$-th element in the right position in the list.
@@ -158,7 +158,7 @@ if (n > 1) then # Otherwise no need to sort
   sort(L,n-1); # recursively sort the first n-1 elements
   a:=L[n];
   p:=1; # find position of first entry larger than a
-  while p<n and L[p]<=a do 
+  while p<n and L[p]<=a do
     p:=p+1;
   od;
   for j from n-1 downto p do # shift entries up
@@ -172,7 +172,7 @@ fi;
 % to communicate the point - hopefully this  gets the idea across without
 % being too handwavy.
 
-For example, if $L = [5,13,12]$, how does \verb+sort(L,3)+ get processed? 
+For example, if $L = [5,13,12]$, how does \verb+sort(L,3)+ get processed?
 We call \verb+sort(L,2)+, which in turn calls
 \verb+sort(L,1)+, which does nothing. Exiting back to $n=2$ we set $a=L[2]=13$ and (since
 $L[1]=5<13$) get $p=2$, keeping $13$ in the second position.
@@ -252,7 +252,7 @@ behavior of sequences. For this we define the following properties:
 Let $(a_i)$ be a sequence. Then this sequence is
 \begin{description}
 \item[\defini{monotonically increasing}], if $a_{i+1}\ge a_i$ for all $i$.
-\item[\defini{strictly monotonically increasing}], if $a_{i+1}> a_i$ 
+\item[\defini{strictly monotonically increasing}], if $a_{i+1}> a_i$
 ( $a_{i+1}\not=a_i$) for all $i$.
 \item[\defini{bounded from above}], if there exists a number $B\in\R$, such that $a_i\le B$ for all $i$.
 \end{description}
@@ -272,7 +272,7 @@ a_{i+1}=5-\frac{1}{i+1}> 5-\frac{1}{i}=a_i
 \mbox{\ and \ }
 b_{i+1}=5+(i+1)> 5+i=b_i.
 \]
-The sequence $(c_i)$ is not monotonically increasing, as 
+The sequence $(c_i)$ is not monotonically increasing, as
 \[
 c_2=5+(-1)^2=6\not\le 4=5+(-1)^3=c_3.
 \]Similarly, we have that $(a_i)$ and $(c_i)$ are both bounded from above, since we have
@@ -289,7 +289,7 @@ b_i=5+i\ge5+B>B,
 in contradiction to the assumption that $B$ is an upper bound.
 
 All three sequences $(a_i)$, $(b_i)$, $(c_i)$ are bounded from below (e.g. by $1$).
-However it is possible that a sequence is neither monotonic, nor bounded; for example 
+However it is possible that a sequence is neither monotonic, nor bounded; for example
 $d_i=5+(-1)^i\cdot i$.
 
 \section{Convergence}
@@ -366,8 +366,8 @@ We illustrate these limit rues with a few examples.
 For instance, we may compute:
 \[
 \lim_{i \to \infty} \left( \frac{i+1}{i} + \frac{i^2-2}{2i^2+i} \right)
-= \lim_{i \to \infty}  \frac{i+1}{i} + \lim_{i \to \infty} \frac{i^2-2}{2i^2+i} 
-= 1 + \frac{1}{2} 
+= \lim_{i \to \infty}  \frac{i+1}{i} + \lim_{i \to \infty} \frac{i^2-2}{2i^2+i}
+= 1 + \frac{1}{2}
 = \frac{3}{2}
 \]
 where we have used the rule for a limit of a sum, followed by two applications of the rule for quotients of polynomials.
@@ -380,7 +380,7 @@ Alternately, we obtain the same answer if we first simplify the sum:
 \]
 
 We can also use these rules to help us determine limits of other types of sequences.
-For instance, since $i! \geq i$ for all positive integers $i$, we have $\frac{1}{i!} \leq \frac{1}{i}$ for each $i$. 
+For instance, since $i! \geq i$ for all positive integers $i$, we have $\frac{1}{i!} \leq \frac{1}{i}$ for each $i$.
 Furthermore, $\left( \frac{1}{i!} \right)$ is a sequence consisting of all positive numbers, so it cannot converge to a negative number.
 So we find
 \[
@@ -400,7 +400,7 @@ More generally, $\lim_{i \to \infty} r^i = 0$ if $|r|<1$.
 Our next task is to give a formal criterion for convergence. After all, it is not good
 enough to simply say ``I know it if I see it''. This criterion, as we will use it, might
 seem somewhat complicated, but ultimately evolved (over decades of failed attempts in the
-19th century) as being unambiguous and formally testable. 
+19th century) as being unambiguous and formally testable.
 
 This definition also will serve as a model for the formalization of concepts in calculus.
 \medskip
@@ -452,7 +452,7 @@ change the property, since the statement is for all $\varepsilon$.
 \begin{figure}[t]
 \begin{center}
 %\includegraphics[width=12cm]{pic/LimitCorral.pdf}
-\anngraphics{12cm}{pic/LimitCorral.pdf}{On a coordinate plane, a horizontal
+\anngraphics{12cm}{pic/LimitCorral.png}{On a coordinate plane, a horizontal
 line is drawn at $y=5$. Dots representing the terms of the sequence
 oscillate above and below the horizontal line, getting progressively closer
 to it as the x-value increases. As the dots get closer to the horizontal
@@ -462,7 +462,7 @@ line, the epsilon value decreases.}
 \label{figlimitcorral}
 \end{figure}
 
-For example, consider the sequence given by 
+For example, consider the sequence given by
 $a_i=5-(-1)^i\frac{10}{i}$, depicted in Figure~\ref{figlimitcorral}. We set
 $L=5$ and choose $\varepsilon=1$. Then for $N=10$ we have
 that $\sz{a_i-L}\le\varepsilon$ when $i\ge N$. Similarly, we
@@ -533,7 +533,7 @@ way formal proofs work in Calculus\mynote{When doing proofs, the topic is
 often called ``Analysis''}. One argues about differences, typically denoted
 by $\varepsilon$, in function values becoming arbitrary small, but still
 being nonzero, as sequence indices go to infinity, or $x$-arguments becoming
-arbitrarily close (the latter then being denoted by another Greek letter, 
+arbitrarily close (the latter then being denoted by another Greek letter,
 $\delta$ denoting a small entity).
 
 \section{Limits, Bounds and the Real numbers}
@@ -562,7 +562,7 @@ This statement might seem more of a curiosity and have little relevance for
 computational sciences. The reason we mention this fact is in that it ultimately gives a
 justification for and explanation of what the real numbers are. So far, we defined
 them, somewhat sloppily, as the $x$-coordinates of all points on the number line, or as
-numbers with infinite decimal expansions. But that is 
+numbers with infinite decimal expansions. But that is
 only half the truth. Formally:
 
 \begin{quote}
@@ -611,7 +611,7 @@ For example, we could sum over the
 sequence $a_j=1/2^j$ and get the sequence of partial sums:
 \[
 p_0=1,
-p_1=1+\frac{1}{2}=\frac{3}{2}, 
+p_1=1+\frac{1}{2}=\frac{3}{2},
 p_2=1+\frac{1}{2}+\frac{1}{4}=\frac{7}{4}, \ldots
 \]
 Here, it is not hard to see that the partial sums are
@@ -670,7 +670,7 @@ towards infinity.
 
 A sequence is called \defini{geometric} if its terms grow by a constant
 factor $r$, that is, if the starting term
-is $a$, the sequence is 
+is $a$, the sequence is
 \[
 a, ar, ar^2, ar^3, ar^4,\ldots
 \]
@@ -729,7 +729,7 @@ A simple example of geometric growth is something that grows by a factor
 each time unit. Suppose that a museum starts with
 $a=100$ visitors per year and each year increases its visitor numbers by
 $3\%$. That is the visitor number after $i$ years is $100\cdot 1.03^i=a\cdot
-r^i$ for $r=1.03$. 
+r^i$ for $r=1.03$.
 If we ask for the total number of visitors after $n$ years we get:
 \[
 \sum_{i=0}^n a\cdot r^i.
@@ -745,7 +745,7 @@ If we ask for the total number of visitors after $n$ years we get:
 %
 %\begin{figure}[h]
 %\begin{center}
-%\includegraphics[width=5cm]{pic/GeometricSegment.pdf}
+%\includegraphics[width=5cm]{pic/GeometricSegment.png}
 %\end{center}
 %\end{figure}
 %
@@ -796,7 +796,7 @@ If we ask for the total number of visitors after $n$ years we get:
 %the form $\displaystyle{\sum_{n=1}^{\infty} ar^{n-1}}$, so
 %reindexing is required. To re-index a series we follow the following
 %basic algorithm:
-%\begin{Algorithm}[Re-indexing a series]\ 
+%\begin{Algorithm}[Re-indexing a series]\
 %\begin{itemize}
 %%\item[1] Choose a new letter to be the index of summation (m)
 %\item[2] Relate m to the original index of summation (n) such that when
@@ -886,7 +886,7 @@ the first square, two grains of rice on the second square, four
 grains of rice on the third square continuing on so that there are
 $2^{n-1}$ grains of rice on the $n^{th}$ square.  How many grains of
 rice are on the chess board? (There are $8\cdot 8=64$ squares on a chess
-board.) 
+board.)
 %\begin{figure}
 % \epsfig{file=Chess-board-walnut.jpg,scale=.8}
 %\end{figure}
@@ -915,14 +915,14 @@ Using $b_0=L$ and setting $r=1+i$, in the first step we have
 \[b_{1}=Lr-a\] we then continue on to the next step where we
 get
 \begin{eqnarray*}
-b_{2}&=&b_{1}(r)-a 
+b_{2}&=&b_{1}(r)-a
 =(Lr-a)(r)-a \\
 &=&Lr^{2}-(a+ar)
 \end{eqnarray*}
 We might be starting to notice a pattern, however it becomes obvious
 in the next step
 \begin{eqnarray*}
-b_{3}&=&b_{2}(r)-a 
+b_{3}&=&b_{2}(r)-a
 =(Lr^{2}-(a+ar))(r)-a \\
 &=&Lr^{3}-(a+ar+ar^{2})
 \end{eqnarray*}
@@ -969,7 +969,7 @@ to have the loan paid off after $30$ years.
 %\end{Example}
 \medskip
 
-Since the sequence $p_0, p_{1}, p_{2}, 
+Since the sequence $p_0, p_{1}, p_{2},
 \ldots, p_{k}, \ldots$ of partial sums converges to
 $\displaystyle{\sum_{n=1}^{\infty} ar^{n-1}}$, we can use the
 formula just derived to compute a value for the limit of a geometric series:
@@ -1100,7 +1100,7 @@ As an example application of this formula, we look at how one can
 express the repeating decimal $0.\overline{08}$ as a fraction of two integers.
 
 %\solution
-%To express $0.\overline{08}$ as a fraction 
+%To express $0.\overline{08}$ as a fraction
 We first notice that $08$
 is the repeated value, so we want to break up $0.\overline{08}$ into
 a sum of the repeated values.  Therefore we have $0.\overline{08}=
@@ -1170,7 +1170,7 @@ First, it is possible Player A flips a heads on the first flip: the probability 
 Next, in order for Player A to win on their second flip, both Player A and Player B would need to have flipped a tails on their first flip.
 In this case, the sequence of flips must have been TTH, and the probability that this happens is $\frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2} = \frac{1}{8}$.
 Similarly, the next possible sequence of flips resulting in a win for Player A is TTTTH, and the probability that this happens is $\left( \frac{1}{2} \right)^5 = \frac{1}{32}$.
-We can recognize the pattern and generalize: the probability that Player A wins by flipping a heads after $2i$ tails have been flipped is $\left( \frac{1}{2} \right)^{2i+1}$, so the total probability that Player A wins is given by the infinite geometric series 
+We can recognize the pattern and generalize: the probability that Player A wins by flipping a heads after $2i$ tails have been flipped is $\left( \frac{1}{2} \right)^{2i+1}$, so the total probability that Player A wins is given by the infinite geometric series
 \[\frac{1}{2} + \frac{1}{8} + \frac{1}{32} + \frac{1}{128} + \, \dots \,  = \sum_{i=0}^\infty \left( \frac{1}{2} \right)^{2i+1} = \sum_{i=0}^\infty \frac{1}{2} \left( \frac{1}{4} \right)^i = \frac{\frac{1}{2}}{1-\frac{1}{4}} = \frac{2}{3}.
 \]
 
@@ -1187,7 +1187,7 @@ is basically just the definition of multiplication. But what happens if the
 terms change by a constant sum, that is we have that $a_{i+1}-a_i=c$
 constant?
 
-Let us first observe this for the basic case of 
+Let us first observe this for the basic case of
 \[
 S_n=\sum_{i=1}^n i=1+2+\cdots+n.
 \]

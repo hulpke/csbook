@@ -93,10 +93,10 @@
 
 
 % special symbols
-        
+
 \def\elhade#1#2#3#4#5{\mathbin{#1 \hbox to #2{}\hbox{\vrule
   \@width #3 \@height #4 \@depth #5}\hbox to .2em{}} }
-  
+
 \def\erhade#1#2#3#4#5{\mathbin{\hbox to .3em{}\hbox{\vrule
   \@width #2 \@height #3 \@depth #4}\hbox to #5{}#1} }
 
@@ -105,13 +105,13 @@
 
 \def\mkdirsemi#1#2#3#4{\mathbin{\times\hbox to #4{}\hbox{\vrule
   \@width #1\@height #2\@depth #3}\hbox to .2em{} }}
-  
+
 \def\semidir{\mathchoice{\mksemidir{.050em}{.50em}{.00em}{-.18em}} %display
                         {\mksemidir{.050em}{.50em}{.00em}{-.18em}} %text
                         {\mksemidir{.043em}{.37em}{.00em}{-.10em}} %script
                         {\mksemidir{.030em}{.32em}{.00em}{-.12em}}%scriptscript
          }
-         
+
 \def\dirsemi{\mathchoice{\mkdirsemi{.050em}{.50em}{.00em}{-.22em}} %display
                         {\mkdirsemi{.050em}{.50em}{.00em}{-.22em}} %text
                         {\mkdirsemi{.043em}{.35em}{.01em}{-.17em}} %script
@@ -127,3 +127,4 @@
 {\hfil\vrule height4pt width0.4pt\hfil}\kern-\wd0%
 \lower\ht0\box0}}}\limits}
 
+\newcommand\defini[1]{\textit{#1}\index{#1}}

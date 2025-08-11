@@ -10,18 +10,18 @@ important definition of the whole course.
 A \defini{function} $f\colon A\to B$ (for two sets $A$ and $B$) is a relation $R\subset
 A\times B$ with the properties that
 \begin{enumerate}
-\item 
+\item
 For every $a\in A$ there is a pair $(a,b)\in\R$: The domain of $R$ equals the source $A$.
 \item
 There
 are no two pairs $(a,b),(a,c)\in R$ that share the same first entry.
-(Formally: 
+(Formally:
 For all $a\in A$ and $b,c\in B$, if $(a,b)\in R$ and
 $(a,c)\in R$, then $b=c$.)
 \end{enumerate}
 If this is the case, we can interpret the relation entry $(a,b)\in R$ (which
 will be the only one for a given $a$) as {\em assigning} the \defini{value}
-$f(a)=b$ to the \defini{argument} $a$. As with relations, we call 
+$f(a)=b$ to the \defini{argument} $a$. As with relations, we call
 \[
 I=\{b\in B\mid \exists a\in A: (a,b)\in R\}
 \]
@@ -32,7 +32,7 @@ See \figuref{figgeneralfct} for illustration.
 \begin{figure}[t]
 \begin{center}
 %\includegraphics[width=6cm]{pic/GeneralFct.pdf}
-\anngraphics{6cm}{pic/GeneralFct.pdf}{Arrows are drawn from points within a
+\anngraphics{6cm}{pic/GeneralFct.png}{Arrows are drawn from points within a
 cloud labelled Domain (Source) to a subset of points within a cloud labelled
 Target. The subset is the Image, or Range.}
 \end{center}
@@ -40,7 +40,7 @@ Target. The subset is the Image, or Range.}
 \label{figgeneralfct}
 \end{figure}
 
-In short, a function is a rule that assigns for every element of its domain 
+In short, a function is a rule that assigns for every element of its domain
 a unique element of its range.
 
 Sometimes the term \defini{map} or \defini{mapping} is used synonymously
@@ -80,7 +80,7 @@ same values, even though the mechanism how they do so is different.
 \subsection{Describing Functions}
 Since functions are relations, they can be specified by
 text, formula, table, distinction, picture,
-to name just a few ways. 
+to name just a few ways.
 
 In most cases, the easiest way of describing a function is by
 using the interpretation of assigning values to elements of
@@ -136,7 +136,7 @@ Or someone might draw the function pictorially, as in
 \begin{figure}[t]
 \begin{center}
 %\includegraphics[width=6cm]{pic/AnimalColor.pdf}
-\anngraphics{6cm}{pic/AnimalColor.pdf}{Arrows are drawn from "frog" in the
+\anngraphics{6cm}{pic/AnimalColor.png}{Arrows are drawn from "frog" in the
 Domain to "green" in the Range, from "horse" in the Domain to "red" in the
 Range, and from "sheep" in the Domain to "blue" in the Range.}
 \end{center}
@@ -247,7 +247,7 @@ often harder than if we have a conceptual description or a formula.
 %We can ask if a function defined algorithmically is onto or one-to-one just as we did for
 %functions defined in typical
 %mathematical fashion. It is not immediately clear how to evaluate these two
-%qualities for $func(n)$. With some experimentation, one can eventually find a 
+%qualities for $func(n)$. With some experimentation, one can eventually find a
 %counter-example to one-to-one. Consider $f(15)$ and $f(17)$. The reader
 %can verify
 %that, when using any reasonable implementation of $toWords(n)$, both of these outputs are the letter $t$, so $func(n)$ is certainly not one-to-one.
@@ -258,7 +258,7 @@ often harder than if we have a conceptual description or a formula.
 %its square is $X$? This depends on your naming convention. We could contrive a naming convention that forces the function to be
 %onto. For example, we could require that $1^2=1$ be written as `one', $2^2 = 4$ be written
 %as `four,' and so on for the first 26 square numbers. In this case, $func(n)$ would
-%be onto. However, other naming conventions might give versions of $func(n)$ which are 
+%be onto. However, other naming conventions might give versions of $func(n)$ which are
 %not onto.
 %\smallskip
 
@@ -385,7 +385,7 @@ compressed by a factor of 3}
 h) Sum of $f(x)$ and $x^2$\\
 %\includegraphics[width=3cm]{pic/fctshift9.png}
 \anngraphics{3cm}{pic/fctshift9.png}{The original graph in red, the parabola
-y=x^2 in blue, and their sum x^3-2x^2+2 in green}
+$y=x^2$ in blue, and their sum $x^3-2x^2+2$ in green}
 \end{minipage}&\begin{minipage}[t]{3.5cm}
 i) $f(x+2)$\\
 %\includegraphics[width=3cm]{pic/fctshift6.png}
@@ -459,7 +459,7 @@ $x\mapsto x+k$ or $x\mapsto kx$.
 
 Since functions are relations, the composition of functions is just a special case of
 the composition of relations. Suppose $f\colon A\to B$ and $g\colon B\to C$ are
-functions. Then, as relations, we have that 
+functions. Then, as relations, we have that
 \[
 f=\{(x,f(x)\mid x\in A\}
 \qquad\mbox{and}\qquad
@@ -479,7 +479,7 @@ $g\circ f$, as we have that $(g\circ f)(x)=g(f(x))$.
 \smallskip
 
 Note that usually (even if $A=B=C$) $g\circ f\not=f\circ g$. For example, if
-$f\colon\Q\to\Q$, $x\mapsto x+1$ and 
+$f\colon\Q\to\Q$, $x\mapsto x+1$ and
 $g\colon\Q\to\Q$, $x\mapsto 2x$, then $g\circ f\colon x\mapsto 2(x+1)=2x+2$, while
 $f\circ g\colon x\mapsto (2x)+1$.
 \smallskip
@@ -493,7 +493,7 @@ described by easy rules.
 
 % rest by MM
 In cases where functions are given by formulas, we may compose two functions by substituting the formula for one into the other.
-For instance, if $f \colon \mathbb{R} \to \mathbb{R}$, $f(x)=\frac{x+1}{x^2+1}$ and $g \colon \mathbb{R} \to \mathbb{R}$, $g(x) = x-2$, then 
+For instance, if $f \colon \mathbb{R} \to \mathbb{R}$, $f(x)=\frac{x+1}{x^2+1}$ and $g \colon \mathbb{R} \to \mathbb{R}$, $g(x) = x-2$, then
 \[
 f \circ g(x) = f(g(x)) = f(x-2) = \frac{(x-2)+1}{(x-2)^2+1}=\frac{x-1}{x^2-4x+5}
 \]
@@ -525,7 +525,7 @@ Once again, the functions $f \circ g$ and $g \circ f$ are different.
 \section{Properties of Functions}
 
 When we looked at relations, we also had two other operations. Since functions are a
-special case of relations, they also apply here, but are not always of interest: 
+special case of relations, they also apply here, but are not always of interest:
 Taking the complement of a function will almost never be a function. We will study the
 question of whether the converse of a function is a function (and not just a relation)
 in this section.
@@ -556,7 +556,7 @@ term \defini{surjective}), if every element of $B$ is obtained as an image, that
 \begin{figure}[t]
 \begin{center}
 %\includegraphics[width=\the\textwidth]{pic/OntoPics.pdf}
-\anngraphics{\the\textwidth}{pic/OntoPics.pdf}{Each of four diagrams
+\anngraphics{\the\textwidth}{pic/OntoPics.png}{Each of four diagrams
 contains two ovals, labelled A and B respectively. In the diagram labelled
 "onto", arrows are drawn from all 5 points in A to all 4 points in B. In the
 diagram labelled "not onto", arrows are drawn from each of the 5 points in A
@@ -575,7 +575,7 @@ The left two images in Figure~\ref{figoneonto} illustrate the concept.
 \begin{figure}[t]
 \begin{center}
 %\includegraphics[width=8cm]{pic/OneToOneOnto.pdf}
-\anngraphics{8cm}{pic/OneToOneOnto.pdf}{The concepts of "onto" and
+\anngraphics{8cm}{pic/OneToOneOnto.png}{The concepts of "onto" and
 "one-to-one" are illustrated through the graphs of four functions defined on
 the real numbers.}
 \caption{Onto and One-To-One for functions $\R\to\R$}
@@ -717,7 +717,7 @@ is a function. We call it the inverse function to $f$, and call it $f^{-1}$. It 
 function $B\to A$ that maps $b$ to the unique $a$ such that $f(a)=b$.
 Note that
 this $\cdot^{-1}$ in the name is a pure formalism due to a limited set of symbols available. It
-should \textbf{not} be confused with $1/f$, which is another function entirely\mynote{Formally, 
+should \textbf{not} be confused with $1/f$, which is another function entirely\mynote{Formally,
 $1/f$ is the inverse under
 pointwise multiplication $(f\cdot g)(x)=f(x)\cdot g(x)$, while $f^{-1}$ is the inverse
 under composition of functions.}.
@@ -761,7 +761,7 @@ x = \frac{1}{2}f(x) - \frac{3}{2}.
 Therefore, the inverse function $f^{-1} \colon \mathbb{R} \to \mathbb{R}$ is given by $f^{-1}(x) = \frac{1}{2}x - \frac{3}{2}$.
 It can be checked that $f \circ f^{-1}$ and $f^{-1} \circ f$ are both the identity function on $\mathbb{R}$.  That is, $f(f^{-1}(x)) = x$ and $f^{-1}(f(x))=x$.
 
-More generally, we can consider any function $g \colon \mathbb{R} \to \mathbb{R}$ given by $g(x) = ax+b$, where $a,b \in \mathbb{R}$ are constants.  
+More generally, we can consider any function $g \colon \mathbb{R} \to \mathbb{R}$ given by $g(x) = ax+b$, where $a,b \in \mathbb{R}$ are constants.
 Functions of this form are simple examples of polynomials, and they often appear in practice when data is scaled and shifted.
 For instance, the function that converts a temperature from degrees Celsius to degrees Fahrenheit is $x \mapsto \frac{9}{5} x + 32$.
 We should expect that this function is a bijection since we should be able to express any temperature uniquely in either degrees Celsius or degrees Fahrenheit.
