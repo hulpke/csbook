@@ -46,7 +46,7 @@ not the only reason:
 \end{note}
 When we describe sets
 by enumerating elements it does not matter in which order we write down the
-elements, nor if we write them down multiple times\mynote{Of course,
+elements, nor if we write them down multiple times.\mynote{Of course,
 sometimes one might want to be able to describe objects with multiplicities.
 We will see how to describe this below \pointer{secmultiset}}.
 Thus
@@ -62,7 +62,7 @@ S\not=\{1,2,a,b\}.
 \subsection{Describing Sets}
 
 In many cases, describing a set by enumerating all its elements is
-hard or impossible. Thus two other techniques that are used. The first of
+hard or impossible. Thus two other techniques are used. The first of
 these is continuation with
 $\ldots$ to indicate a pattern to be continued. For example, we might write
 \[
@@ -84,7 +84,7 @@ This notation can be quite powerful. The general pattern is to first
 give a variable that stands for the elements of the set, possibly indicating
 an(other) set that these elements are taken from. Next comes a separator,
 we use a vertical line $\mid$ (but other punctuation marks such as $;$ or
-$:$ are used as well). One can read this separator as ``such as''.
+$:$ are used as well). One can read this separator as ``such that''.
 Finally follows the rule or condition that the elements need to satisfy to
 be elements of the set.
 
@@ -127,7 +127,7 @@ the set of pictures, {\em $x$ is art} would not be a predicate, while
 {\em $x$ is letter size} would be one.
 \smallskip
 
-Finally, there is a variant that describes elements from transforming
+Finally, there is a variant that describes elements by transforming
 elements of another set. (Sometimes
 it is easier to describe what to do with elements, than to
 give a property.)
@@ -152,7 +152,7 @@ $\Q=\{\frac{a}{b}\mid a,b\in\Z, b\not=0\}$.
 \item[$\N$] The natural numbers $1,2,3,\ldots$. Often it is ambiguous
 between different authors whether $0$ should be part of this, thus we will
 write $\N_0$ (or $\Z_{\ge 0}$) if we want to guarantee that $0$ is an
-element, respectively $\N_{>0}$ (or $\Z_{>0}$) if we explicitly want to
+element, and $\N_{>0}$ (or $\Z_{>0}$) if we explicitly want to
 exclude $0$.
 \item[$\R$] The real numbers on the number line. These numbers can be
 described by possibly infinite decimal expansions. The proper, formal
@@ -194,7 +194,7 @@ Then (for example) $D\subset C$, $D\subset E$, $C\not\subset D$,
 $C\not\subset E$.
 
 Since membership test is the basic operation for sets, one often reduces
-equality of sets to two subset test:
+equality of sets to two subset tests:
 \begin{lemma}
 %\method{test equality of sets}
 \label{lemseteq}
@@ -459,7 +459,7 @@ b) $(A\cap B)^\mycomplement=A^\mycomplement\cup B^\mycomplement$.
 \begin{proof}
 Again, to show equality of sets, we need to show inclusion in two directions:
 a) Let $x\in (A\cup B)^\mycomplement$. That means that $x\in U$ but $x\not\in
-A\cup B$. But that means that $x$ can be neither in $A$, nor in $B$, so
+A\cup B$. But that means that $x$ can be neither in $A$ nor in $B$, so
 $x\in A^\mycomplement$ and $x\in B^\mycomplement$ and thus $x\in
 A^\mycomplement\cap B^\mycomplement$.
 Conversely, let $x\in A^\mycomplement\cap B^\mycomplement$.
@@ -514,7 +514,7 @@ describes how the set can be composed from minimal intersecting parts.
 \section{Connections to Logic}
 \label{seclogic}
 
-The distributive laws and De Morgan laws might to some readers look very
+The distributive laws and De Morgan laws might, to some readers, look very
 similar to statements about operations in logic. Here we have truth values
 that can be true or false, and we can combine them with {\em and} (symbol
 $\wedge$),
@@ -531,7 +531,7 @@ logic laws (we call the variables $P$, $Q$, and $R$ here):
 \item $\lnot(P\vee Q)=(\lnot P)\wedge (\lnot Q)$.
 \item $\lnot(P\wedge Q)=(\lnot P)\vee (\lnot Q)$.
 \end{enumerate}
-The reason for this is easy, if we consider $P,Q,R$ as predicates (that is
+The reason for this is easy if we consider $P,Q,R$ as predicates (that is
 functions that give truth values) for
 objects in a set $U$ that are true for some elements and false for others.
 We then define:
@@ -614,7 +614,7 @@ and thus $A \cup (B \cap C) = (A \cup B)\cap(A \cup C)$.
 Using predicates, we can start to construct mathematical statements. Such
 statements typically assume that if some properties hold for an object (that
 is some predicate $P$ has true value $P(x)$ on an element $x$), then some
-other property holds (i.e. some other predicate $Q$ will have value $Q(x)$
+other property holds (i.e. some other predicate $Q$ will have value $Q(x)$)
 as true. We can write this a $P(x)\Rightarrow Q(x)$, and combine predicates
 with logical operations.
 
@@ -720,7 +720,7 @@ different: $\{1,2\}\not=(1,2)$.)
 Formally, we can construct pairs as sets. We simply define $(a,b)$ as a
 shorthand for the set $\{a,\{a,b\}\}$. Note that this form allows us to
 always extract the first ($a$) and second ($b$) entry unambiguously. (The
-reason for building pairs from sets is that it allows to re-use existing
+reason for building pairs from sets is that it allows us to re-use existing
 language and theorems, rather than having to re-do everything for the new
 kind of objects.)
 \medskip
@@ -823,7 +823,7 @@ be generalized to objects of higher dimension
 %KB, edited AH
 
 In understanding tuples and index sets, it can be helpful to think about how
-one would generate such objects in algorithms. First, lets look how an
+one would generate such objects in algorithms. First, let's look how an
 algorithm would generate all pairs in $A\times B$: We select all
 possibilities for the first entry and for each such choice select all
 possibilities for the second entry. If the sets $A$ and $B$
